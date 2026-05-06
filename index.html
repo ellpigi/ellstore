@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Remi AI Store v75 Theme Login Fixed</title>
+<title>Remi AI Store v1 Firebase RT Fix</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
@@ -214,13 +214,6 @@ body:after{background-image:linear-gradient(rgba(var(--accent-rgb),.035) 1px,tra
 
 </style>
 <!-- Copy flow revised: alur teks dirapikan tanpa mengubah struktur utama UI/JS. -->
-
-<style id="remi-click-db-hardfix">
-body:before,body:after,.auth:before,.auth:after,.hero:after,.thumb:after{pointer-events:none!important}
-.authBox,.authBox *{pointer-events:auto!important}
-.authBox{z-index:9999!important}
-#loading,#loader,#loadingV77,.loading,.loader,.splash,.slide-flash,.slide-scanline,.slide-border{display:none!important;pointer-events:none!important}
-</style>
 </head>
 <body>
 <div class="auth" id="auth">
@@ -250,7 +243,7 @@ body:before,body:after,.auth:before,.auth:after,.hero:after,.thumb:after{pointer
 <div class="app">
   <header class="header">
     <div class="logo" onclick="showPage('store')">ELL</div>
-    <div class="brand" onclick="showPage('store')"><b>Remi AI</b><span>STORE • V71</span></div>
+    <div class="brand" onclick="showPage('store')"><b>Remi AI</b><span>STORE • V1</span></div>
     <div class="pill" onclick="showPage('saldo')">💰 <span id="saldoHead">Rp0</span></div>
     <button class="icon" onclick="showPage('chat')">💬<em class="dot"></em></button>
     <button class="icon" onclick="showPage('ai')">✨</button>
@@ -270,21 +263,21 @@ body:before,body:after,.auth:before,.auth:after,.hero:after,.thumb:after{pointer
 
     <section id="page-suntik" class="page">
       <div class="hero">
-        <span class="badge">FITUR</span>
-        <h1>Suntik<br><span>Provider Panel 💉</span></h1>
-        <p class="sub">Kelola layanan provider dalam satu alur: muat daftar layanan, buat pesanan, cek status, lalu ajukan refill jika tersedia. Saldo provider hanya bisa dilihat admin.</p>
+        <span class="badge">BOOST</span>
+        <h1>Boost 🚀<br><span>Jasa Boost Social Media</span></h1>
+        <p class="sub">Boost adalah layanan penambah jumlah followers, likes, views, comment, dan engagement lainnya untuk berbagai platform sosial media seperti Instagram, TikTok, YouTube, dan platform lainnya. Cara pesan di Boost: Muat layanan, pilih layanan, buat pesanan, masukkan target (username/link), tentukan jumlah, lihat harga, bayar, konfirmasi, proses selesai.</p>
         <div class="btnrow">
-          <button class="btn" onclick="toolProviderOrder()">💉 Buka Suntik</button>
+          <button class="btn" onclick="toolProviderOrder()">🚀 Buka Boost</button>
           <button class="btn ghost" onclick="showPage('store')">← Store</button>
         </div>
       </div>
       <div class="section">
         <div class="secHead">AKSES CEPAT</div>
         <div class="grid">
-          <div class="tool"><div class="toolIcon">📋</div><h3>Muat Layanan</h3><p>Muat dan lihat daftar layanan yang tersedia dari provider.</p><button class="btn purple" onclick="toolProviderOrder();setTimeout(()=>providerTab('services'),120)">Buka</button></div>
-          <div class="tool"><div class="toolIcon">🛒</div><h3>Buat Order</h3><p>Pilih layanan, isi target, tentukan jumlah, lalu buat pesanan.</p><button class="btn purple" onclick="toolProviderOrder();setTimeout(()=>providerTab('order'),120)">Buka</button></div>
-          <div class="tool"><div class="toolIcon">🕘</div><h3>Riwayat</h3><p>Pantau riwayat pesanan yang tersimpan di browser.</p><button class="btn purple" onclick="toolProviderOrder();setTimeout(()=>providerTab('history'),120)">Buka</button></div>
-          <div class="tool"><div class="toolIcon">🔁</div><h3>Refill</h3><p>Ajukan refill menggunakan Order ID jika layanan mendukung.</p><button class="btn purple" onclick="toolProviderOrder();setTimeout(()=>providerTab('refill'),120)">Buka</button></div>
+          <div class="tool"><div class="toolIcon">📋</div><h3>Muat Layanan</h3><p>Muat dan lihat daftar layanan boost social media yang tersedia.</p><button class="btn purple" onclick="toolProviderOrder();setTimeout(()=>providerTab('services'),120)">Buka</button></div>
+          <div class="tool"><div class="toolIcon">🛒</div><h3>Buat Order</h3><p>Pilih layanan boost, isi target, tentukan jumlah, lalu buat pesanan.</p><button class="btn purple" onclick="toolProviderOrder();setTimeout(()=>providerTab('order'),120)">Buka</button></div>
+          <div class="tool"><div class="toolIcon">🕘</div><h3>Riwayat</h3><p>Pantau riwayat pesanan boost yang tersimpan.</p><button class="btn purple" onclick="toolProviderOrder();setTimeout(()=>providerTab('history'),120)">Buka</button></div>
+          <div class="tool"><div class="toolIcon">🔁</div><h3>Refill</h3><p>Ajukan refill boost menggunakan Order ID jika layanan mendukung.</p><button class="btn purple" onclick="toolProviderOrder();setTimeout(()=>providerTab('refill'),120)">Buka</button></div>
         </div>
       </div>
     </section>
@@ -377,7 +370,7 @@ body:before,body:after,.auth:before,.auth:after,.hero:after,.thumb:after{pointer
 
   <nav class="bottom">
     <div class="nav active" onclick="showPage('store')" data-page="store"><i>🛒</i>Store</div>
-    <div class="nav" onclick="showPage('suntik')" data-page="suntik"><i>💉</i>Suntik</div>
+    <div class="nav" onclick="showPage('suntik')" data-page="suntik"><i>🚀</i>Boost</div>
     <div class="nav" onclick="showPage('tools')" data-page="tools"><i>🛠️</i>Tools</div>
     <div class="nav" onclick="showPage('chat')" data-page="chat"><i>💬</i>Chat<span class="navBadge" id="dmBadge">0</span></div>
     <div class="nav" onclick="showPage('saldo')" data-page="saldo"><i>💰</i>Saldo</div>
@@ -406,7 +399,7 @@ body:before,body:after,.auth:before,.auth:after,.hero:after,.thumb:after{pointer
 'use strict';
 const APIS={alipBase:'https://docs-alip.clutch.web.id',alipKey:(localStorage.getItem('alipKey')?JSON.parse(localStorage.getItem('alipKey')):'alipaiapikeybaru'),botcahxBase:'https://api.botcahx.eu.org',botcahxKey:(localStorage.getItem('botcahxKey')?JSON.parse(localStorage.getItem('botcahxKey')):'ellapikey'),nexrayBase:(localStorage.getItem('nexrayBase')?JSON.parse(localStorage.getItem('nexrayBase')):'https://api.nexray.eu.cc'),ourinBase:(localStorage.getItem('ourinBase')?JSON.parse(localStorage.getItem('ourinBase')):'https://api.ourin.my.id')};
 const ZAKKI_DEFAULT_TOKEN='014a3b134589ee';
-const REMI_AI_AVATAR='data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%22120%22 height%3D%22120%22 viewBox%3D%220 0 120 120%22%3E%3Crect width%3D%22120%22 height%3D%22120%22 rx%3D%2232%22 fill%3D%22%232bdcff%22/%3E%3Ctext x%3D%2260%22 y%3D%2270%22 font-size%3D%2238%22 text-anchor%3D%22middle%22 font-family%3D%22Arial%22 font-weight%3D%22900%22 fill%3D%22%2304101d%22%3EELL%3C/text%3E%3C/svg%3E';
+const REMI_AI_AVATAR="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20128%20128%22%3E%3Crect%20width=%22128%22%20height=%22128%22%20rx=%2232%22%20fill=%22%230b1324%22/%3E%3Ccircle%20cx=%2264%22%20cy=%2250%22%20r=%2222%22%20fill=%22%232bdcff%22/%3E%3Cpath%20d=%22M24%20110c8-28%2072-28%2080%200%22%20fill=%22%23147cff%22/%3E%3C/svg%3E";
 
 function getProxyUrl(){
   return String(ls.get('apiProxyUrl','')||'').trim().replace(/\/$/,'');
@@ -485,8 +478,6 @@ const defaultTools=[
 ['🌋','Info Gempa','Lihat info gempa terbaru dan gempa yang dirasakan.','cuki_bmkg'],
 ['🔎','Search Hub','Cari TikTok, Pinterest Image, MCPE, resep, PlayYT, dan YouTube.','search_hub'],
 ['🌐','SS Web','Ambil screenshot website melalui URL.','ssweb'],
-['🌍','Check IP','Masukkan IP lalu tampilkan kota, negara, ISP, ASN, timezone, latitude longitude, dan Google Maps.','iplookup'],
-['📡','Text ⇄ Morse','Konversi text ke kode morse atau kode morse balik ke text. Offline tanpa API.','morse'],
 ['🔢','Binary ⇄ Text','Konversi teks ke binary atau binary ke teks.','cuki_binary']
 ];
 const gachaItems=[['💎','Premium 1 Hari'],['💰','Saldo 1K'],['🎟️','Voucher Diskon'],['🔥','Streak Boost'],['🧊','Zonk Tipis'],['👑','Premium 7 Hari']];
@@ -572,14 +563,12 @@ function renderStars(n=5){return`<div class="starPick">${[1,2,3,4,5].map(i=>`<bu
 function detail(id){const p=ls.get('products').find(x=>x.id===id);selectedRating=5;openModal('📦 Detail Produk',`<div style="text-align:center;font-size:48px">${p.icon}</div><h2>${esc(p.name)}</h2><p class="muted">${esc(p.desc)}</p><div class="panel"><div class="row"><b>Harga</b><b class="price">${fmt(p.price)}</b></div><div class="row"><b>Kategori</b><span>${esc(p.cat)}</span></div></div><h3>⭐ Review Pembeli</h3>${(p.reviews||[]).map((r,idx)=>`<div class="panel"><b>${esc(r.u)}</b><div style="color:var(--gold)">${'★'.repeat(r.r||5)}${'☆'.repeat(5-(r.r||5))}</div><p>${esc(r.t)}</p><button class="btn ghost" onclick="likeReview(${p.id},${idx})">👍 Like (${(r.likes||[]).length||0})</button></div>`).join('')||'<p class="muted">Belum ada review.</p>'}<div class="panel"><b>Beri Rating</b>${renderStars(5)}<textarea id="rvText" placeholder="Tulis review..."></textarea><button class="btn" onclick="addReview(${p.id})">Kirim Review</button></div><button class="btn purple" style="width:100%;margin-top:10px" onclick="order(${p.id})">Beli Sekarang</button>`)}
 function likeReview(id,idx){const ps=ls.get('products'),p=ps.find(x=>x.id===id);if(!p||!p.reviews||!p.reviews[idx])return;const r=p.reviews[idx];r.likes=r.likes||[];if(r.likes.includes(me().username))return toast('Review sudah kamu like.','warn');r.likes.push(me().username);ls.set('products',ps);toast('Review disukai.');detail(id)}
 function addReview(id){const t=$('rvText').value.trim();if(!t)return toast('Review kosong.','warn');const ps=ls.get('products'),p=ps.find(x=>x.id===id);p.reviews=p.reviews||[];p.reviews.unshift({u:me().display,t,r:selectedRating});ls.set('products',ps);toast('Review ditambahkan.');detail(id)}
-function order(id){const p=ls.get('products').find(x=>x.id===id),u=me();if(p&&window.openSewaBotOrder&&/sewa|rent|bot grup|bot wa|bot whatsapp/i.test(String((p.name||'')+' '+(p.cat||'')+' '+(p.desc||''))))return window.openSewaBotOrder(id);openModal('🛒 Konfirmasi Order',`<div style="text-align:center;font-size:48px">${p.icon}</div><h2 style="text-align:center">${esc(p.name)}</h2><div class="panel"><div class="row"><span>Produk</span><b>${esc(p.name)}</b></div><div class="row"><span>Harga</span><b>${fmt(p.price)}</b></div><div class="row"><span>Pembeli</span><b>${esc(u.display)}</b></div><div class="row"><span>Saldo kamu</span><b style="color:var(--green)">${fmt(u.saldo)}</b></div></div><div class="panel"><h3>✅ Verifikasi Data Pembelian</h3><input class="input" id="buyWa" placeholder="Nomor WhatsApp, contoh 628xxx"><div style="height:9px"></div><textarea id="buyNote" placeholder="Catatan tambahan..."></textarea></div><button class="btn" style="width:100%" onclick="paySaldo(${p.id})">💰 Bayar Pakai Saldo</button><button class="btn ghost" style="width:100%;margin-top:10px" onclick="showPage('saldo');closeModal()">💳 Deposit Saldo</button><button class="btn green" style="width:100%;margin-top:10px" onclick="openWA('${encodeURIComponent('Halo admin, saya mau beli '+p.name)}')">📱 Tanya Admin via WhatsApp</button>`)}
+function order(id){const p=ls.get('products').find(x=>x.id===id),u=me();openModal('🛒 Konfirmasi Order',`<div style="text-align:center;font-size:48px">${p.icon}</div><h2 style="text-align:center">${esc(p.name)}</h2><div class="panel"><div class="row"><span>Produk</span><b>${esc(p.name)}</b></div><div class="row"><span>Harga</span><b>${fmt(p.price)}</b></div><div class="row"><span>Pembeli</span><b>${esc(u.display)}</b></div><div class="row"><span>Saldo kamu</span><b style="color:var(--green)">${fmt(u.saldo)}</b></div></div><div class="panel"><h3>✅ Verifikasi Data Pembelian</h3><input class="input" id="buyWa" placeholder="Nomor WhatsApp, contoh 628xxx"><div style="height:9px"></div><textarea id="buyNote" placeholder="Catatan tambahan..."></textarea></div><button class="btn" style="width:100%" onclick="paySaldo(${p.id})">💰 Bayar Pakai Saldo</button><button class="btn ghost" style="width:100%;margin-top:10px" onclick="showPage('saldo');closeModal()">💳 Deposit Saldo</button><button class="btn green" style="width:100%;margin-top:10px" onclick="openWA('${encodeURIComponent('Halo admin, saya mau beli '+p.name)}')">📱 Tanya Admin via WhatsApp</button>`)}
 function paySaldo(id){const ps=ls.get('products'),p=ps.find(x=>x.id===id),u=me();if(!$('buyWa').value.trim())return toast('Nomor WhatsApp wajib diisi.','warn');if(u.saldo<p.price)return toast('Saldo kurang, deposit dulu.','err');saveMe({saldo:u.saldo-p.price,orders:(u.orders||0)+1,spent:(u.spent||0)+p.price});const orders=ls.get('orders',[]);orders.unshift({id:makeId('ORD'),product:p.name,user:u.username,price:p.price,wa:$('buyWa').value,note:$('buyNote').value,status:'paid',time:Date.now()});ls.set('orders',orders);addTx('Beli: '+p.name,-p.price);closeModal();renderAll();toast('Order sukses.')}
 function openWA(t){location.href='https://wa.me/6280000000000?text='+t}
 
 function renderTools(){$('toolsGrid').innerHTML=defaultTools.map(t=>`<div class="tool"><div class="toolIcon">${t[0]}</div><h3>${t[1]}</h3><p>${t[2]}</p><button class="btn purple" onclick="runTool('${t[3]}')">Buka</button></div>`).join('')}
 function runTool(a){
-if(a==='iplookup')return (window.toolIpLookup?toolIpLookup():toast('database.js belum kebaca, upload database.js juga.','err'));
-if(a==='morse')return (window.toolMorseCode?toolMorseCode():toast('database.js belum kebaca, upload database.js juga.','err'));
 if(a==='downloader')return toolDownloader();
 if(a==='tourl')return toolTourl();
 if(a==='txt2img')return toolImage();
@@ -2496,9 +2485,9 @@ function remiSystemPrompt(){
   return [
     'Kamu Remi AI, asisten resmi Remi AI Store by Ell.',
     'Gaya: bahasa Indonesia gaul, store-themed, imut, satir ringan, banyak emoji 😼😺😾🤷‍♀️🙅‍♀️😡😹😘🫡👋😑😆🗿😭😮‍💨😽🙀😿. Jangan toxic berat.',
-    'Selalu paham konteks web: Store produk digital, deposit saldo QRIS, Provider Order, Tools, Chat Global, Admin Panel.',
+    'Selalu paham konteks web: Store produk digital, deposit saldo QRIS, Boost, Tools, Chat Global, Admin Panel.',
     'Kalau ditanya cara pesan: login/guest > Store > pilih produk > detail/beli > isi WA/catatan > deposit kalau saldo kurang > checkout > cek riwayat.',
-    'Kalau ditanya provider: Tools > Provider Order > load layanan > pilih layanan > target/quantity > checkout > cek status.',
+    'Kalau ditanya provider: Tools > Boost > load layanan > pilih layanan > target/quantity > checkout > cek status.',
     'Owner/developer adalah Ell. Puji Ell sewajarnya.',
     'Kalau request bahaya/manipulatif, arahkan ke versi aman.',
     `User: ${u?('@'+u.username+' '+(u.display||'')):'Guest'}`
@@ -2591,7 +2580,7 @@ function renderAIChat(){
   if(!box)return;
   let arr=ls.get('aiChat',[]);
   if(!arr.length){
-    arr=[{role:'bot',text:'Halo, gue Remi AI ✨😼\nSiap bantu kamu pesan produk, isi saldo, pakai tools, cek provider, dan jelajahi fitur Remi AI Store by Ell 😺🫡',time:Date.now()}];
+    arr=[{role:'bot',text:'Halo, gue Remi AI ✨😼\nSiap bantu kamu pesan produk, isi saldo, pakai tools, cek boost, dan jelajahi fitur Remi AI Store by Ell 😺🫡',time:Date.now()}];
     ls.set('aiChat',arr);
   }
   box.innerHTML=arr.slice(-120).map(m=>`<div class="msg ${m.role==='user'?'me':''}"><div class="ava">${m.role==='user'?(me()?.display||'U')[0].toUpperCase():`<img src="${REMI_AI_AVATAR}">`}</div><div class="bubble"><div class="meta">${m.role==='user'?esc(me()?.display||'User'):'Remi AI'} • ${new Date(m.time).toLocaleTimeString('id-ID',{hour12:false})}${m.via?' • '+esc(m.via):''}</div>${esc(m.text).replace(/\n/g,'<br>')}</div></div>`).join('');
@@ -2616,11 +2605,11 @@ function remiAIReply(text){
   const wantsSearch=/(search|cari |tiktok search|youtube|pinterest|mcpe|resep|playyt)/.test(q);
 
   if(isGreeting) return `Yo, gue Remi AI 😼✨
-Selamat datang di Remi AI Store by Ell. Gue bisa bantu jelasin cara order, isi saldo, pakai tools, cek provider order, atau cari fitur tertentu. Tulis kebutuhan kamu dengan jelas biar jawabannya nggak muter-muter kayak bug yang pura-pura fitur 😹`;
+Selamat datang di Remi AI Store by Ell. Gue bisa bantu jelasin cara order, isi saldo, pakai tools, cek boost order, atau cari fitur tertentu. Tulis kebutuhan kamu dengan jelas biar jawabannya nggak muter-muter kayak bug yang pura-pura fitur 😹`;
   if(isAngry) return `Santai dulu 😭😼 Gue paham kamu lagi kesal karena respon AI atau API sempat ngadat. Kalau mode online gagal, mode lokal tetap bisa bantu menjelaskan fitur utama Remi AI Store by Ell. Kirim pertanyaan yang spesifik supaya jawabannya langsung kena sasaran.`;
   if(wantsMemory) return `Bisa. Untuk mode lokal, gue membaca konteks chat yang tersimpan di halaman ini. Pesan kamu sebelumnya: ${prev?('"'+prev.slice(0,120)+'"'):'belum ada konteks sebelumnya yang cukup.'}
 Kalau AI online aktif, beberapa chat terakhir juga ikut dipakai agar jawaban tetap nyambung.`;
-  if(wantsOwner) return `Owner/developer web ini Ell. Remi AI Store dibuat untuk produk digital, tools, saldo QRIS, provider order, chat, dan fitur store lain. Tampilannya dibuat tetap santai, tapi alurnya tetap jelas dan rapi 😎`;
+  if(wantsOwner) return `Owner/developer web ini Ell. Remi AI Store dibuat untuk produk digital, tools, saldo QRIS, boost order, chat, dan fitur store lain. Tampilannya dibuat tetap santai, tapi alurnya tetap jelas dan rapi 😎`;
   if(wantsHowOrder) return `Cara pesan produk di Remi AI Store:
 1. Login / guest dulu
 2. Buka tab Store
@@ -2628,8 +2617,8 @@ Kalau AI online aktif, beberapa chat terakhir juga ikut dipakai agar jawaban tet
 4. Isi nomor WhatsApp + catatan kalau perlu
 5. Kalau saldo kurang, masuk ke halaman Saldo buat deposit dulu
 6. Setelah saldo cukup, checkout dan pesanan masuk ke riwayat order.
-Kalau yang dimaksud adalah provider order, buka menu Provider, pilih layanan, isi target dan jumlah, lalu submit pesanan.`;
-  if(wantsDeposit) return `Untuk isi saldo: buka halaman Saldo, pilih nominal, tekan Proses Deposit, scan QRIS, lalu tunggu status pembayaran berhasil. Setelah saldo masuk, kamu bisa memakainya untuk membeli produk store atau checkout layanan provider.`;
+Kalau yang dimaksud adalah boost order, buka menu Provider, pilih layanan, isi target dan jumlah, lalu submit pesanan.`;
+  if(wantsDeposit) return `Untuk isi saldo: buka halaman Saldo, pilih nominal, tekan Proses Deposit, scan QRIS, lalu tunggu status pembayaran berhasil. Setelah saldo masuk, kamu bisa memakainya untuk membeli produk store atau checkout layanan boost.`;
   if(wantsProvider) return `Provider order dipakai untuk checkout layanan otomatis dari panel provider. Alurnya: muat daftar layanan, pilih service, isi target dan jumlah, cek total harga, submit order, lalu pantau status atau refill dari panel.`;
   if(wantsTools) return `Fitur utama Remi AI Store meliputi Store produk digital, Saldo/Deposit QRIS, Tools, Chat Global, Remi AI Chat, Akun, CS, serta panel admin/provider.`;
   if(wantsWeather) return `Cek cuaca tersedia di Tools → Cek Cuaca. Masukkan kota atau provinsi, lalu tekan tombol cek. Jika gagal, biasanya penyebabnya ada di akses fetch browser atau mode file lokal.`;
@@ -2637,7 +2626,7 @@ Kalau yang dimaksud adalah provider order, buka menu Provider, pilih layanan, is
   if(wantsTts) return `TTS pakai Cuki. Isi teks, lalu generate ulang audio terbaru. Kalau link MP3 expired, memang harus regen, karena file audio dari API itu bukan pusaka yang abadi.`;
   if(wantsStalk) return `Fitur stalk ada di Tools → Stalk Game/Sosmed. Support FF, Instagram, TikTok, Roblox, dan GitHub. Tinggal isi query sesuai platform, lalu cek hasilnya.`;
   if(wantsSearch) return `Search Hub ngumpulin pencarian TikTok, YouTube, Pinterest Image, MCPE, resep, dan PlayYT. Jadi kalau mau cari konten cepat, masuknya lewat situ, bukan muter-muter kayak NPC.`;
-  return `Gue Remi AI siap bantu sesuai konteks web Remi AI Store by Ell 😼🫡 Coba tanya yang spesifik ya—misalnya: “cara pesan produk”, “cara deposit”, “fitur web ini apa aja”, “owner siapa”, atau “cara pakai provider order”.`;
+  return `Gue Remi AI siap bantu sesuai konteks web Remi AI Store by Ell 😼🫡 Coba tanya yang spesifik ya—misalnya: “cara pesan produk”, “cara deposit”, “fitur web ini apa aja”, “owner siapa”, atau “cara pakai boost order”.`;
 }
 async function sendAIChat(){
   const el=$('aiText');
@@ -3025,7 +3014,7 @@ function renderFayuError(out,e){
 }
 function adminFayuPanel(){
   return `<div class="panel">
-    <h3>📡 Fayupedia Provider</h3>
+    <h3>📡 API Boost Social</h3>
     <p class="muted">Panel aman: cek saldo, daftar layanan, dan cek status pesanan. Create order/refill otomatis tidak diaktifkan.</p>
     <input class="input" type="password" autocomplete="off" id="admFayuId" placeholder="Fayupedia api_id" value="${esc(ls.get('fayuApiId',''))}" inputmode="numeric">
     <input class="input" type="password" autocomplete="off" id="admFayuKey" placeholder="Fayupedia api_key" value="${esc(ls.get('fayuApiKey',''))}" style="margin-top:8px">
@@ -3045,20 +3034,20 @@ function adminFayuPanel(){
     <div id="adminDeviceInfo"><div class="panel muted">Klik Refresh List User, pilih user, lalu Check.</div></div>
   </div>
   <div class="panel">
-    <h3>💰 Saldo Provider</h3>
-    <p class="muted">Saldo provider hanya dicek dari Admin Panel.</p>
-    <button class="btn green" style="width:100%" onclick="adminCheckProviderBalance()">Cek Saldo Provider</button>
+    <h3>💰 Saldo Boost</h3>
+    <p class="muted">Saldo boost hanya dicek dari Admin Panel.</p>
+    <button class="btn green" style="width:100%" onclick="adminCheckProviderBalance()">Cek Saldo Boost</button>
     <div id="adminProviderBalanceOut" style="margin-top:10px"></div>
   </div>`;
 }
 
 async function adminCheckProviderBalance(){
   const out=$('adminProviderBalanceOut');
-  if(out)out.innerHTML='<div class="panel">⏳ Cek saldo provider...</div>';
+  if(out)out.innerHTML='<div class="panel">⏳ Cek saldo boost...</div>';
   try{
     const j=await providerApi('/balance');
     if(!j.status)throw new Error(j.msg||'Gagal cek saldo');
-    if(out)out.innerHTML=`<div class="proxyOk">✅ Saldo Provider: <b>${providerFormatRp(j.balance||0)}</b><br>Via: ${esc(j.__via||'direct')}</div>`;
+    if(out)out.innerHTML=`<div class="proxyOk">✅ Saldo Boost: <b>${providerFormatRp(j.balance||0)}</b><br>Via: ${esc(j.__via||'direct')}</div>`;
   }catch(e){
     if(out)out.innerHTML=`<div class="proxyWarn">❌ ${esc(e.message||e)}</div>`;
   }
@@ -3077,7 +3066,7 @@ async function fayuBalance(){
     const j=await fayuPost('/balance');
     if(!j.status) throw new Error(j.msg||'Kredensial tidak valid.');
     out.innerHTML=`<div class="stalkCard">
-      <h3>💰 Saldo Provider</h3>
+      <h3>💰 Saldo Boost</h3>
       <div class="heroTitle" style="font-size:32px">${fmt(j.balance||0)}</div>
       <p class="muted">${esc(j.msg||'OK')}</p>
       <details><summary>Raw JSON</summary><pre style="white-space:pre-wrap;font-size:11px">${esc(JSON.stringify(j,null,2))}</pre></details>
@@ -3278,26 +3267,26 @@ async function detectProviderDevice(){
 }
 function providerTab(tab){document.querySelectorAll('.providerTab').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));document.querySelectorAll('.providerView').forEach(x=>x.classList.toggle('active',x.id==='provider-'+tab));if(tab==='history')renderProviderOrders()}
 function providerToastErr(e,outId){const h=`<div class="proxyWarn">❌ ${esc(e.message||e)}${e.endpoint?`<br><a href="${esc(e.endpoint)}" target="_blank">Buka endpoint manual</a>`:''}</div>`;if(outId&&$(outId))$(outId).innerHTML=h;toast('Provider error.','err')}
-async function providerCheckBalance(){const out=$('providerBalanceNote');if(out)out.innerHTML='<span class="muted">⏳ Cek saldo...</span>';try{const j=await providerApi('/balance');if(!j.status)throw new Error(j.msg||'Gagal cek saldo');if($('providerBalance'))$('providerBalance').textContent=providerFormatRp(j.balance||0);if(out)out.innerHTML=`<span class="muted">Update: ${new Date().toLocaleTimeString('id-ID')} • ${esc(j.__via||'direct')}</span>`;toast('Saldo provider berhasil di-load ✅')}catch(e){providerToastErr(e,'providerBalanceNote')}}
+async function providerCheckBalance(){const out=$('providerBalanceNote');if(out)out.innerHTML='<span class="muted">⏳ Cek saldo...</span>';try{const j=await providerApi('/balance');if(!j.status)throw new Error(j.msg||'Gagal cek saldo');if($('providerBalance'))$('providerBalance').textContent=providerFormatRp(j.balance||0);if(out)out.innerHTML=`<span class="muted">Update: ${new Date().toLocaleTimeString('id-ID')} • ${esc(j.__via||'direct')}</span>`;toast('Saldo boost berhasil di-load ✅')}catch(e){providerToastErr(e,'providerBalanceNote')}}
 async function providerLoadServices(){const out=$('providerServices');if(out)out.innerHTML='<div class="panel">⏳ Memuat layanan...</div>';try{const j=await providerApi('/services');if(!j.status)throw new Error(j.msg||'Gagal mengambil layanan');providerServicesCache=Array.isArray(j.services)?j.services:[];renderProviderServices();populateProviderSelect();toast('Layanan provider berhasil dimuat ✅')}catch(e){providerToastErr(e,'providerServices')}}
 function renderProviderServices(){const q=($('providerServiceSearch')?.value||'').toLowerCase(),cat=($('providerCategoryFilter')?.value||'').toLowerCase();const arr=providerServicesCache.filter(s=>{const hay=(s.name+' '+s.category+' '+(s.description||'')).toLowerCase();return(!q||hay.includes(q))&&(!cat||String(s.category||'').toLowerCase()===cat)}).slice(0,80);const out=$('providerServices');if(!out)return;out.innerHTML=arr.map(s=>`<div class="serviceItem"><h4>${esc(s.name)}</h4><p class="muted">${esc(s.description||s.category||'-')}</p><div class="serviceMeta"><span class="serviceChip">ID: ${esc(s.id)}</span><span class="serviceChip">${esc(s.category||'-')}</span><span class="serviceChip">${providerFormatRp(s.price)} / 1000</span><span class="serviceChip">Min ${esc(s.min||'-')}</span><span class="serviceChip">Max ${esc(s.max||'-')}</span>${s.refill?'<span class="serviceChip">Refill ✅</span>':''}</div><button class="btn green" style="width:100%" onclick="providerPickService('${escAttr(s.id)}')">Pilih Layanan</button></div>`).join('')||'<div class="panel muted">Tidak ada layanan.</div>';renderProviderCategories()}
 function renderProviderCategories(){const select=$('providerCategoryFilter');if(!select||select.dataset.ready)return;const cats=[...new Set(providerServicesCache.map(s=>s.category).filter(Boolean))].sort();select.innerHTML='<option value="">Semua kategori</option>'+cats.map(c=>`<option value="${escAttr(c)}">${esc(c)}</option>`).join('');select.dataset.ready='1'}
 function populateProviderSelect(){const sel=$('providerServiceSelect');if(!sel)return;sel.innerHTML='<option value="">Pilih layanan...</option>'+providerServicesCache.map(s=>`<option value="${escAttr(s.id)}">${esc(s.name)} - ${providerFormatRp(s.price)}/1000</option>`).join('')}
 function providerPickService(id){providerTab('order');setTimeout(()=>{if($('providerServiceSelect')){$('providerServiceSelect').value=id;providerCalcPrice()}},50)}
 function providerCalcPrice(){const id=$('providerServiceSelect')?.value,qty=Number($('providerQty')?.value||0),s=providerServicesCache.find(x=>String(x.id)===String(id));const price=s?providerPrice(s.price,qty):0;if($('providerPricePreview'))$('providerPricePreview').textContent=providerFormatRp(price);if($('providerLimitPreview'))$('providerLimitPreview').textContent=s?`Min ${s.min} • Max ${s.max} • ${s.category||'-'}`:'Pilih layanan dulu'}
-async function providerPlaceOrder(){const service=Number($('providerServiceSelect')?.value||0),target=($('providerTarget')?.value||'').trim(),quantity=Number($('providerQty')?.value||0),s=providerServicesCache.find(x=>String(x.id)===String(service));if(!service||!target||!quantity)return toast('Isi layanan, target, dan jumlah.','warn');if(s&&(quantity<Number(s.min)||quantity>Number(s.max)))return toast(`Jumlah harus ${s.min}-${s.max}.`,'warn');const out=$('providerOrderOut');if(out)out.innerHTML='<div class="panel">⏳ Membuat order...</div>';try{const j=await providerApi('/order',{service,target,link:target,quantity});if(!j.status)throw new Error(j.msg||'Gagal membuat order');const orderId=j.order||String(j.msg||'').match(/#(\d+)/)?.[1]||Date.now();const row={id:orderId,service,name:s?.name||'Provider Service',target,quantity,status:'processing',charge:providerPrice(s?.price,quantity),date:Date.now()};providerOrdersCache.unshift(row);providerOrdersCache=providerOrdersCache.slice(0,30);ls.set('providerOrders',providerOrdersCache);if(out)out.innerHTML=`<div class="proxyOk">✅ ${esc(j.msg||'Order berhasil')}<br>Order ID: #${esc(orderId)}</div>`;renderProviderOrders();providerTab('history')}catch(e){providerToastErr(e,'providerOrderOut')}}
-function renderProviderOrders(){const out=$('providerOrders');if(!out)return;const arr=providerOrdersCache||[];out.innerHTML=arr.map(o=>`<div class="orderRow"><div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start"><div><b>#${esc(o.id)}</b><p class="muted">${esc(o.name||o.service||'Provider Service')}</p><p class="muted">${esc(o.target||'-')} • ${esc(o.quantity||'-')} pcs • ${providerFormatRp(o.charge||0)}</p><p class="muted">${new Date(o.date||Date.now()).toLocaleString('id-ID')}</p></div><span class="orderStatus ${esc(o.status||'processing')}">${esc(String(o.status||'processing').toUpperCase())}</span></div><div class="btnrow" style="margin-top:10px"><button class="btn ghost" onclick="providerCheckOrder('${escAttr(o.id)}')">Cek Status</button><button class="btn green" onclick="providerRefillOrder('${escAttr(o.id)}')">Refill</button></div></div>`).join('')||'<div class="panel muted">Belum ada history order.</div>'}
+async function providerPlaceOrder(){const service=Number($('providerServiceSelect')?.value||0),target=($('providerTarget')?.value||'').trim(),quantity=Number($('providerQty')?.value||0),s=providerServicesCache.find(x=>String(x.id)===String(service));if(!service||!target||!quantity)return toast('Isi layanan, target, dan jumlah.','warn');if(s&&(quantity<Number(s.min)||quantity>Number(s.max)))return toast(`Jumlah harus ${s.min}-${s.max}.`,'warn');const out=$('providerOrderOut');if(out)out.innerHTML='<div class="panel">⏳ Membuat order...</div>';try{const j=await providerApi('/order',{service,target,link:target,quantity});if(!j.status)throw new Error(j.msg||'Gagal membuat order');const orderId=j.order||String(j.msg||'').match(/#(\d+)/)?.[1]||Date.now();const row={id:orderId,service,name:s?.name||'Boost Service',target,quantity,status:'processing',charge:providerPrice(s?.price,quantity),date:Date.now()};providerOrdersCache.unshift(row);providerOrdersCache=providerOrdersCache.slice(0,30);ls.set('providerOrders',providerOrdersCache);if(out)out.innerHTML=`<div class="proxyOk">✅ ${esc(j.msg||'Order berhasil')}<br>Order ID: #${esc(orderId)}</div>`;renderProviderOrders();providerTab('history')}catch(e){providerToastErr(e,'providerOrderOut')}}
+function renderProviderOrders(){const out=$('providerOrders');if(!out)return;const arr=providerOrdersCache||[];out.innerHTML=arr.map(o=>`<div class="orderRow"><div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start"><div><b>#${esc(o.id)}</b><p class="muted">${esc(o.name||o.service||'Boost Service')}</p><p class="muted">${esc(o.target||'-')} • ${esc(o.quantity||'-')} pcs • ${providerFormatRp(o.charge||0)}</p><p class="muted">${new Date(o.date||Date.now()).toLocaleString('id-ID')}</p></div><span class="orderStatus ${esc(o.status||'processing')}">${esc(String(o.status||'processing').toUpperCase())}</span></div><div class="btnrow" style="margin-top:10px"><button class="btn ghost" onclick="providerCheckOrder('${escAttr(o.id)}')">Cek Status</button><button class="btn green" onclick="providerRefillOrder('${escAttr(o.id)}')">Refill</button></div></div>`).join('')||'<div class="panel muted">Belum ada history order.</div>'}
 async function providerCheckOrder(id){try{const j=await providerApi('/status',{order:id,orders:id});if(!j.status)throw new Error(j.msg||'Order tidak ditemukan');const row=providerOrdersCache.find(x=>String(x.id)===String(id));if(row){row.status=j.order_status||j.orders?.[id]?.order_status||row.status;row.charge=j.charge??j.orders?.[id]?.charge??row.charge;row.start_count=j.start_count??j.orders?.[id]?.start_count??row.start_count;row.remains=j.remains??j.orders?.[id]?.remains??row.remains;ls.set('providerOrders',providerOrdersCache);renderProviderOrders()}toast('Status order diperbarui ✅')}catch(e){toast(e.message||'Gagal cek status','err')}}
 async function providerRefillOrder(id){try{const j=await providerApi('/refill',{order:id});if(!j.status)throw new Error(j.msg||'Gagal refill');toast(j.msg||'Refill dibuat ✅')}catch(e){toast(e.message||'Gagal refill','err')}}
 async function providerManualRefill(){const id=($('providerRefillId')?.value||'').trim();if(!id)return toast('Order ID kosong.','warn');await providerRefillOrder(id)}
 function toolProviderOrder(){
-  openModal('💉 Suntik',`
-    <div class="providerShell">${proxyNeedHtml()}<div class="providerHero"><div class="providerTop"><div class="providerBrand"><div class="providerLogo">R</div><div><h2 style="margin:0">Suntik</h2><p class="muted">Saldo, layanan, order, status, dan refill dalam satu tempat.</p></div></div><span class="providerBadge">● READY</span></div><div class="providerCards" style="margin-top:14px"><div class="providerCard"><small>Mode</small><b>Layanan</b><div class="muted" style="font-size:11px;margin-top:4px">Saldo hanya admin</div></div><div class="providerCard"><small>API Status</small><b>${getFayuApiId()&&getFayuApiKey()?'READY':'EMPTY'}</b><div class="muted" style="font-size:11px;margin-top:4px">Diatur dari Admin Panel</div></div></div><div class="btnrow" style="margin-top:12px"><button class="btn ghost" onclick="providerLoadServices()">🔄 Muat Layanan</button></div></div>
+  openModal('🚀 Boost',`
+    <div class="providerShell">${proxyNeedHtml()}<div class="providerHero"><div class="providerTop"><div class="providerBrand"><div class="providerLogo">🚀</div><div><h2 style="margin:0">Boost</h2><p class="muted">Jasa boost followers, likes, views, comment, dan engagement social media.</p></div></div><span class="providerBadge">● READY</span></div><div class="providerCards" style="margin-top:14px"><div class="providerCard"><small>Mode</small><b>Layanan</b><div class="muted" style="font-size:11px;margin-top:4px">Saldo hanya admin</div></div><div class="providerCard"><small>API Status</small><b>${getFayuApiId()&&getFayuApiKey()?'READY':'EMPTY'}</b><div class="muted" style="font-size:11px;margin-top:4px">Diatur dari Admin Panel</div></div></div><div class="btnrow" style="margin-top:12px"><button class="btn ghost" onclick="providerLoadServices()">🔄 Muat Layanan</button></div></div>
       <div class="providerTabs"><button class="providerTab active" data-tab="dashboard" onclick="providerTab('dashboard')">🏠 Dashboard</button><button class="providerTab" data-tab="services" onclick="providerTab('services')">📋 Layanan</button><button class="providerTab" data-tab="order" onclick="providerTab('order')">🛒 Order</button><button class="providerTab" data-tab="history" onclick="providerTab('history')">🕘 Riwayat</button><button class="providerTab" data-tab="refill" onclick="providerTab('refill')">🔁 Refill</button></div>
       <div id="provider-dashboard" class="providerView active">
         <div class="panel">
-          <h3>💉 Suntik</h3>
-          <p class="muted">Menu ini untuk load layanan, order, cek status, dan refill. Saldo provider hanya bisa dicek lewat Admin Panel.</p>
+          <h3>🚀 Boost</h3>
+          <p class="muted">Menu ini untuk load layanan, order, cek status, dan refill. Saldo boost hanya bisa dicek lewat Admin Panel.</p>
           <div class="providerCards" style="margin-top:10px">
             <div class="providerCard"><small>API Status</small><b>${getFayuApiId()&&getFayuApiKey()?'READY':'EMPTY'}</b><div class="muted" style="font-size:11px;margin-top:4px">Admin Panel → API</div></div>
             <div class="providerCard"><small>Riwayat Lokal</small><b>${providerOrdersCache.length}</b><div class="muted" style="font-size:11px;margin-top:4px">Order tersimpan</div></div>
@@ -5365,30 +5354,6 @@ window.addEventListener('DOMContentLoaded',init);
 /* =================== END V76 PATCH =================== */
 
 </script>
-<script src="database.js?v=trigger-fixed-real-1"></script>
-
-<script>
-(function(){
-  function remiTriggerHealth(){
-    try{
-      var ok = true;
-      if(typeof window.login !== 'function') ok=false;
-      if(typeof window.register !== 'function') ok=false;
-      if(typeof window.guestLogin !== 'function') ok=false;
-      var grid=document.getElementById('toolsGrid');
-      if(grid && !grid.querySelector('[data-remi-force="iplookup"]') && !/Check IP/i.test(grid.textContent||'')){
-        grid.insertAdjacentHTML('beforeend','<div class="tool" data-remi-force="iplookup"><div class="toolIcon">🌍</div><h3>Check IP</h3><p>Masukkan IP lalu tampilkan kota, negara, ISP, ASN, timezone, latitude longitude, dan Google Maps.</p><button class="btn purple" type="button" onclick="runTool(\'iplookup\')">Buka</button></div>');
-      }
-      if(grid && !grid.querySelector('[data-remi-force="morse"]') && !/Morse/i.test(grid.textContent||'')){
-        grid.insertAdjacentHTML('beforeend','<div class="tool" data-remi-force="morse"><div class="toolIcon">📡</div><h3>Text ⇄ Morse</h3><p>Konversi text ke kode morse atau kode morse balik ke text. Offline tanpa API.</p><button class="btn purple" type="button" onclick="runTool(\'morse\')">Buka</button></div>');
-      }
-      console.log('[Remi Trigger Health]', ok ? 'login/register/guest OK' : 'auth function missing');
-    }catch(e){ console.error('[Remi Trigger Health]',e); }
-  }
-  window.remiTriggerHealth=remiTriggerHealth;
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', function(){setTimeout(remiTriggerHealth,300);setTimeout(remiTriggerHealth,1200);});
-  else {setTimeout(remiTriggerHealth,300);setTimeout(remiTriggerHealth,1200);}
-})();
-</script>
+<script src="./database.js?v=rtfix18"></script>
 </body>
 </html>
