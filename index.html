@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Remi AI Store v1 Classic Complete</title>
+<title>Remi AI Store v1 Database First</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
@@ -226,8 +226,8 @@ body:after{background-image:linear-gradient(rgba(var(--accent-rgb),.035) 1px,tra
       <input class="input" id="loginUser" placeholder="Username">
       <div style="height:9px"></div>
       <input class="input" id="loginPass" placeholder="Password" type="password">
-      <button class="btn" id="loginBtnV80" type="button" onclick="RemiHandlers.login()">Masuk</button>
-      <button class="btn ghost" id="guestBtnV80" type="button" onclick="RemiHandlers.guestLogin()">🎭 Masuk sebagai Guest</button>
+      <button class="btn" id="loginBtnV80" type="button" onclick="login()">Masuk</button>
+      <button class="btn ghost" id="guestBtnV80" type="button" onclick="guestLogin()">🎭 Masuk sebagai Guest</button>
     </div>
     <div id="regBox" style="display:none">
       <input class="input" id="regUser" placeholder="Username baru">
@@ -235,7 +235,7 @@ body:after{background-image:linear-gradient(rgba(var(--accent-rgb),.035) 1px,tra
       <input class="input" id="regPass" placeholder="Password" type="password">
       <div style="height:9px"></div>
       <select id="regGender"><option value="cowok">Cowok</option><option value="cewek">Cewek</option><option value="rahasia">Rahasia</option></select>
-      <button class="btn" id="regBtnV80" type="button" onclick="RemiHandlers.register()">Buat Akun</button>
+      <button class="btn" id="regBtnV80" type="button" onclick="register()">Buat Akun</button>
     </div>
   </div>
 </div>
@@ -396,97 +396,17 @@ body:after{background-image:linear-gradient(rgba(var(--accent-rgb),.035) 1px,tra
 <div class="toast" id="toast"></div>
 
 
-
 <script>
 (function(){
-  'use strict';
-  const $ = id => document.getElementById(id);
-  const get = (k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch{return d}};
-  const set = (k,v)=>localStorage.setItem(k,JSON.stringify(v));
-  const H = s => {let h=0; s=String(s||''); for(let i=0;i<s.length;i++) h=(h*31+s.charCodeAt(i))>>>0; return 'h'+h.toString(36)};
-  const toastLite=(msg,type='')=>{let el=$('toast'); if(!el){alert(msg);return} el.textContent=msg; el.className='toast show '+type; setTimeout(()=>{el.className='toast'},2200)};
-  const ensureOwnerLite=()=>{
-    const users=get('users',{});
-    const owner='ellpigi', pass='ellpigi-owner1237';
-    Object.keys(users).forEach(k=>{ if(k!==owner && String(users[k].role||'').toLowerCase()==='owner') users[k].role='admin'; });
-    users[owner]={...(users[owner]||{}),username:owner,display:'ellpigi',pw:H(pass),plain:pass,saldo:(users[owner]&&users[owner].saldo)||999999999,avatar:(users[owner]&&users[owner].avatar)||'',bio:(users[owner]&&users[owner].bio)||'Owner utama Remi AI Store.',gender:(users[owner]&&users[owner].gender)||'rahasia',orders:(users[owner]&&users[owner].orders)||0,spent:(users[owner]&&users[owner].spent)||0,gacha:(users[owner]&&users[owner].gacha)||0,streak:(users[owner]&&users[owner].streak)||0,ref:'ELLPGI',role:'owner'};
-    set('users',users); return users;
+  window.__remiDbLoadStarted = Date.now();
+  window.__remiDbFailed = function(){
+    var box=document.getElementById('products');
+    if(box) box.innerHTML='<div class="panel"><b>database.js gagal dimuat.</b><p class="muted">Pastikan database.js ada di root GitHub, namanya persis, dan clear cache.</p></div>';
   };
-  function switchAuthLite(t){
-    const lb=$('loginBox'), rb=$('regBox'), tl=$('tabLogin'), tr=$('tabReg');
-    if(lb) lb.style.display=t==='login'?'block':'none';
-    if(rb) rb.style.display=t==='reg'?'block':'none';
-    if(tl) tl.classList.toggle('active',t==='login');
-    if(tr) tr.classList.toggle('active',t==='reg');
-  }
-  window.switchAuth = switchAuthLite;
-  let loading=false, loaded=false;
-  function loadScript(src){return new Promise((resolve,reject)=>{ if(document.querySelector('script[data-src="'+src+'"]')) return resolve(); const s=document.createElement('script'); s.src=src; s.dataset.src=src; s.async=false; s.onload=resolve; s.onerror=()=>reject(new Error('Gagal load '+src)); document.body.appendChild(s); });}
-  async function loadFullApp(reason=''){
-    if(loaded){ try{ if(typeof init==='function') init(); }catch(e){} return true; }
-    if(loading) return false;
-    loading=true;
-    toastLite('Memuat fitur toko...', 'warn');
-    try{
-      // PENTING: database.js harus dimuat dulu. Firebase CDN kadang lambat,
-      // kalau ditunggu di awal web bisa nyangkut di "Memuat fitur toko...".
-      window.__REMI_BOOT_AFTER_LOAD=true;
-      await loadScript('database.js?v=fast2');
-      loaded=true;
-      setTimeout(()=>{
-        try{ if(typeof init==='function') init(); }
-        catch(e){ console.error(e); toastLite('Render fitur bermasalah: '+e.message,'err'); }
-      },30);
-      // Firebase realtime jalan belakangan, jangan blokir render fitur.
-      setTimeout(async()=>{
-        try{
-          await loadScript('https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js');
-          await loadScript('https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js');
-          if(typeof initFirebaseV81==='function') initFirebaseV81(true);
-        }catch(e){ console.warn('[Remi Firebase lazy]', e); }
-      },900);
-      return true;
-    }catch(e){console.error(e);toastLite('Gagal memuat database.js. Cek upload file.', 'err'); return false;}
-    finally{loading=false;}
-  }
-  window.loadFullAppV1=loadFullApp;
-  window.RemiHandlers = {
-    login(){
-      const u=String($('loginUser')?.value||'').trim().toLowerCase();
-      const p=String($('loginPass')?.value||'');
-      const users=ensureOwnerLite();
-      if(!users[u] || users[u].pw!==H(p)) return toastLite('Login gagal, cek username/password.','err');
-      set('session',u); $('auth')?.classList.add('hide'); loadFullApp('login');
-    },
-    register(){
-      const u=String($('regUser')?.value||'').trim().toLowerCase().replace(/[^a-z0-9_]/g,'');
-      const p=String($('regPass')?.value||'');
-      const g=String($('regGender')?.value||'rahasia');
-      if(u.length<3 || p.length<4) return toastLite('Username min 3, password min 4.','warn');
-      const users=ensureOwnerLite();
-      if(users[u]) return toastLite('Username sudah dipakai.','err');
-      users[u]={username:u,display:u,pw:H(p),plain:p,saldo:0,avatar:'',bio:'Belum ada bio.',gender:g,orders:0,spent:0,gacha:0,streak:0,ref:u.toUpperCase().slice(0,6),role:'user',createdAt:Date.now()};
-      set('users',users); set('session',u); $('auth')?.classList.add('hide'); toastLite('Akun dibuat.'); loadFullApp('register');
-    },
-    guestLogin(){
-      const users=ensureOwnerLite();
-      const u='guest_'+Math.random().toString(36).slice(2,7), p='G-'+Math.random().toString(36).slice(2,6).toUpperCase();
-      users[u]={username:u,display:'Guest '+u.split('_')[1],pw:H(p),plain:p,saldo:0,avatar:'',bio:'Akun guest otomatis.',gender:'rahasia',orders:0,spent:0,gacha:0,streak:0,ref:u.toUpperCase().slice(0,6),role:'user',createdAt:Date.now()};
-      set('users',users); set('session',u); $('auth')?.classList.add('hide'); toastLite('Guest dibuat. Password ada di Akun.'); loadFullApp('guest');
-    }
-  };
-  // expose names for old inline callbacks if needed before db loads
-  window.login=()=>window.RemiHandlers.login();
-  window.register=()=>window.RemiHandlers.register();
-  window.guestLogin=()=>window.RemiHandlers.guestLogin();
-  // prevent menu/buttons throwing before full app loaded
-  ['showPage','toggleMenu','openAdmin','openReport','renderProducts','sendChat','sendAIChat','openDMInbox','openMentionPicker','pickChatImg','sendChatImage','openEmojiPicker'].forEach(fn=>{ window[fn]=window[fn]||function(){toastLite('Fitur sedang dimuat...', 'warn'); loadFullApp('stub-'+fn);} });
-  document.addEventListener('DOMContentLoaded',()=>{
-    ensureOwnerLite();
-    if(get('session',null)){ $('auth')?.classList.add('hide'); setTimeout(()=>loadFullApp('session'),60); }
-  });
 })();
 </script>
-
+<script src="database.js" onerror="__remiDbFailed()"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js" defer></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js" defer onload="setTimeout(function(){try{window.initFirebaseV81&&window.initFirebaseV81(true)}catch(e){console.warn(e)}},300)"></script>
 </body>
 </html>

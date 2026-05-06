@@ -1,7 +1,8 @@
+
 'use strict';
 const APIS={alipBase:'https://docs-alip.clutch.web.id',alipKey:(localStorage.getItem('alipKey')?JSON.parse(localStorage.getItem('alipKey')):'alipaiapikeybaru'),botcahxBase:'https://api.botcahx.eu.org',botcahxKey:(localStorage.getItem('botcahxKey')?JSON.parse(localStorage.getItem('botcahxKey')):'ellapikey'),nexrayBase:(localStorage.getItem('nexrayBase')?JSON.parse(localStorage.getItem('nexrayBase')):'https://api.nexray.eu.cc'),ourinBase:(localStorage.getItem('ourinBase')?JSON.parse(localStorage.getItem('ourinBase')):'https://api.ourin.my.id')};
 const ZAKKI_DEFAULT_TOKEN='014a3b134589ee';
-const REMI_AI_AVATAR='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2296%22%20height%3D%2296%22%20viewBox%3D%220%200%2096%2096%22%3E%3Crect%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2224%22%20fill%3D%22%230b1324%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2256%25%22%20text-anchor%3D%22middle%22%20font-size%3D%2234%22%20font-family%3D%22Arial%22%20font-weight%3D%22800%22%20fill%3D%22%232bdcff%22%3ER%3C%2Ftext%3E%3C%2Fsvg%3E';
+const REMI_AI_AVATAR='data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20120%20120%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22120%22%20height%3D%22120%22%20rx%3D%2228%22%20fill%3D%22%232bdcff%22%2F%3E%3Ctext%20x%3D%2260%22%20y%3D%2274%22%20font-size%3D%2244%22%20font-family%3D%22Arial%22%20font-weight%3D%22900%22%20text-anchor%3D%22middle%22%20fill%3D%22%23050812%22%3ER%3C%2Ftext%3E%3C%2Fsvg%3E';
 
 function getProxyUrl(){
   return String(ls.get('apiProxyUrl','')||'').trim().replace(/\/$/,'');
@@ -5127,7 +5128,7 @@ window.addEventListener('DOMContentLoaded',init);
 })();
 /* =================== END V77 PATCH =================== */
 
-/* ---- split script block ---- */
+
 
 /* =================== V78 FINAL CLEAN FIX =================== */
 (function(){
@@ -5185,7 +5186,8 @@ window.addEventListener('DOMContentLoaded',init);
 })();
 /* =================== END V78 PATCH =================== */
 
-/* ---- split script block ---- */
+
+
 
 /* ===== Remi Store v79 hotfix: clickable profile controls + owner IP stalk + unsensored API ===== */
 (function(){
@@ -5394,7 +5396,7 @@ window.addEventListener('DOMContentLoaded',init);
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bootV79); else bootV79();
 })();
 
-/* ---- split script block ---- */
+
 
 (function(){
   'use strict';
@@ -5522,7 +5524,11 @@ window.addEventListener('DOMContentLoaded',init);
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot80); else boot80();
 })();
 
-/* ---- split script block ---- */
+
+
+
+
+
 
 /* ===== Remi Store V81: Firebase realtime + clean login/profile patch ===== */
 (function(){
@@ -5756,7 +5762,7 @@ window.addEventListener('DOMContentLoaded',init);
   setTimeout(()=>{ensureOwnerSingleV81();cleanupV81();initFirebaseV81(true);},500);
 })();
 
-/* ---- split script block ---- */
+
 
 /* v82 runtime hotfix: missing admin/staff functions + safe aliases */
 (function(){
@@ -5840,7 +5846,7 @@ window.addEventListener('DOMContentLoaded',init);
   }
 })();
 
-/* ---- split script block ---- */
+
 
 (function(){
   'use strict';
@@ -5937,58 +5943,30 @@ window.addEventListener('DOMContentLoaded',init);
   setInterval(()=>{removeOwnerAutofill();removePublicCheckIP();makeButtonsClickable();},2500);
 })();
 
-/* ===== REMI SPLIT DATABASE/FUNCTION BRIDGE ===== */
+
+/* ===== REMI V1 DATABASE-FIRST BOOT PATCH ===== */
 (function(){
   'use strict';
-  window.REMI_SPLIT_READY = true;
-  window.REMI_SPLIT_VERSION = 'v1-classic-complete';
-  const safeToast = (msg, type) => {
-    try { if (typeof toast === 'function') return toast(msg, type); } catch(e) {}
-    console.log('[Remi]', type || 'info', msg);
-  };
-
-  // Wrapper handler supaya index cukup manggil database.js untuk login/register/guest.
-  window.RemiHandlers = window.RemiHandlers || {};
-  window.RemiHandlers.login = function(){
-    try { return typeof login === 'function' ? login() : safeToast('Handler login belum siap.', 'err'); }
-    catch(e){ console.error(e); safeToast('Login bermasalah. Coba refresh halaman.', 'err'); }
-  };
-  window.RemiHandlers.register = function(){
-    try { return typeof register === 'function' ? register() : safeToast('Handler daftar belum siap.', 'err'); }
-    catch(e){ console.error(e); safeToast('Daftar bermasalah. Coba refresh halaman.', 'err'); }
-  };
-  window.RemiHandlers.guestLogin = function(){
-    try { return typeof guestLogin === 'function' ? guestLogin() : safeToast('Handler guest belum siap.', 'err'); }
-    catch(e){ console.error(e); safeToast('Guest login bermasalah. Coba refresh halaman.', 'err'); }
-  };
-
-  // Missing runtime guards dari patch lama. Kalau function asli ada, tidak ditimpa.
-  window.adminSetSensor = window.adminSetSensor || function(status){
-    try { if (window.ls) ls.set('sensorBadWords', !!status); safeToast(status ? 'Sensor kata diaktifkan.' : 'Sensor kata dimatikan.'); if (typeof adminTab === 'function') adminTab('filter'); }
-    catch(e){ console.error(e); safeToast('Gagal mengubah sensor.', 'err'); }
-  };
-  window.saveFilterWords = window.saveFilterWords || function(){
-    try { const el=document.getElementById('admBadWords'); const words=String(el?.value||'').split(',').map(v=>v.trim()).filter(Boolean); if(window.ls) ls.set('badWords', words); safeToast('Daftar kata sensor disimpan.'); }
-    catch(e){ console.error(e); safeToast('Gagal menyimpan filter.', 'err'); }
-  };
-  window.checkPendingZakkiList = window.checkPendingZakkiList || async function(){
-    try { const deposits = window.ls ? ls.get('deposits', []) : []; const pending = deposits.filter(d=>String(d.status||'').toUpperCase()==='PENDING'); if(!pending.length) return safeToast('Tidak ada deposit pending.', 'warn'); let done=0; for(const d of pending){ if(typeof checkZakkiDeposit==='function'){ await checkZakkiDeposit(d.id); done++; } } safeToast(`Selesai cek ${done} deposit pending.`); if(typeof adminTab==='function') adminTab('deposit'); }
-    catch(e){ console.error(e); safeToast('Gagal cek pending Zakki.', 'err'); }
-  };
-  window.openStaffPanelV79 = window.openStaffPanelV79 || function(){
-    try { if(typeof openAdmin==='function') return openAdmin(); safeToast('Admin panel belum siap.', 'warn'); }
-    catch(e){ console.error(e); safeToast('Gagal membuka admin panel.', 'err'); }
-  };
-})();
-
-
-/* ===== LAZY LOAD BOOT BRIDGE ===== */
-(function(){
-  try{
-    if(window.__REMI_BOOT_AFTER_LOAD){
-      setTimeout(function(){
-        try{ if(typeof init==='function') init(); }catch(e){ console.error('[Remi lazy init]',e); }
-      }, 20);
+  function el(id){return document.getElementById(id)}
+  function forceSeedAndRender(){
+    try{ if(typeof ensureDefaults==='function') ensureDefaults(); }catch(e){console.warn('ensureDefaults failed',e)}
+    try{
+      const p = (typeof ls!=='undefined' && ls.get) ? ls.get('products', null) : null;
+      if((!p || !Array.isArray(p) || !p.length) && typeof defaultProducts!=='undefined') ls.set('products', defaultProducts);
+    }catch(e){console.warn('seed products failed', e)}
+    try{ if(typeof renderAll==='function') renderAll(); }catch(e){
+      console.error('renderAll failed', e);
+      const box=el('products'); if(box) box.innerHTML='<div class="panel"><b>Fitur toko ada kendala.</b><p class="muted">'+String(e.message||e)+'</p></div>';
     }
-  }catch(e){console.error(e)}
+  }
+  window.__remiForceRender = forceSeedAndRender;
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      const box=el('products');
+      if(box && /Memuat fitur toko|Memuat data toko/i.test(box.textContent||'')) forceSeedAndRender();
+    }, 500);
+    setTimeout(function(){
+      if(typeof initFirebaseV81==='function') { try{ initFirebaseV81(true); }catch(e){console.warn('late firebase init',e)} }
+    }, 1200);
+  });
 })();
