@@ -428,12 +428,23 @@ body:after{background-image:linear-gradient(rgba(var(--accent-rgb),.035) 1px,tra
     loading=true;
     toastLite('Memuat fitur toko...', 'warn');
     try{
-      await loadScript('https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js');
-      await loadScript('https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js');
+      // PENTING: database.js harus dimuat dulu. Firebase CDN kadang lambat,
+      // kalau ditunggu di awal web bisa nyangkut di "Memuat fitur toko...".
       window.__REMI_BOOT_AFTER_LOAD=true;
-      await loadScript('database.js?v=lazy1');
+      await loadScript('database.js?v=fast2');
       loaded=true;
-      setTimeout(()=>{try{ if(typeof init==='function') init(); }catch(e){console.error(e);toastLite('Render fitur bermasalah: '+e.message,'err')}},30);
+      setTimeout(()=>{
+        try{ if(typeof init==='function') init(); }
+        catch(e){ console.error(e); toastLite('Render fitur bermasalah: '+e.message,'err'); }
+      },30);
+      // Firebase realtime jalan belakangan, jangan blokir render fitur.
+      setTimeout(async()=>{
+        try{
+          await loadScript('https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js');
+          await loadScript('https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js');
+          if(typeof initFirebaseV81==='function') initFirebaseV81(true);
+        }catch(e){ console.warn('[Remi Firebase lazy]', e); }
+      },900);
       return true;
     }catch(e){console.error(e);toastLite('Gagal memuat database.js. Cek upload file.', 'err'); return false;}
     finally{loading=false;}
