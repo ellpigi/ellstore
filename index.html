@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Remi AI Store v1 Database First</title>
+<title>Remi AI Store v1 Request Fixed</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
@@ -212,8 +212,43 @@ body:after{background-image:linear-gradient(rgba(var(--accent-rgb),.035) 1px,tra
 .themeCustomV75{display:grid;gap:9px;margin-top:12px;padding:12px;border:1px dashed rgba(var(--accent-rgb),.28);border-radius:16px;background:rgba(var(--accent-rgb),.04)}.themeCustomV75 label{font-size:11px;font-weight:900;color:var(--muted);letter-spacing:1px}.themeCustomV75 input[type=color]{height:46px;padding:4px;border-radius:12px;background:rgba(var(--accent-rgb),.04)}.themeHintV75{font-size:11px;color:var(--muted);line-height:1.45}.themePreviewV75{height:48px;border-radius:15px;border:1px solid rgba(var(--accent-rgb),.28);background:linear-gradient(135deg,var(--blue),var(--cyan));box-shadow:0 0 24px rgba(var(--accent-rgb),.18)}
 /* =================== END V75 PATCH =================== */
 
+
+
+/* === V1 REQUEST CLICK + CLEAN PATCH === */
+body:before,body:after,.auth:before,.auth:after,.hero:after,.thumb:after,.header:after,.boxHead:after,.bottom:before{pointer-events:none!important}
+.auth{pointer-events:auto!important}.auth.hide{display:none!important;pointer-events:none!important}.authBox,.authBox *{position:relative;z-index:3;pointer-events:auto!important}
+.modal:not(.show),.action:not(.show),.confirmMini:not(.show),.menuPop:not(.show){pointer-events:none!important}
+.modal.show,.action.show,.confirmMini.show,.menuPop.show{pointer-events:auto!important}
+button,.btn,input,select,textarea,[onclick],.nav,.icon,.pill,.tab,.tool,.card{pointer-events:auto!important;touch-action:manipulation!important;user-select:none}
+input,textarea{user-select:text!important}.authBox input,.authBox button{z-index:5!important}
+/* kurangi efek berat tanpa ngerusak style */
+body:after{animation:none!important}.ticker span{animation-duration:55s!important}.authLogo{animation:none!important}.auth:before{animation:none!important}.page.active{animation:none!important}
+@media(max-width:480px){.header,.bottom,.modal{backdrop-filter:none!important}.card,.tool,.panel,.box,.hero{box-shadow:0 6px 18px rgba(0,0,0,.22)!important}}
+.reqRoleBadge{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:5px 10px;font-weight:900;font-size:11px;background:rgba(43,220,255,.07);margin-top:8px}
+.reqToastBuy{position:fixed;right:12px;bottom:76px;z-index:150;max-width:310px;background:rgba(8,18,36,.96);border:1px solid var(--line);border-radius:16px;padding:12px;box-shadow:0 14px 35px rgba(0,0,0,.45);font-size:12px;transform:translateY(20px);opacity:0;transition:.25s}.reqToastBuy.show{opacity:1;transform:translateY(0)}
+
 </style>
 <!-- Copy flow revised: alur teks dirapikan tanpa mengubah struktur utama UI/JS. -->
+
+<style id="remi-css-load-hardfix-final">
+/* FINAL CSS LOAD FIX: matikan layer berat yang bikin HP/WebView stuck */
+html,body{scroll-behavior:auto!important}
+body:before,body:after,.auth:before,.auth:after,.hero:after,.thumb:after,.header:after,.boxHead:after,.bottom:before{pointer-events:none!important}
+body:after,.auth:before,.authLogo,.ticker span,.page.active{animation:none!important}
+.header,.bottom,.modal,.box{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.card,.tool,.panel,.box,.hero,.pill,.icon,.authBox{box-shadow:0 6px 18px rgba(0,0,0,.24)!important}
+.modal:not(.show):not(.open),.action:not(.show),.confirmMini:not(.show),.menuPop:not(.show),#loadingV77,.loadCardV77,.slide-flash,.slide-scanline,.slide-border,.app-loader,.loading-screen,#welcome-overlay:not(.show){display:none!important;opacity:0!important;pointer-events:none!important;z-index:-1!important}
+.auth.hide{display:none!important;opacity:0!important;pointer-events:none!important;z-index:-1!important}
+.auth:not(.hide){display:flex!important;pointer-events:auto!important;z-index:99999!important}
+.authBox,.authBox *,button,.btn,[onclick],.nav,.icon,.pill,a,input,select,textarea{pointer-events:auto!important;touch-action:manipulation!important}
+input,select,textarea{font-size:16px!important;user-select:text!important}
+#loginBtnV80,#guestBtnV80,#regBtnV80,#loginBox .btn,#regBox .btn{position:relative!important;z-index:100001!important;min-height:44px!important}
+@media(max-width:520px){
+  body:before{background:linear-gradient(180deg,#050812,#030611)!important}
+  .ticker span{animation:none!important}
+  .card:hover,.tool:hover{box-shadow:0 6px 18px rgba(0,0,0,.24)!important}
+}
+</style>
 </head>
 <body>
 <div class="auth" id="auth">
@@ -396,17 +431,37 @@ body:after{background-image:linear-gradient(rgba(var(--accent-rgb),.035) 1px,tra
 <div class="toast" id="toast"></div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script defer src="database.js?v=1"></script>
 <script>
-(function(){
-  window.__remiDbLoadStarted = Date.now();
-  window.__remiDbFailed = function(){
-    var box=document.getElementById('products');
-    if(box) box.innerHTML='<div class="panel"><b>database.js gagal dimuat.</b><p class="muted">Pastikan database.js ada di root GitHub, namanya persis, dan clear cache.</p></div>';
-  };
-})();
+window.addEventListener('error', function(e){
+  var box=document.getElementById('remiDbErrorBox');
+  if(!box){
+    box=document.createElement('div');
+    box.id='remiDbErrorBox';
+    box.style.cssText='position:fixed;left:12px;right:12px;bottom:80px;z-index:99999;background:#14080b;color:#fff;border:1px solid #ff667a;border-radius:14px;padding:12px;font:12px system-ui;display:none';
+    document.body.appendChild(box);
+  }
+  var msg=String(e && (e.message || e.error && e.error.message) || '');
+  if(msg && /database|render|login|register|showPage|undefined|Syntax|Reference|Cannot/i.test(msg)){
+    box.style.display='block';
+    box.innerHTML='<b>⚠️ Runtime error</b><br>'+msg.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]});
+  }
+});
 </script>
-<script src="database.js" onerror="__remiDbFailed()"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js" defer></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js" defer onload="setTimeout(function(){try{window.initFirebaseV81&&window.initFirebaseV81(true)}catch(e){console.warn(e)}},300)"></script>
+
 </body>
 </html>
