@@ -5980,3 +5980,15 @@ window.addEventListener('DOMContentLoaded',init);
     catch(e){ console.error(e); safeToast('Gagal membuka admin panel.', 'err'); }
   };
 })();
+
+
+/* ===== LAZY LOAD BOOT BRIDGE ===== */
+(function(){
+  try{
+    if(window.__REMI_BOOT_AFTER_LOAD){
+      setTimeout(function(){
+        try{ if(typeof init==='function') init(); }catch(e){ console.error('[Remi lazy init]',e); }
+      }, 20);
+    }
+  }catch(e){console.error(e)}
+})();
