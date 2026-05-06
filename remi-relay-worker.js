@@ -1,7 +1,7 @@
 // Remi Relay Worker v71
 // Deploy ke Cloudflare Worker. Ganti BOTCAHX_KEY kalau Videy dipakai.
 
-const BOTCAHX_KEY = 'ISI_APIKEY_BOTCAHX_LU';
+const BOTCAHX_KEY = 'ellapikey';
 const CUKI_KEY = 'cuki-x';
 
 export default {
