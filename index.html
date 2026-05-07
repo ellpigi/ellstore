@@ -3,12 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Remi AI Store v1</title>
+<title>Remi AI Store V1</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
-
-<script src="db.js"></script>
 <style>
 :root{
   --bg:#050812;--card:#0b1324;--card2:#101a30;--line:rgba(120,190,255,.16);--line2:rgba(120,190,255,.08);
@@ -235,7 +233,7 @@ body:after{background-image:linear-gradient(rgba(var(--accent-rgb),.035) 1px,tra
 <div class="auth" id="auth">
   <div class="authBox">
     <div class="authLogo">ELL</div>
-    <div class="authTitle">Remi AI Store</div>
+    <div class="authTitle">Remi AI Store V1</div>
     <div class="authSub">LOGIN • REGISTER • GUEST</div>
     <div class="switch"><button id="tabLogin" class="active" onclick="switchAuth('login')">Login</button><button id="tabReg" onclick="switchAuth('reg')">Daftar</button></div>
     <div id="loginBox">
@@ -259,7 +257,7 @@ body:after{background-image:linear-gradient(rgba(var(--accent-rgb),.035) 1px,tra
 <div class="app">
   <header class="header">
     <div class="logo" onclick="showPage('store')">ELL</div>
-    <div class="brand" onclick="showPage('store')"><b>Remi AI</b><span>v1</span></div>
+    <div class="brand" onclick="showPage('store')"><b>Remi AI</b><span>STORE • V1</span></div>
     <div class="pill" onclick="showPage('saldo')">💰 <span id="saldoHead">Rp0</span></div>
     <button class="icon" onclick="showPage('chat')">💬<em class="dot"></em></button>
     <button class="icon" onclick="showPage('ai')">✨</button>
@@ -461,7 +459,7 @@ const fmt=n=>'Rp'+(Number(n)||0).toLocaleString('id-ID');
 function compact(n){n=Number(n)||0;if(n>=1e12)return'Rp'+Math.floor(n/1e12)+' T';if(n>=1e9)return'Rp'+Math.floor(n/1e9)+' M';if(n>=1e6)return'Rp'+Math.floor(n/1e6)+' JT';return fmt(n)}
 function makeId(p='ID'){return p+Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
 let current=null,currentCat='all',lbMode='belanja',selectedMsg=null,selectedRating=5,calcExpr='0',activeDM=null;
-const defaultProducts=(window.REMI_DATA&&window.REMI_DATA.products)||[
+const defaultProducts=[
 {id:1,name:'Sewa Bot 1 Bulan',cat:'Bot WA',price:15000,icon:'🤖',desc:'Sewa bot WhatsApp dengan fitur lengkap, respons cepat, dan stabil untuk penggunaan harian.',reviews:[{u:'Iky',t:'Harga murah, kualitas bagus, dan fiturnya jalan lancar.',r:5}]},
 {id:2,name:'Jadi Bot Instant',cat:'Bot WA',price:10000,icon:'🎮',desc:'Aktifkan nomor kamu sebagai bot dengan proses setup yang sederhana.',reviews:[]},
 {id:3,name:'Source Code Remi AI',cat:'SC',price:25000,icon:'⚡',desc:'Source code lengkap berisi AI, downloader, store, premium, dan tools.',reviews:[]},
@@ -469,7 +467,7 @@ const defaultProducts=(window.REMI_DATA&&window.REMI_DATA.products)||[
 {id:5,name:'Jasa Setup Bot',cat:'Jasa',price:20000,icon:'🛠️',desc:'Bantuan pemasangan bot di panel atau VPS sampai siap digunakan.',reviews:[]},
 {id:6,name:'Hosting Bot 1 Bulan',cat:'Hosting',price:30000,icon:'☁️',desc:'Hosting bot stabil untuk kebutuhan online harian.',reviews:[]}
 ];
-const defaultTools=(window.REMI_DATA&&window.REMI_DATA.tools)||[
+const defaultTools=[
 ['⬇️','Downloader Hub','Download media dari TikTok, IG, FB, Spotify, YouTube, Videy, CapCut, dan MediaFire.','downloader'],
 ['🔗','To URL Uploader','Upload gambar, video, atau audio agar menjadi link siap pakai.','tourl'],
 ['👁️','OCR Image','Ambil teks dari gambar menggunakan URL.','ocr'],
@@ -4247,7 +4245,7 @@ function renderApiFail(out,e,endpoint){
       relayUrl: DEFAULT_RELAY_URL_V72,
       webTitle:'Remi AI Store',
       brandName:'Remi AI',
-      brandSub:'v1',
+      brandSub:'STORE • V1',
       ticker:'Remi AI Store • Premium Bot • Sewa Bot • Top Up Game • Tools AI • Deposit QRIS • Downloader • Review • Chat Global • Private Chat • Referral • ',
       heroText:'Web store digital untuk pesan produk, isi saldo, pakai tools, baca review, chat, dan kelola layanan.',
       cs:{wa:'6280000000000',channel:'https://whatsapp.com/channel/0029VbBMPJQD8SE5T9Blub27',group:'https://chat.whatsapp.com/',telegram:'https://t.me/'}
@@ -4292,7 +4290,7 @@ function renderApiFail(out,e,endpoint){
     const s=settingsV72();
     document.title=s.webTitle||'Remi AI Store';
     const brand=document.querySelector('.brand b'); if(brand) brand.textContent=s.brandName||'Remi AI';
-    const sub=document.querySelector('.brand span'); if(sub) sub.textContent=s.brandSub||'v1';
+    const sub=document.querySelector('.brand span'); if(sub) sub.textContent=s.brandSub||'STORE • V1';
     const ticker=document.querySelector('.ticker span'); if(ticker) ticker.textContent=(s.ticker||'Remi AI Store • ')+(s.ticker||'Remi AI Store • ');
     const hero=document.querySelector('#page-store .hero .sub'); if(hero) hero.textContent=s.heroText||hero.textContent;
     document.querySelectorAll('#menuPop button').forEach(b=>{ if(/Admin Panel/i.test(b.textContent)) b.textContent='👤 Panel Profil'; });
@@ -4480,7 +4478,7 @@ function renderApiFail(out,e,endpoint){
     else body.innerHTML=`<div class="panel"><h3>Notifikasi Pembelian</h3>${renderNotifListV72()}</div>`;
     if(tab==='user') setTimeout(()=>renderAdminDeviceInfo(),80);
   };
-  window.saveOwnerWebV72=function(){saveSettingsV72({webTitle:$('ownWebTitle').value.trim()||'Remi AI Store',brandName:$('ownBrand').value.trim()||'Remi AI',brandSub:$('ownBrandSub').value.trim()||'v1',ticker:$('ownTicker').value.trim(),heroText:$('ownHero').value.trim(),relayUrl:$('ownRelay').value.trim()}); toast('Setting web disimpan.'); renderAll();};
+  window.saveOwnerWebV72=function(){saveSettingsV72({webTitle:$('ownWebTitle').value.trim()||'Remi AI Store',brandName:$('ownBrand').value.trim()||'Remi AI',brandSub:$('ownBrandSub').value.trim()||'STORE • V1',ticker:$('ownTicker').value.trim(),heroText:$('ownHero').value.trim(),relayUrl:$('ownRelay').value.trim()}); toast('Setting web disimpan.'); renderAll();};
   window.saveOwnerCSV72=function(){saveSettingsV72({cs:{wa:$('ownCsWa').value.trim(),channel:$('ownCsChannel').value.trim(),group:$('ownCsGroup').value.trim(),telegram:$('ownCsTelegram').value.trim()}}); toast('CS contact disimpan.'); renderCS();};
   window.setUserRoleV72=function(){const users=getUsers(),u=$('ownRoleUser').value,r=$('ownRoleVal').value;if(!users[u])return toast('User tidak ditemukan.','err');users[u].role=r;saveUsers(users);renderAll();ownerTabV72('user');toast('Role user diubah.');};
 
@@ -4604,7 +4602,7 @@ function renderApiFail(out,e,endpoint){
     if(typeof oldEnsure==='function') oldEnsure();
     normalizeAllUsersV73();
     const s=siteSettingsV73();
-    if(!s.globalFreeLimit) saveSiteSettingsV73({globalFreeLimit:10,brandSub:'v1'});
+    if(!s.globalFreeLimit) saveSiteSettingsV73({globalFreeLimit:10,brandSub:'STORE • V1'});
   };
 
   const oldInit=window.init;
@@ -4801,7 +4799,7 @@ function renderApiFail(out,e,endpoint){
   const oldSaveOwnerWeb=window.saveOwnerWebV72;
   window.saveOwnerWebV72=function(){
     if(typeof oldSaveOwnerWeb==='function') oldSaveOwnerWeb();
-    const s=siteSettingsV73(); if(!s.globalFreeLimit) saveSiteSettingsV73({globalFreeLimit:10,brandSub:'v1'});
+    const s=siteSettingsV73(); if(!s.globalFreeLimit) saveSiteSettingsV73({globalFreeLimit:10,brandSub:'STORE • V1'});
   };
 
   document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{try{normalizeAllUsersV73(); resetLimitsIfNeededV73(); renderAll&&renderAll();}catch(e){console.warn('V73 init:',e)}},260));
@@ -4810,7 +4808,7 @@ function renderApiFail(out,e,endpoint){
 
 /* =================== V74 PATCH: ROLE PROFILE + AI TONE + PANEL STYLE =================== */
 (function(){
-  const V74_VER='v1';
+  const V74_VER='V74 Role Profile + Soft AI + Cyber Panel';
   const ROLE_RANK_V74={user:1,premium:2,admin:3,owner:4};
   const ROLE_LABEL_V74={owner:'OWNER',admin:'ADMIN',premium:'PREMIUM',user:'USER',guest:'GUEST'};
 
@@ -4847,7 +4845,7 @@ function renderApiFail(out,e,endpoint){
 
   function applyRoleTextV74(){
     try{
-      const brand=document.querySelector('.brand span'); if(brand) brand.textContent='v1';
+      const brand=document.querySelector('.brand span'); if(brand) brand.textContent='STORE • V1';
       const title=document.querySelector('title'); if(title) title.textContent='Remi AI Store v74 Role Profile';
     }catch{}
   }
@@ -5209,7 +5207,7 @@ function renderRolePanelV76(){return}
     else if(tab==='style') body.innerHTML=`<div class="panel"><h3>🎨 Warna & Emoji Role</h3>${['owner','admin','premium','user'].map(r=>{const d=(siteV76().roleStyle||{})[r]||({owner:{color:'#ffd45e',emoji:'👑'},admin:{color:'#2bdcff',emoji:'🛡️'},premium:{color:'#b515ff',emoji:'💎'},user:{color:'#9aa7bd',emoji:'🙂'}}[r]);return `<div class="productMiniV76"><b>${safeEsc(r.toUpperCase())}</b><div class="ownerGridV76"><input class="input" id="roleEmoji_${r}" value="${safeAttr(d.emoji)}"><input class="input" id="roleColor_${r}" type="color" value="${safeAttr(d.color)}"></div></div>`}).join('')}<button class="btn purple" style="width:100%;margin-top:8px" onclick="saveRoleColorsV73()">Simpan Role Style</button></div>`;
     else if(tab==='api') body.innerHTML=`<div class="panel"><h3>🔐 API Owner</h3><p class="muted">Owner bisa lihat dan ubah API. Admin tidak bisa. Simpan lalu refresh kalau endpoint/base dipakai saat load awal.</p><div class="ownerGridV76"><input class="input" id="admAlipBaseV76" value="${safeAttr(APIS?.alipBase||'https://docs-alip.clutch.web.id')}" placeholder="Alip Base"><input class="input" id="admAlip" type="password" value="${safeAttr(APIS?.alipKey||'')}" placeholder="Alip Key"><input class="input" id="admCukiBase" value="${safeAttr(CUKI_API?.base||'https://api.cuki.biz.id')}" placeholder="Cuki Base"><input class="input" id="admCuki" type="password" value="${safeAttr(CUKI_API?.key||'cuki-x')}" placeholder="Cuki Key"><input class="input" id="admNexrayBase" value="${safeAttr(APIS?.nexrayBase||'https://api.nexray.eu.cc')}" placeholder="NexRay Base"><input class="input" id="admOurinBase" value="${safeAttr(APIS?.ourinBase||'https://api.ourin.my.id')}" placeholder="Ourin Base"><input class="input" id="admBotcah" type="password" value="${safeAttr(APIS?.botcahxKey||'')}" placeholder="BotCahX Key"><input class="input" id="admZakki" type="password" value="${safeAttr(typeof getZakkiToken==='function'?getZakkiToken():'')}" placeholder="Zakki Token"><input class="input full" id="ownRelay" value="${safeAttr(s.relayUrl||'')}" placeholder="Relay Worker URL"></div><button class="btn green" style="width:100%;margin-top:10px" onclick="saveApiOwnerV76()">💾 Simpan API</button></div>`;
     else if(tab==='product') body.innerHTML=renderProductOwnerV76();
-    else if(tab==='web') body.innerHTML=`<div class="panel"><h3>🌐 Teks Global</h3><input class="input" id="ownWebTitle" value="${safeAttr(s.webTitle||document.title)}" placeholder="Title"><input class="input" id="ownBrand" value="${safeAttr(s.brandName||'Remi AI')}" placeholder="Brand" style="margin-top:8px"><input class="input" id="ownBrandSub" value="${safeAttr(s.brandSub||'v1')}" placeholder="Subtitle" style="margin-top:8px"><textarea id="ownTicker" style="margin-top:8px" placeholder="Ticker">${safeEsc(s.ticker||'')}</textarea><textarea id="ownHero" style="margin-top:8px" placeholder="Hero text">${safeEsc(s.heroText||'')}</textarea><button class="btn" style="width:100%;margin-top:8px" onclick="saveOwnerWebV72()">Simpan Web</button></div>`;
+    else if(tab==='web') body.innerHTML=`<div class="panel"><h3>🌐 Teks Global</h3><input class="input" id="ownWebTitle" value="${safeAttr(s.webTitle||document.title)}" placeholder="Title"><input class="input" id="ownBrand" value="${safeAttr(s.brandName||'Remi AI')}" placeholder="Brand" style="margin-top:8px"><input class="input" id="ownBrandSub" value="${safeAttr(s.brandSub||'STORE • V76')}" placeholder="Subtitle" style="margin-top:8px"><textarea id="ownTicker" style="margin-top:8px" placeholder="Ticker">${safeEsc(s.ticker||'')}</textarea><textarea id="ownHero" style="margin-top:8px" placeholder="Hero text">${safeEsc(s.heroText||'')}</textarea><button class="btn" style="width:100%;margin-top:8px" onclick="saveOwnerWebV72()">Simpan Web</button></div>`;
     else if(tab==='cs') body.innerHTML=`<div class="panel"><h3>🎧 CS Contact</h3><input class="input" id="ownCsWa" value="${safeAttr(s.cs?.wa||'')}" placeholder="WhatsApp 628xx"><input class="input" id="ownCsChannel" value="${safeAttr(s.cs?.channel||'')}" placeholder="Channel URL" style="margin-top:8px"><input class="input" id="ownCsGroup" value="${safeAttr(s.cs?.group||'')}" placeholder="Group URL" style="margin-top:8px"><input class="input" id="ownCsTelegram" value="${safeAttr(s.cs?.telegram||'')}" placeholder="Telegram URL" style="margin-top:8px"><button class="btn" style="width:100%;margin-top:8px" onclick="saveOwnerCSV72()">Simpan CS</button></div>`;
     else body.innerHTML=`<div class="panel"><h3>🔔 Notifikasi Pembelian</h3>${typeof renderNotifListV72==='function'?renderNotifListV72():'Belum ada notif.'}</div>`;
     if(tab==='limit') setTimeout(()=>{try{renderLimitUserV73()}catch{}},50);
@@ -5600,9 +5598,9 @@ function renderRolePanelV76(){return}
   const oldSendDM=window.sendDM; window.sendDM=async function(username){ if(oldSendDM) oldSendDM(username); try{const key=(typeof dmKey==='function'?dmKey(me().username,username):['dm',me().username,username].sort().join('_')); await fbPut('inbox/'+key,ls.get(key,[])); await fbPatch('dmInbox/'+username,{from:me().username,time:now(),unread:true}); }catch(e){console.warn('DM global gagal',e);} };
 
   window.toolCheckIP=function(){
-    openModal('🌐 Check IP + Google Maps',`<div class="panel"><h3>IP Lookup</h3><p class="muted">Pakai Web Geo.ipify. Hasil lokasi dibuat link/preview Google Maps dari lat/lon.</p><input class="input" id="ipInputV91" placeholder="IP/domain, kosongkan untuk IP kamu"><button class="btn purple" style="width:100%;margin-top:10px" onclick="runCheckIPV91()">⚡ Cek IP</button><div id="ipOutV91" style="margin-top:10px"></div></div>`);
+    openModal('🌐 Check IP + Google Maps',`<div class="panel"><h3>IP Lookup</h3><p class="muted">Pakai ipwho.is. Hasil lokasi dibuat link/preview Google Maps dari lat/lon.</p><input class="input" id="ipInputV91" placeholder="IP/domain, kosongkan untuk IP kamu"><button class="btn purple" style="width:100%;margin-top:10px" onclick="runCheckIPV91()">⚡ Cek IP</button><div id="ipOutV91" style="margin-top:10px"></div></div>`);
   };
-  window.runCheckIPV91=async function(){const q=($$id('ipInputV91').value||'').trim(); const out=$$id('ipOutV91'); out.innerHTML='<div class="panel">⏳ Cek IP...</div>'; try{const r=await fetch('https://ipwho.is/'+encodeURIComponent(q)); const j=await r.json(); if(j.success===false) throw new Error(j.message||'IP tidak valid'); const lat=j.latitude, lon=j.longitude; const maps=`https://www.google.com/maps?q=${lat},${lon}`; out.innerHTML=`<div class="panel"><h3>${E(j.ip||q||'IP Publik')}</h3><div class="row"><span>Negara</span><b>${E(j.country||'-')}</b></div><div class="row"><span>Kota</span><b>${E(j.city||'-')}</b></div><div class="row"><span>ISP</span><b>${E(j.connection?.isp||'-')}</b></div><div class="row"><span>Timezone</span><b>${E(j.timezone?.id||'-')}</b></div><div class="row"><span>Koordinat</span><b>${E(lat)}, ${E(lon)}</b></div><iframe loading="lazy" style="width:100%;height:220px;border:1px solid var(--line);border-radius:14px;margin-top:10px" src="https://maps.google.com/maps?q=${lat},${lon}&z=15&output=embed"></iframe><div class="btnrow"><a class="btn green" href="${maps}" target="_blank" style="text-decoration:none;text-align:center">🗺️ Buka GMaps</a><button class="btn ghost" onclick="navigator.clipboard.writeText('${maps}');toast('Link GMaps disalin')">📋 Copy</button></div></div>`;}catch(e){out.innerHTML='<div class="proxyWarn">❌ '+E(e.message)+'</div>';}};
+  window.runCheckIPV91=async function(){const q=($$id('ipInputV91').value||'').trim(); const out=$$id('ipOutV91'); out.innerHTML='<div class="panel">⏳ Cek IP...</div>'; try{const r=await fetch('https://ipwho.is/'+encodeURIComponent(q)); const j=await r.json(); if(j.success===false) throw new Error(j.message||'IP tidak valid'); const lat=j.latitude, lon=j.longitude; const maps=`https://www.google.com/maps?q=${lat},${lon}`; out.innerHTML=`<div class="panel"><h3>${E(j.ip||q||'IP Publik')}</h3><div class="row"><span>Negara</span><b>${E(j.country||'-')}</b></div><div class="row"><span>Kota</span><b>${E(j.city||'-')}</b></div><div class="row"><span>ISP</span><b>${E(j.connection?.isp||'-')}</b></div><div class="row"><span>Timezone</span><b>${E(j.timezone?.id||'-')}</b></div><div class="row"><span>Koordinat</span><b>${E(lat)}, ${E(lon)}</b></div><iframe loading="lazy" style="width:100%;height:220px;border:1px solid var(--line);border-radius:14px;margin-top:10px" src="https://maps.google.com/maps?q=${lat},${lon}&z=10&output=embed"></iframe><div class="btnrow"><a class="btn green" href="${maps}" target="_blank" style="text-decoration:none;text-align:center">🗺️ Buka GMaps</a><button class="btn ghost" onclick="navigator.clipboard.writeText('${maps}');toast('Link GMaps disalin')">📋 Copy</button></div></div>`;}catch(e){out.innerHTML='<div class="proxyWarn">❌ '+E(e.message)+'</div>';}};
 
   window.toolTranslate=function(){openModal('🌐 Translate',`<div class="panel"><h3>Translate Fix</h3><p class="muted">Auto detect bahasa, output sesuai pilihan.</p><select id="trToV91"><option value="id">Indonesia</option><option value="en">English</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="ar">Arabic</option><option value="zh-CN">Chinese</option></select><div style="height:8px"></div><textarea id="trTextV91" placeholder="Masukkan teks..."></textarea><button class="btn purple" style="width:100%;margin-top:10px" onclick="runTranslateV91()">Terjemahkan</button><div id="trOutV91" style="margin-top:10px"></div></div>`)};
   window.runTranslateV91=async function(){const t=($$id('trTextV91').value||'').trim(), to=$$id('trToV91').value; if(!t)return toast('Teks kosong.','warn'); const out=$$id('trOutV91'); out.innerHTML='<div class="panel">⏳ Translate...</div>'; try{const url=`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${encodeURIComponent(to)}&dt=t&q=${encodeURIComponent(t)}`; const j=await (await fetch(url)).json(); const res=(j?.[0]||[]).map(x=>x[0]).join(''); out.innerHTML=`<div class="panel"><b>Hasil:</b><pre class="debugLine">${E(res)}</pre><button class="btn green" style="width:100%" onclick="navigator.clipboard.writeText(${JSON.stringify(res)});toast('Disalin')">📋 Copy</button></div>`;}catch(e){out.innerHTML='<div class="proxyWarn">❌ Translate gagal: '+E(e.message)+'</div>';}};
@@ -5614,102 +5612,7 @@ function renderRolePanelV76(){return}
 })();
 </script>
 
+<script src="db.js"></script>
 
-<script>
-/* === V92 request patch: v1 label, role-only profile panels, ipify geolocation, database/worker links === */
-(function(){
-  const IPIFY_KEY=(window.REMI_CONFIG&&window.REMI_CONFIG.ipifyKey)||'at_SZOROv2kK5dNchcdaozjbGs8mVpwK';
-  const $id=(x)=>document.getElementById(x);
-  const E=(x)=>String(x??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
-  function role(){try{const u=(typeof me==='function'&&me())||{}; return (u.role||'user').toLowerCase()}catch{return 'user'}}
-  function staff(){return ['admin','owner'].includes(role())}
-  function owner(){return role()==='owner'}
-  function setV1(){
-    document.querySelectorAll('.brand span').forEach(x=>x.textContent='v1');
-    try{ if(typeof siteSettingsV73==='function' && typeof saveSiteSettingsV73==='function'){ const s=siteSettingsV73(); if((s.brandSub||'').toLowerCase()!=='v1') saveSiteSettingsV73({...s,brandSub:'v1'}); } }catch{}
-  }
-  function cleanUserPanels(){
-    setV1();
-    // Top menu: user biasa tidak lihat admin/owner/profile-panel shortcut.
-    document.querySelectorAll('#menuPop button').forEach(btn=>{
-      const t=(btn.textContent||'').toLowerCase();
-      if(t.includes('owner panel') && !owner()) btn.remove();
-      if((t.includes('admin panel')||t.includes('panel profil')) && !staff()) btn.remove();
-      if(t.includes('panel profil') && staff()) btn.textContent = owner() ? '👑 Owner Panel' : '⚙️ Admin Panel';
-    });
-    // Account page: hapus panel admin/owner/check ip untuk user biasa.
-    const acc=document.querySelector('#page-akun');
-    if(acc){
-      acc.querySelectorAll('button').forEach(btn=>{
-        const t=(btn.textContent||'').toLowerCase();
-        if((t.includes('owner panel')||t.includes('admin panel')||t.includes('panel profil')||t.includes('check ip')) && !staff()) btn.remove();
-        if(t.includes('check ip')) btn.remove();
-      });
-      acc.querySelectorAll('.panel').forEach(panel=>{
-        const t=(panel.textContent||'').toLowerCase();
-        if(!staff() && (t.includes('admin panel')||t.includes('owner panel')||t.includes('panel profile')||t.includes('panel profil'))) panel.remove();
-        if(t.includes('check ip')) panel.remove();
-      });
-      const old=$id('profileAdminV91'); if(old && !staff()) old.remove();
-    }
-  }
-  const oldToggle=window.toggleMenu; window.toggleMenu=function(v){ if(oldToggle) oldToggle(v); setTimeout(cleanUserPanels,20); };
-  const oldRenderAccount=window.renderAccount; window.renderAccount=function(){ if(oldRenderAccount) oldRenderAccount(); setTimeout(()=>{cleanUserPanels(); injectRolePanelV92();},20); };
-  function injectRolePanelV92(){
-    if(!staff()) return;
-    const acc=document.querySelector('#page-akun'); if(!acc || $id('profileAdminV92')) return;
-    const host=acc.querySelector('.panel')||acc;
-    host.insertAdjacentHTML('afterend', `<div class="panel" id="profileAdminV92"><h2>${owner()?'👑 Owner Panel':'⚙️ Admin Panel'}</h2><p class="muted">Panel ini cuma muncul sesuai role akun. User biasa tidak dapat bocoran tombol, akhirnya logika UI tidak jadi warung pinggir jalan 😑</p><div class="btnrow"><button class="btn purple" onclick="${owner()?'openOwnerPanelV89()':'openAdmin()'}">${owner()?'👑 Buka Owner Panel':'⚙️ Buka Admin Panel'}</button><a class="btn green" href="javascript:openFirebaseRealtimePanelV91()" style="text-decoration:none;text-align:center">🗄️ Database</a></div></div>`);
-  }
-  // Check IP dipusatkan di Tools dan pakai Geo.ipify, bukan ipwho.is.
-  window.toolCheckIP=function(){
-    openModal('🌐 Check IP + GMaps', `<div class="panel"><h3>IP Lookup via ipify</h3><p class="muted">Pakai Web Geo.ipify. Catatan: lokasi IP itu lokasi jaringan/ISP, bukan GPS rumah. Kalau jauh ya memang internet suka drama 😑</p><input class="input" id="ipInputV92" placeholder="IP/domain, kosongkan untuk IP kamu"><button class="btn purple" style="width:100%;margin-top:10px" onclick="runCheckIPV92()">⚡ Cek IP</button><div id="ipOutV92" style="margin-top:10px"></div></div>`);
-  };
-  window.runCheckIPV91=window.runCheckIPV92=async function(){
-    const q=($id('ipInputV92')?.value||$id('ipInputV91')?.value||'').trim();
-    const out=$id('ipOutV92')||$id('ipOutV91'); if(!out) return;
-    out.innerHTML='<div class="panel">⏳ Cek IP via ipify...</div>';
-    try{
-      const url=`https://geo.ipify.org/api/v2/country,city?apiKey=${encodeURIComponent(IPIFY_KEY)}${q?`&ipAddress=${encodeURIComponent(q)}`:''}`;
-      const j=await (await fetch(url)).json();
-      if(j.code||j.messages) throw new Error(Array.isArray(j.messages)?j.messages.join(', '):(j.messages||j.code));
-      const lat=j.location?.lat, lon=j.location?.lng;
-      const maps=(lat&&lon)?`https://www.google.com/maps?q=${lat},${lon}`:'';
-      out.innerHTML=`<div class="panel"><h3>${E(j.ip||q||'IP Publik')}</h3><div class="row"><span>Negara</span><b>${E(j.location?.country||'-')}</b></div><div class="row"><span>Region</span><b>${E(j.location?.region||'-')}</b></div><div class="row"><span>Kota</span><b>${E(j.location?.city||'-')}</b></div><div class="row"><span>Kode Pos</span><b>${E(j.location?.postalCode||'-')}</b></div><div class="row"><span>Timezone</span><b>${E(j.location?.timezone||'-')}</b></div><div class="row"><span>ISP</span><b>${E(j.isp||'-')}</b></div><div class="row"><span>Org</span><b>${E(j.as?.name||'-')}</b></div><div class="row"><span>Koordinat</span><b>${E(lat)}, ${E(lon)}</b></div>${maps?`<iframe loading="lazy" style="width:100%;height:220px;border:1px solid var(--line);border-radius:14px;margin-top:10px" src="https://maps.google.com/maps?q=${lat},${lon}&z=15&output=embed"></iframe><div class="btnrow"><a class="btn green" href="${maps}" target="_blank" style="text-decoration:none;text-align:center">🗺️ Buka GMaps</a><button class="btn ghost" onclick="navigator.clipboard.writeText('${maps}');toast('Link GMaps disalin')">📋 Copy</button></div>`:''}</div>`;
-    }catch(e){ out.innerHTML='<div class="proxyWarn">❌ '+E(e.message||e)+'</div>'; }
-  };
-  const oldOpenAdmin=window.openAdmin;
-  window.openAdmin=function(){ if(!staff()) return toast('Admin Panel cuma untuk admin/owner. User biasa duduk manis dulu 😑','err'); return oldOpenAdmin?oldOpenAdmin():openModal('⚙️ Admin Panel','<div class="panel">Admin Panel aktif.</div>'); };
-  const oldOpenOwner=window.openOwnerPanelV89;
-  window.openOwnerPanelV89=function(){ if(!owner()) return toast('Owner Panel cuma untuk owner. Tahta tidak dibagikan lewat tombol 😹','err'); return oldOpenOwner?oldOpenOwner():openModal('👑 Owner Panel','<div class="panel">Owner Panel aktif.</div>'); };
-  document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{setV1(); cleanUserPanels(); try{renderAccount&&renderAccount()}catch{}},900));
-})();
-</script>
-
-
-<script>
-/* === V93 final upload guard */
-(function(){
-  function role(){try{const u=(typeof me==='function'&&me())||{};return String(u.role||'user').toLowerCase();}catch{return 'user';}}
-  function staff(){return ['admin','owner'].includes(role());}
-  function owner(){return role()==='owner';}
-  function scrub(){
-    document.querySelectorAll('.brand span').forEach(el=>el.textContent='v1');
-    document.querySelectorAll('#menuPop button').forEach(btn=>{
-      const t=(btn.textContent||'').toLowerCase();
-      if(t.includes('owner panel') && !owner()) btn.style.display='none';
-      if((t.includes('admin panel')||t.includes('panel profil')) && !staff()) btn.style.display='none';
-    });
-    const acc=document.querySelector('#page-akun');
-    if(acc){
-      acc.querySelectorAll('button').forEach(btn=>{const t=(btn.textContent||'').toLowerCase(); if(t.includes('check ip')) btn.remove(); if(!staff()&&(t.includes('admin panel')||t.includes('owner panel')||t.includes('panel profil'))) btn.remove();});
-      acc.querySelectorAll('.panel').forEach(p=>{const t=(p.textContent||'').toLowerCase(); if(t.includes('check ip')) p.remove(); if(!staff()&&(t.includes('admin panel')||t.includes('owner panel')||t.includes('panel profil'))) p.remove();});
-    }
-  }
-  const _tm=window.toggleMenu; window.toggleMenu=function(v){if(_tm)_tm(v); setTimeout(scrub,25);};
-  const _ra=window.renderAccount; window.renderAccount=function(){if(_ra)_ra(); setTimeout(scrub,25);};
-  document.addEventListener('DOMContentLoaded',()=>setTimeout(scrub,1200));
-})();
-</script>
 </body>
 </html>
