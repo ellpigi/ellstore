@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="id">
 <head>
+<!-- Remi AI Store V1 V106 Firebase Final: exact Firebase config installed in db.js -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Remi AI Store V1</title>
+<title>Remi AI Store V1 — V106 Firebase Final</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
@@ -212,6 +213,410 @@ body:after{background-image:linear-gradient(rgba(var(--accent-rgb),.035) 1px,tra
 .themeCustomV75{display:grid;gap:9px;margin-top:12px;padding:12px;border:1px dashed rgba(var(--accent-rgb),.28);border-radius:16px;background:rgba(var(--accent-rgb),.04)}.themeCustomV75 label{font-size:11px;font-weight:900;color:var(--muted);letter-spacing:1px}.themeCustomV75 input[type=color]{height:46px;padding:4px;border-radius:12px;background:rgba(var(--accent-rgb),.04)}.themeHintV75{font-size:11px;color:var(--muted);line-height:1.45}.themePreviewV75{height:48px;border-radius:15px;border:1px solid rgba(var(--accent-rgb),.28);background:linear-gradient(135deg,var(--blue),var(--cyan));box-shadow:0 0 24px rgba(var(--accent-rgb),.18)}
 /* =================== END V75 PATCH =================== */
 
+
+/* ===== V107 UI PATCH: v103 x Cuki info, splash, real spinner, ELL logo ===== */
+:root{
+  --v107-pink:#ff0a62;
+  --v107-purple:#635bff;
+  --v107-dark:#050509;
+  --v107-card:#111218;
+  --v107-border:rgba(255,255,255,.12);
+  --v107-text:#f7f7fb;
+  --v107-muted:rgba(247,247,251,.58);
+}
+#v107Splash{
+  position:fixed;inset:0;z-index:99999;background:#050509;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+  transition:.65s cubic-bezier(.2,1,.2,1);
+}
+#v107Splash.hide{opacity:0;visibility:hidden;transform:scale(1.04)}
+#v107Splash:before{
+  content:"";position:absolute;inset:-20%;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,10,98,.18),transparent 32%),
+    radial-gradient(circle at 80% 65%,rgba(99,91,255,.20),transparent 35%),
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:auto,auto,46px 46px,46px 46px;
+  animation:v107Grid 10s linear infinite;
+}
+#v107Splash .splashBox{
+  position:relative;width:210px;height:210px;border:1px solid var(--v107-border);
+  display:grid;place-items:center;background:rgba(255,255,255,.025);
+  box-shadow:0 0 80px rgba(255,10,98,.14),0 0 100px rgba(99,91,255,.11);
+}
+#v107Splash .splashLogo{
+  width:92px;height:92px;border-radius:26px;display:grid;place-items:center;
+  background:linear-gradient(135deg,#00eaff,#147cff);
+  color:#02050b;font-family:Orbitron,Arial,sans-serif;font-size:31px;font-weight:900;
+  letter-spacing:1px;box-shadow:0 18px 50px rgba(0,234,255,.22);
+  animation:v107LogoPop 1.35s ease-in-out infinite alternate;
+}
+#v107Splash .splashText{
+  position:absolute;bottom:28px;font:700 10px/1 Share Tech Mono,monospace;letter-spacing:5px;
+  color:rgba(255,255,255,.62);
+}
+@keyframes v107LogoPop{to{transform:translateY(-7px) scale(1.05);filter:brightness(1.2)}}
+@keyframes v107Grid{to{background-position:0 0,0 0,46px 46px,46px 46px}}
+
+.authBox{
+  margin:auto !important;
+  transform-origin:center !important;
+}
+.authLogo,.logo,.brandLogo,[data-logo]{
+  font-family:Orbitron,Arial,sans-serif !important;
+}
+.authLogo{
+  color:#031018 !important;
+  font-size:24px !important;
+}
+.authLogo::before{content:"ELL"}
+.authLogo{font-size:0 !important}
+.authLogo::before{font-size:24px !important}
+.auth{
+  align-items:center !important;
+  justify-content:center !important;
+  padding:20px !important;
+}
+.authBox .input{
+  font-family:Rajdhani,Arial,sans-serif !important;
+  letter-spacing:.2px !important;
+  text-align:left !important;
+}
+.authTitle{letter-spacing:2px !important}
+.eyeBtn{
+  background:rgba(255,255,255,.04) !important;
+  display:grid !important;
+  place-items:center !important;
+}
+.eyeBtn span{display:none !important}
+.eyeBtn svg{width:21px;height:21px;stroke:#dfe8ff;stroke-width:2;fill:none}
+.eyeBtn .eye-open{display:block}
+.eyeBtn.show .eye-open{display:none}
+.eyeBtn .eye-closed{display:none}
+.eyeBtn.show .eye-closed{display:block}
+
+.button1,.cyberBtn,button{
+  transition:transform .18s cubic-bezier(.2,1.4,.3,1),filter .18s,box-shadow .18s !important;
+}
+.button1:active,.cyberBtn:active,button:active{
+  transform:scale(.965) translateY(1px) !important;
+  filter:brightness(1.35) saturate(1.2) !important;
+}
+.button1.v107PulseClick{
+  animation:v107BtnPulse .42s cubic-bezier(.2,1.4,.3,1);
+}
+@keyframes v107BtnPulse{
+  0%{box-shadow:0 0 0 rgba(255,10,98,0)}
+  45%{box-shadow:0 0 0 9px rgba(255,10,98,.18),0 0 38px rgba(255,10,98,.35)}
+  100%{box-shadow:0 0 0 rgba(255,10,98,0)}
+}
+
+.loaderRing,.miniRing,.v107Spinner{
+  border-radius:50% !important;
+  border:4px solid rgba(255,255,255,.08) !important;
+  border-top-color:#ff0a62 !important;
+  border-right-color:#635bff !important;
+  animation:v107Spin .75s linear infinite !important;
+}
+@keyframes v107Spin{to{transform:rotate(360deg)}}
+#globalLoader .loaderBox{
+  border-radius:22px !important;
+  background:rgba(17,18,24,.94) !important;
+  border:1px solid rgba(255,255,255,.10) !important;
+}
+#globalLoader .loaderTitle{color:#fff !important;letter-spacing:2px !important}
+#globalLoader .loaderSub{color:rgba(255,255,255,.55) !important}
+
+.v107DevPage{
+  min-height:100vh;
+  background:#050505;
+  color:#f4f4f5;
+  padding:0 0 90px;
+  position:relative;
+  overflow:hidden;
+}
+.v107DevPage:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.36;
+  background-image:
+    linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:42px 42px;
+}
+.v107DevTop{
+  height:76px;display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid rgba(255,255,255,.10);
+  padding:0 28px;position:sticky;top:0;background:rgba(5,5,5,.82);backdrop-filter:blur(16px);z-index:3;
+}
+.v107DevBrand{
+  font:700 16px/1 Share Tech Mono,monospace;letter-spacing:8px;color:#f5f5f5;
+}
+.v107Hamb{width:44px;height:44px;border:1px solid rgba(255,255,255,.16);display:grid;place-items:center}
+.v107Hamb i,.v107Hamb i:before,.v107Hamb i:after{content:"";display:block;width:20px;height:2px;background:rgba(255,255,255,.78);box-shadow:0 7px 0 rgba(255,255,255,.78),0 -7px 0 rgba(255,255,255,.78)}
+.v107DevWrap{max-width:650px;margin:0 auto;border-left:1px solid rgba(255,255,255,.10);border-right:1px solid rgba(255,255,255,.10)}
+.v107DevCard{
+  position:relative;display:grid;grid-template-columns:132px 1fr;gap:34px;
+  padding:48px 46px 56px;border-bottom:1px solid rgba(255,255,255,.12);
+  background:rgba(0,0,0,.24);
+}
+.v107DevCard .num{
+  position:absolute;right:34px;bottom:34px;font:800 70px/1 Orbitron,Arial,sans-serif;
+  color:rgba(255,255,255,.045);
+}
+.v107DevAvatar{
+  width:122px;height:122px;border:1px solid rgba(255,255,255,.14);object-fit:cover;background:#111;
+}
+.v107DevAvatar.logoCard{
+  display:grid;place-items:center;font:900 44px/1 Orbitron,Arial,sans-serif;color:#050505;
+  background:linear-gradient(135deg,#00eaff,#147cff);
+}
+.v107DevRole{
+  font:700 13px/1 Share Tech Mono,monospace;letter-spacing:6px;color:rgba(255,255,255,.32);
+  text-transform:uppercase;margin:4px 0 22px;
+}
+.v107DevName{font:600 36px/1.15 Rajdhani,Arial,sans-serif;margin:0 0 10px;color:#fff}
+.v107DevMeta{font:500 15px/1 Share Tech Mono,monospace;letter-spacing:5px;color:rgba(255,255,255,.28);margin-bottom:48px}
+.v107DevDesc{font:500 22px/1.85 Rajdhani,Arial,sans-serif;color:rgba(255,255,255,.62);margin:0 0 40px}
+.v107DevTags{display:flex;flex-wrap:wrap;gap:12px}
+.v107DevTags span{
+  border:1px solid rgba(255,255,255,.16);padding:13px 24px;
+  font:700 12px/1 Share Tech Mono,monospace;letter-spacing:5px;color:rgba(255,255,255,.72);
+  background:rgba(255,255,255,.02);
+}
+.v107DevTags span.dim{opacity:.32}
+@media(max-width:560px){
+  .v107DevTop{height:76px;padding:0 24px}
+  .v107DevWrap{margin:0 28px}
+  .v107DevCard{grid-template-columns:122px 1fr;gap:34px;padding:0 48px 56px}
+  .v107DevAvatar{margin-top:0}
+  .v107DevRole{margin-top:0}
+  .v107DevName{font-size:34px}
+  .v107DevDesc{font-size:21px}
+}
+@media(max-width:430px){
+  .v107DevWrap{margin:0 26px}
+  .v107DevCard{grid-template-columns:1fr;gap:24px;padding:0 30px 54px}
+  .v107DevAvatar{margin-top:0}
+  .v107DevDesc{font-size:20px}
+  .v107DevMeta{letter-spacing:4px}
+}
+
+.v107FeatureModal{
+  position:fixed;inset:0;z-index:6500;background:rgba(0,0,0,.78);
+  display:none;align-items:center;justify-content:center;padding:22px;backdrop-filter:blur(12px);
+}
+.v107FeatureModal.show{display:flex;animation:v107Fade .22s ease}
+@keyframes v107Fade{from{opacity:0}}
+.v107FeatureBox{
+  width:min(610px,100%);max-height:88vh;overflow:auto;background:#14151d;border:1px solid rgba(255,255,255,.10);
+  border-radius:18px;box-shadow:0 25px 95px rgba(0,0,0,.75);
+}
+.v107FeatureHead{display:flex;align-items:flex-start;justify-content:space-between;padding:26px 28px 22px;border-bottom:1px solid rgba(255,255,255,.09)}
+.v107Method{display:inline-flex;background:rgba(34,197,94,.14);color:#86efac;border-radius:9px;padding:9px 12px;font:800 17px/1 Share Tech Mono,monospace;margin-right:12px}
+.v107FeatureTitle{font:800 28px/1.1 Rajdhani,Arial,sans-serif;color:white}
+.v107FeatureDesc{margin-top:10px;color:rgba(255,255,255,.55);font-size:21px}
+.v107Close{width:56px;height:56px;border-radius:16px;border:1px solid rgba(255,255,255,.10);background:#202231;color:#b9bed4;font-size:34px}
+.v107FeatureBody{padding:28px;background:#1a1c27}
+.v107Param{
+  background:#0d0e13;border:1px solid rgba(255,10,98,.28);box-shadow:0 0 45px rgba(0,0,0,.35);
+  padding:26px;border-radius:20px;margin-bottom:28px;
+}
+.v107Label{font:800 21px/1 Share Tech Mono,monospace;color:#b9bdc9;letter-spacing:2px;margin-bottom:14px}
+.v107Label b{color:#ff0a62}
+.v107Hint{font-size:18px;color:rgba(255,255,255,.42);margin-bottom:14px}
+.v107Input{
+  width:100%;min-height:66px;border-radius:18px;background:#0b0c11;border:1px solid rgba(255,10,98,.28);
+  color:white;font:600 22px/1.2 Rajdhani,Arial,sans-serif;padding:18px 24px;outline:none;
+}
+.v107Run{
+  width:100%;height:74px;border-radius:18px;background:#ff0a62;color:white;margin:18px 0 30px;
+  display:flex;align-items:center;justify-content:center;font:900 22px/1 Rajdhani,Arial,sans-serif;
+  box-shadow:0 0 36px rgba(255,10,98,.45);
+}
+.v107Run.loading span{display:none}
+.v107Run.loading:before{
+  content:"";width:27px;height:27px;border-radius:50%;border:4px solid rgba(255,255,255,.26);
+  border-top-color:#fff;animation:v107Spin .7s linear infinite;
+}
+.v107CodeBlock{
+  background:#07080c;border-radius:20px;padding:24px;margin-top:22px;
+}
+.v107CodeTitle{display:flex;align-items:center;justify-content:space-between;font:800 18px/1 Rajdhani,Arial,sans-serif;color:#e8e8ef;margin-bottom:16px}
+.v107Dot{width:10px;height:10px;border-radius:50%;display:inline-block;background:#ff0a62;box-shadow:0 0 14px #ff0a62;margin-right:10px}
+.v107Copy{border-radius:12px;border:1px solid rgba(255,255,255,.10);background:#14151d;color:rgba(255,255,255,.62);padding:12px 18px;font-weight:900}
+.v107Code{
+  background:#030408;border-radius:15px;color:#989ba8;font:600 15px/1.65 Share Tech Mono,monospace;padding:20px;word-break:break-all;
+}
+.v107ServerTitle{margin-top:26px;color:#58e38d;font:800 18px/1 Rajdhani,Arial,sans-serif}
+.v107Result{display:none}
+.v107Result.show{display:block}
+.v107PreviewMedia{width:100%;border-radius:18px;margin-top:18px;border:1px solid rgba(255,255,255,.08);background:#06070b}
+
+
+/* ===== V108 AUTH CENTER FIX ===== */
+.auth{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:100svh !important;
+  padding:20px !important;
+}
+.authBox{
+  width:min(380px, calc(100vw - 34px)) !important;
+  margin:auto !important;
+  left:auto !important;
+  right:auto !important;
+  top:auto !important;
+  bottom:auto !important;
+  transform:none !important;
+  padding:30px 24px !important;
+  text-align:center !important;
+}
+.authTitle,
+.authSub,
+.authBox label,
+.authBox .sub,
+.authBox h1,
+.authBox h2,
+.authBox p{
+  text-align:center !important;
+}
+.authBox .switch{
+  width:100% !important;
+  margin:0 auto 14px !important;
+}
+.authBox .switch button{
+  text-align:center !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+.authBox .input,
+.authBox input,
+.authBox textarea{
+  text-align:center !important;
+  padding-left:54px !important;
+  padding-right:54px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+.authBox input::placeholder{
+  text-align:center !important;
+}
+.authBox .pwWrap{
+  width:100% !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+.authBox .pwWrap .input{
+  padding-left:54px !important;
+  padding-right:54px !important;
+}
+.authBox .eyeBtn{
+  right:7px !important;
+}
+.authBox .button1,
+.authBox button:not(.eyeBtn){
+  width:100% !important;
+  justify-content:center !important;
+  text-align:center !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+.authLogo{
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+@media(max-width:430px){
+  .auth{
+    padding:16px !important;
+  }
+  .authBox{
+    width:calc(100vw - 32px) !important;
+    padding:28px 20px !important;
+  }
+}
+
+
+/* ===== V109 AUTH LOGO + EYE POSITION FIX ===== */
+.authLogo{
+  font-size:0 !important;
+  line-height:1 !important;
+  display:grid !important;
+  place-items:center !important;
+  overflow:hidden !important;
+}
+.authLogo::before{
+  content:"ELL" !important;
+  display:block !important;
+  font-family:Arial Black, Impact, Orbitron, system-ui, sans-serif !important;
+  font-size:31px !important;
+  font-weight:900 !important;
+  letter-spacing:-2.4px !important;
+  color:#06131d !important;
+  transform:translateY(1px) scaleX(1.03) !important;
+  text-shadow:none !important;
+}
+#v107Splash .splashLogo{
+  font-family:Arial Black, Impact, Orbitron, system-ui, sans-serif !important;
+  font-size:31px !important;
+  font-weight:900 !important;
+  letter-spacing:-2.4px !important;
+  color:#06131d !important;
+  line-height:1 !important;
+}
+
+/* password eye must stay on the right, not cosplay as centered text */
+.authBox .pwWrap{
+  position:relative !important;
+  display:block !important;
+  width:100% !important;
+}
+.authBox .pwWrap input,
+.authBox .pwWrap .input{
+  width:100% !important;
+  text-align:center !important;
+  padding-left:58px !important;
+  padding-right:76px !important;
+}
+.authBox .pwWrap .eyeBtn,
+.authBox .eyeBtn{
+  position:absolute !important;
+  right:13px !important;
+  left:auto !important;
+  top:50% !important;
+  bottom:auto !important;
+  transform:translateY(-50%) !important;
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  max-width:42px !important;
+  min-height:42px !important;
+  max-height:42px !important;
+  padding:0 !important;
+  margin:0 !important;
+  border-radius:14px !important;
+  z-index:20 !important;
+  display:grid !important;
+  place-items:center !important;
+  flex:none !important;
+}
+.authBox .eyeBtn svg{
+  width:21px !important;
+  height:21px !important;
+  margin:0 !important;
+  position:static !important;
+  transform:none !important;
+  pointer-events:none !important;
+}
+.authBox .pwWrap .eyeBtn + *,
+.authBox .eyeBtn + *{
+  margin:0 !important;
+}
+.authBox .input{
+  min-height:64px !important;
+}
+
 </style>
 <!-- Copy flow revised: alur teks dirapikan tanpa mengubah struktur utama UI/JS. -->
 
@@ -229,8 +634,6 @@ body:after{background-image:linear-gradient(rgba(var(--accent-rgb),.035) 1px,tra
 </style>
 
 <script src="./db.js"></script>
-<script src="./db.js"></script>
-
 <style id="remi-v103-safe-css">
 :root{--button1-a:#198fff;--button1-b:#25e5ff;--button1-text:#04121f;--role-free:#7c8798;--role-admin:#29a8ff;--role-premium:#ffd76a;--role-owner:#b982ff}
 .button1,.btn.button1,.profileBtnRow .btn,.spc-buy-btn,.buy-btn,.claim-btn,.gacha-btn-primary{background:linear-gradient(135deg,var(--button1-a),var(--button1-b))!important;color:var(--button1-text)!important;border:0!important;border-radius:18px!important;min-height:54px!important;font-weight:1000!important;box-shadow:0 10px 26px rgba(37,229,255,.22),inset 0 -2px 0 rgba(0,0,0,.12)!important;text-align:center!important;justify-content:center!important}
@@ -242,8 +645,276 @@ body:after{background-image:linear-gradient(rgba(var(--accent-rgb),.035) 1px,tra
 .announce-pop{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.72);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:18px}.announce-pop.show{display:flex}.announce-card{max-width:410px;width:100%;border-radius:26px;padding:22px;background:linear-gradient(180deg,#101a30,#071020);border:1px solid rgba(43,220,255,.24);box-shadow:0 30px 80px rgba(0,0,0,.58)}
 #relayInput,#relayBox,.relay-config,.relayToken,.relayPanel{display:none!important}
 </style>
+<style>
+
+/* ===== V110 HARD AUTH FIX: ELL LOGO + PASSWORD EYE NO COLLISION ===== */
+
+/* Kill text based logo and draw ELL manually */
+.auth .authLogo,
+#v107Splash .splashLogo{
+  position:relative !important;
+  width:92px !important;
+  height:92px !important;
+  border-radius:26px !important;
+  overflow:hidden !important;
+  font-size:0 !important;
+  color:transparent !important;
+  text-indent:-9999px !important;
+  display:block !important;
+}
+.auth .authLogo::before,
+.auth .authLogo::after,
+#v107Splash .splashLogo::before,
+#v107Splash .splashLogo::after{
+  content:"" !important;
+  position:absolute !important;
+  display:block !important;
+  background:#071723 !important;
+  border-radius:2px !important;
+  transform:none !important;
+  text-shadow:none !important;
+}
+/* E + horizontal mid line */
+.auth .authLogo::before,
+#v107Splash .splashLogo::before{
+  left:18px !important;
+  top:29px !important;
+  width:56px !important;
+  height:34px !important;
+  background:
+    linear-gradient(#071723,#071723) 0 0/36px 7px no-repeat,
+    linear-gradient(#071723,#071723) 0 14px/31px 7px no-repeat,
+    linear-gradient(#071723,#071723) 0 28px/36px 7px no-repeat,
+    linear-gradient(#071723,#071723) 0 0/7px 35px no-repeat,
+    linear-gradient(#071723,#071723) 43px 0/7px 35px no-repeat,
+    linear-gradient(#071723,#071723) 57px 0/7px 35px no-repeat,
+    linear-gradient(#071723,#071723) 43px 28px/28px 7px no-repeat !important;
+}
+/* cover old pseudo text if any */
+.auth .authLogo::after,
+#v107Splash .splashLogo::after{
+  left:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  height:0 !important;
+  width:0 !important;
+  background:transparent !important;
+}
+
+/* Auth center and spacing */
+#auth.auth,
+.auth{
+  align-items:center !important;
+  justify-content:center !important;
+  padding:18px !important;
+}
+#auth .authBox,
+.auth .authBox{
+  width:min(385px, calc(100vw - 34px)) !important;
+  max-width:385px !important;
+  margin:auto !important;
+  padding:30px 22px 34px !important;
+  text-align:center !important;
+}
+
+/* Make all login/register normal input boxes fixed height */
+#auth .authBox input.input,
+.auth .authBox input.input{
+  width:100% !important;
+  height:64px !important;
+  min-height:64px !important;
+  box-sizing:border-box !important;
+  text-align:center !important;
+  padding:0 24px !important;
+  line-height:64px !important;
+  display:block !important;
+}
+
+/* Password row: reserve right side for eye */
+#auth .authBox .pwWrap,
+.auth .authBox .pwWrap{
+  position:relative !important;
+  width:100% !important;
+  height:64px !important;
+  min-height:64px !important;
+  display:block !important;
+  margin:0 auto !important;
+}
+#auth .authBox .pwWrap input.input,
+.auth .authBox .pwWrap input.input{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:64px !important;
+  min-height:64px !important;
+  padding-left:72px !important;
+  padding-right:88px !important;
+  text-align:center !important;
+  line-height:64px !important;
+  z-index:1 !important;
+}
+
+/* Eye button forced right */
+#auth .authBox .pwWrap button.eyeBtn,
+.auth .authBox .pwWrap button.eyeBtn,
+#auth .authBox button.eyeBtn,
+.auth .authBox button.eyeBtn{
+  all:unset !important;
+  position:absolute !important;
+  top:50% !important;
+  right:14px !important;
+  left:auto !important;
+  transform:translateY(-50%) !important;
+  width:44px !important;
+  height:44px !important;
+  z-index:30 !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:14px !important;
+  border:1px solid rgba(0,234,255,.24) !important;
+  background:rgba(0,18,28,.78) !important;
+  box-shadow:0 0 18px rgba(0,234,255,.12) !important;
+  cursor:pointer !important;
+  box-sizing:border-box !important;
+}
+#auth .authBox .pwWrap button.eyeBtn svg,
+.auth .authBox .pwWrap button.eyeBtn svg,
+#auth .authBox button.eyeBtn svg,
+.auth .authBox button.eyeBtn svg{
+  width:22px !important;
+  height:22px !important;
+  stroke:#22e7ff !important;
+  stroke-width:2.2 !important;
+  fill:none !important;
+  display:block !important;
+  position:static !important;
+  margin:0 !important;
+  transform:none !important;
+  pointer-events:none !important;
+}
+#auth .authBox button.eyeBtn .eye-open,
+.auth .authBox button.eyeBtn .eye-open{display:block !important}
+#auth .authBox button.eyeBtn .eye-closed,
+.auth .authBox button.eyeBtn .eye-closed{display:none !important}
+#auth .authBox button.eyeBtn.show .eye-open,
+.auth .authBox button.eyeBtn.show .eye-open{display:none !important}
+#auth .authBox button.eyeBtn.show .eye-closed,
+.auth .authBox button.eyeBtn.show .eye-closed{display:block !important}
+
+/* Avoid old button rule width:100 touching eye */
+#auth .authBox button.eyeBtn.button1,
+.auth .authBox button.eyeBtn.button1{
+  width:44px !important;
+  min-width:44px !important;
+  max-width:44px !important;
+}
+
+/* Buttons/text */
+#auth .authBox .button1:not(.eyeBtn),
+.auth .authBox .button1:not(.eyeBtn){
+  width:100% !important;
+  text-align:center !important;
+  justify-content:center !important;
+}
+
+</style>
+
+<style id="v111-auth-final-clean-css">
+/* ===== V111 AUTH FINAL CLEAN: remove old eye chaos, real ELL text ===== */
+.auth .authLogo,
+#v107Splash .splashLogo{
+  font-size:34px !important;
+  text-indent:0 !important;
+  color:#06131d !important;
+  display:grid !important;
+  place-items:center !important;
+  font-family:Arial Black, Impact, system-ui, sans-serif !important;
+  font-weight:900 !important;
+  letter-spacing:-2px !important;
+  line-height:1 !important;
+  text-shadow:none !important;
+  overflow:hidden !important;
+}
+.auth .authLogo::before,
+.auth .authLogo::after,
+#v107Splash .splashLogo::before,
+#v107Splash .splashLogo::after{
+  content:none !important;
+  display:none !important;
+}
+
+.authBox .remi-eye-btn,
+.authBox .eyeBtn{
+  display:none !important;
+  visibility:hidden !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+}
+
+.auth-pass-final{
+  position:relative !important;
+  width:100% !important;
+  height:64px !important;
+  margin:0 auto !important;
+  display:block !important;
+}
+.auth-pass-final input{
+  width:100% !important;
+  height:64px !important;
+  min-height:64px !important;
+  line-height:64px !important;
+  text-align:center !important;
+  box-sizing:border-box !important;
+  padding-left:72px !important;
+  padding-right:82px !important;
+  border-radius:18px !important;
+}
+.auth-eye-final{
+  all:unset !important;
+  position:absolute !important;
+  top:50% !important;
+  right:14px !important;
+  left:auto !important;
+  transform:translateY(-50%) !important;
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  max-width:42px !important;
+  min-height:42px !important;
+  max-height:42px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:14px !important;
+  border:1px solid rgba(0,234,255,.28) !important;
+  background:rgba(0,18,28,.86) !important;
+  box-shadow:0 0 18px rgba(0,234,255,.14) !important;
+  z-index:999 !important;
+  cursor:pointer !important;
+}
+.auth-eye-final svg{
+  width:22px !important;
+  height:22px !important;
+  stroke:#21e7ff !important;
+  stroke-width:2.2 !important;
+  fill:none !important;
+  display:block !important;
+  pointer-events:none !important;
+}
+.auth-eye-final .open{display:none !important}
+.auth-eye-final.show .open{display:block !important}
+.auth-eye-final.show .closed{display:none !important}
+</style>
+
 </head>
 <body>
+
+<div id="v107Splash">
+  <div class="splashBox">
+    <div class="splashLogo">ELL</div>
+    <div class="splashText">REMI AI STORE</div>
+  </div>
+</div>
+
 <div class="auth" id="auth">
   <div class="authBox">
     <div class="authLogo">ELL</div>
@@ -6487,5 +7158,466 @@ document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{
   document.addEventListener('DOMContentLoaded',()=>{restore();bindRealtime();seedImportant();}); setTimeout(()=>{restore();bindRealtime();seedImportant();},800);
 })();
 </script>
+
+
+<!-- ================= REMI V104 REQUEST PATCH: final tools + TextPro + cyber polish ================= -->
+<style id="remi-v104-polish">
+:root{--v104-cyan:#2bdcff;--v104-blue:#147cff;--v104-deep:#050812;--v104-panel:#081326;--v104-line:rgba(43,220,255,.18)}
+.brand span{font-size:0!important}.brand span:after{content:'STORE • V1';font-size:8px;color:var(--muted);letter-spacing:2px}
+.btn.purple,.btn.green,.btn:not(.ghost):not(.red),.button1,.spc-buy-btn,.buy-btn,.claim-btn{background:linear-gradient(135deg,var(--blue),var(--cyan))!important;color:#04101d!important;border-radius:18px!important;font-weight:1000!important;box-shadow:0 12px 28px rgba(43,220,255,.22), inset 0 -2px 0 rgba(0,0,0,.14)!important;position:relative;overflow:hidden}
+.btn.ghost,.choiceBtn,.dlTypeBtn,.tab{border-color:rgba(43,220,255,.20)!important;background:rgba(43,220,255,.055)!important;color:var(--cyan2)!important}
+.choiceBtn.active,.dlTypeBtn.active,.tab.active{background:linear-gradient(135deg,rgba(20,124,255,.88),rgba(181,21,255,.78))!important;color:white!important;border-color:rgba(43,220,255,.50)!important;box-shadow:0 0 24px rgba(43,220,255,.16)!important}
+.tool,.card,.panel,.box{border-radius:20px!important;background:linear-gradient(180deg,#0d1629,#071020)!important;border-color:rgba(43,220,255,.10)!important}
+.tool:hover,.card:hover{border-color:rgba(43,220,255,.45)!important;box-shadow:0 0 26px rgba(43,220,255,.16)!important;transform:translateY(-1px)}
+.toolIcon{filter:drop-shadow(0 0 12px rgba(43,220,255,.28))}.secHead{color:#9eb1ca!important}.hero{border-radius:24px!important}.hero h1 span,.brand b,.title small{color:var(--cyan)!important}
+.remi-v104-loader{display:flex;align-items:center;justify-content:center;gap:9px;color:var(--cyan2);padding:12px;border:1px solid rgba(43,220,255,.12);border-radius:16px;background:rgba(43,220,255,.055);margin-top:10px}.remi-v104-loader:before{content:'';width:18px;height:18px;border-radius:50%;border:3px solid rgba(43,220,255,.18);border-top-color:var(--cyan);animation:v104spin .8s linear infinite}@keyframes v104spin{to{transform:rotate(360deg)}}
+.remi-v104-result{border:1px solid rgba(43,220,255,.14);background:rgba(43,220,255,.045);border-radius:18px;padding:12px;margin-top:12px}.remi-v104-result pre{white-space:pre-wrap;word-break:break-all;color:var(--cyan2);font-family:'DM Mono',monospace;font-size:10px}
+</style>
+<script id="remi-v104-request-patch">
+(function(){
+'use strict';
+const V104_NEX='https://api.nexray.eu.cc';
+const V104_CUKI='https://api.cuki.biz.id';
+const V104_CUKI_KEY='cuki-x';
+function v104Esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function v104SetLoading(id,msg){const el=document.getElementById(id); if(el) el.innerHTML=`<div class="remi-v104-loader">${v104Esc(msg||'Loading...')}</div>`;}
+function v104EndpointBox(url){return `<div class="remi-v104-result"><b>Endpoint siap:</b><pre>${v104Esc(url)}</pre><div class="smallbtns"><a class="btn purple" href="${v104Esc(url)}" target="_blank" style="text-decoration:none;text-align:center">Open</a><button class="btn ghost" onclick="navigator.clipboard&&navigator.clipboard.writeText('${v104Esc(url).replace(/'/g,'\\\'')}');toast('URL disalin')">Copy</button></div></div>`}
+window.REMI_V104_ENDPOINTS={
+  nglSpam:`${V104_CUKI}/api/tools/nglspam?apikey=${V104_CUKI_KEY}&link=`,
+  bratCewek:'https://api.deline.web.id/maker/cewekbrat?text=',
+  musicCard:`${V104_NEX}/canvas/musiccard?judul=`,
+  textpro:`${V104_NEX}/textpro/`,
+  pinterestSearch:`${V104_NEX}/search/pinterest?q=`,
+  capcutDownloader:`${V104_NEX}/downloader/v2/capcut?url=`,
+  mediafireDownloader:`${V104_NEX}/downloader/mediafire?url=`,
+  spotifyPlay:`${V104_NEX}/downloader/spotifyplay?q=`,
+  ytMp3:`${V104_NEX}/downloader/ytplay?q=`,
+  ytVideo:`${V104_NEX}/downloader/ytplayvid?q=`
+};
+const REMI_TOOLS_FINAL=[
+ ['⬇️','Downloader','TikTok, Instagram, Facebook, Pinterest, Spotify, YouTube MP3/Video, Videy, CapCut, MediaFire.','downloader'],
+ ['🔗','To URL Uploader','Upload gambar/video/audio jadi URL.','tourl'],
+ ['👁️','Pembaca Teks Gambar / OCR','Ambil teks dari gambar.','ocr'],
+ ['🌐','Translate','Terjemahkan teks.','translate'],
+ ['🧪','Brat Generator','Default, HD, Bahlil, Cewek, Green, Anime, Patrik, Squidward, Gura.','brat'],
+ ['💌','NGL Spam','Cuki NGL spam pakai parameter link, message, jumlah.','nglpesan_v88'],
+ ['🎭','Fake Maker','Fake NGL, ML, FF, Nokia, Nulis, Dev, Wasted, Susu, Starboy, Ustadz, Musik Card.','fake'],
+ ['📱','iPhone Quote Chat','Buat gambar quote chat iPhone.','iqc'],
+ ['🔍','Stalking','Cek info game/sosmed.','stalk'],
+ ['🧮','Kalkulator','Hitung angka.','calc'],
+ ['🪄','Remove Background','Hapus background gambar.','removebg'],
+ ['🌦️','Cek Cuaca','Cek cuaca kota/provinsi.','cuki_weather'],
+ ['🌋','Info Gempa','Info gempa terbaru.','cuki_bmkg'],
+ ['⚽','Jadwal Bola','Jadwal pertandingan bola.','jadwalbola_v88'],
+ ['🕌','Jadwal Sholat','Jadwal sholat kota.','jadwalsholat_v88'],
+ ['🎤','Text To Speech','Gemini TTS MP3.','tts_v88'],
+ ['🔎','Search Hub','Lahelu, Pin, Spotify, YT, MCPE, Mangatoon, Stickerly, HappyMod, Resep.','search_hub'],
+ ['🌐','Screenshot Website','Ambil screenshot website.','ssweb'],
+ ['🌐','Search IP Address','Geo IP / IP lookup.','checkip'],
+ ['🔢','Binary ⇄ Teks','Konversi binary dan teks.','cuki_binary'],
+ ['•−','Kode Morse ⇄ Teks','Konversi Morse dan teks.','morse_v90'],
+ ['✨','Text Pro','Generator text/logo effect NexRay.','textpro']
+];
+window.renderTools=function(){const grid=document.getElementById('toolsGrid'); if(!grid)return; grid.innerHTML=REMI_TOOLS_FINAL.map(t=>`<div class="tool"><div class="toolIcon">${t[0]}</div><h3>${v104Esc(t[1])}</h3><p>${v104Esc(t[2])}</p><button class="btn purple" onclick="runTool('${t[3]}')">Buka</button></div>`).join('')};
+const oldRun=window.runTool;
+window.runTool=function(a){ if(a==='textpro') return toolTextProV104(); return oldRun?oldRun(a):toast('Tool tidak dikenal: '+a,'err'); };
+const oldNex=window.nexrayEndpoint;
+window.nexrayEndpoint=function(type,value){const enc=encodeURIComponent(value); const map={facebook:`${V104_NEX}/downloader/facebook?url=${enc}`,instagram:`${V104_NEX}/downloader/instagram?url=${enc}`,pinterest:`${V104_NEX}/search/pinterest?q=${enc}`,spotify_url:`${V104_NEX}/downloader/spotify?url=${enc}`,spotify_play:`${V104_NEX}/downloader/spotifyplay?q=${enc}`,yt_mp3:`${V104_NEX}/downloader/ytplay?q=${enc}`,yt_video:`${V104_NEX}/downloader/ytplayvid?q=${enc}`,videy:`${V104_NEX}/downloader/videy?url=${enc}`,capcut:`${V104_NEX}/downloader/v2/capcut?url=${enc}`,mediafire:`${V104_NEX}/downloader/mediafire?url=${enc}`}; return map[type] || (oldNex?oldNex(type,value):'');};
+window.cukiDownloaderEndpoint=function(type,value){const enc=encodeURIComponent(value); const key=encodeURIComponent((window.CUKI_API&&CUKI_API.key)||V104_CUKI_KEY); const base=(window.cleanApiBase?cleanApiBase((window.CUKI_API&&CUKI_API.base)||V104_CUKI,V104_CUKI):V104_CUKI); const map={tiktok:`${base}/api/downloader/tiktok?apikey=${key}&url=${enc}`}; return map[type]||'';};
+window.downloaderEndpoint=function(type,value){ if(type==='tiktok')return cukiDownloaderEndpoint(type,value); return nexrayEndpoint(type,value); };
+window.toolDownloader=function(){openModal('⬇️ Downloader Hub',`
+ ${typeof proxyNeedHtml==='function'?proxyNeedHtml():''}
+ <input type="hidden" id="dlType" value="tiktok">
+ <div class="dlTypeGrid">
+ ${[['tiktok','🎵','TikTok','Cuki'],['instagram','📸','Instagram','NexRay'],['facebook','📘','Facebook','NexRay'],['pinterest','📌','Pinterest','Search/Pin'],['spotify_url','🟢','Spotify URL','NexRay'],['spotify_play','🎧','Spotify Play','Query'],['yt_mp3','▶️','YouTube MP3','Query'],['yt_video','🎬','YouTube Video','Slow'],['videy','🎞️','Videy','MP4'],['capcut','✂️','CapCut','Downloader'],['mediafire','📦','MediaFire','File']].map((x,i)=>`<button class="dlTypeBtn ${i?'':'active'}" data-dl="${x[0]}" onclick="setDlType('${x[0]}')">${x[1]} ${x[2]}<small>${x[3]}</small></button>`).join('')}
+ </div><input class="input" id="dlUrl" placeholder="Tempel link TikTok..."><button class="btn purple" style="width:100%;margin-top:12px" onclick="doDownload()">🚀 Ambil Media</button><div id="dlResult" class="preview"></div>${typeof historyBlock==='function'?historyBlock('download','Riwayat Download'):''}`)};
+window.setDlType=function(type){if(document.getElementById('dlType'))document.getElementById('dlType').value=type;document.querySelectorAll('[data-dl]').forEach(b=>b.classList.toggle('active',b.dataset.dl===type)); const q=document.getElementById('dlUrl'); if(q){const ph={tiktok:'Tempel link TikTok...',instagram:'Tempel link Instagram...',facebook:'Tempel link Facebook...',pinterest:'Cari/Tempel Pinterest...',spotify_url:'Tempel link Spotify track...',spotify_play:'Cari lagu Spotify...',yt_mp3:'Cari YouTube MP3...',yt_video:'Cari YouTube Video...',videy:'Tempel link Videy...',capcut:'Tempel link CapCut template...',mediafire:'Tempel link MediaFire...'};q.placeholder=ph[type]||'Masukkan URL/query...'}};
+window.toolSearchHub=function(){openModal('🔎 Search Hub',`<input type="hidden" id="shType" value="lahelu"><div class="choiceGrid">${[['lahelu','😂','Lahelu'],['pinterest_image','📌','Pin Image'],['pinterest_video','🎞️','Pin Video'],['spotify_play','🟢','Spotify Search'],['playyt','▶️','YT MP3 / Play YT'],['mcpe','⛏️','MCPE'],['youtube','🔗','YT Link'],['mangatoon','📚','Mangatoon'],['stickerly','💬','Sticker.ly'],['happymod','👾','HappyMod'],['resep','🍳','Resep Makanan']].map((x,i)=>`<button class="choiceBtn ${i?'':'active'}" data-sh="${x[0]}" onclick="setSearchHubType('${x[0]}')">${x[1]} ${x[2]}<small>Search</small></button>`).join('')}</div><input class="input" id="shQuery" placeholder="Masukkan kata kunci..."><button class="btn purple" style="width:100%;margin-top:10px" onclick="doSearchHub()">Search</button><div id="shOut" class="preview"></div>`)};
+window.toolBrat=function(){openModal('🧪 Brat Generator',`<select id="bratMode"><option value="brat">🖼️ Brat Default</option><option value="brathd">🔥 Brat HD</option><option value="bratbahlil">🧌 Brat Bahlil</option><option value="cewekbrat">🚺 Brat Cewek</option><option value="brat-green">🟢 Brat Green</option><option value="brat-anime">🌸 Brat Anime</option><option value="brat-patrik">⭐ Brat Patrik</option><option value="brat-squidward">🦑 Brat Squidward</option><option value="brat-gura">🐋 Brat Gura</option></select><div style="height:9px"></div><input class="input" id="bratTxt" placeholder="Teks brat..."><button class="btn purple" style="width:100%;margin-top:10px" onclick="makeBratV104()">Buat Brat</button><div id="bratOut" class="preview"></div>${typeof historyBlock==='function'?historyBlock('brat','Riwayat Brat'):''}`)};
+window.makeBratV104=function(){const t=(document.getElementById('bratTxt')?.value||'').trim();const m=document.getElementById('bratMode')?.value||'brat';if(!t)return toast('Teks kosong.','warn');let url=m==='cewekbrat'?'https://api.deline.web.id/maker/cewekbrat?text='+encodeURIComponent(t):(m==='brathd'?`${V104_NEX}/maker/brathd?text=${encodeURIComponent(t)}`:`${V104_NEX}/maker/${m}?text=${encodeURIComponent(t)}`); if(typeof renderMediaResult==='function')renderMediaResult('bratOut',url,'Brat Generator','image'); else document.getElementById('bratOut').innerHTML=v104EndpointBox(url);};
+window.toolFakeMaker=function(){openModal('🎭 Fake / Canvas Maker',`<input type="hidden" id="fakeType" value="ngl"><div class="choiceGrid" id="fakeChoiceGrid">${[['ngl','💬','Fake NGL'],['ml','🎮','Fake ML'],['ff','🔥','Fake FF Solo'],['ffduo','🔥','Fake FF Duo'],['ffduo2','🔥','Fake FF Duo 2'],['nokia','📱','Fake Nokia'],['nulis','✍️','Fake Nulis'],['dev1','🧑‍💻','Fake Dev 1'],['dev2','🧑‍💻','Fake Dev 2'],['dev3','🧑‍💻','Fake Dev 3'],['wasted1','💀','Wasted 1'],['wasted2','💀','Wasted 2'],['susuori','🥛','Susu Original'],['susutaro','🟣','Susu Taro'],['starboy','⭐','Starboy'],['ustadz','🕌','Fake Ustadz'],['musiccard','🎵','Musik Card']].map((x,i)=>`<button class="choiceBtn ${i?'':'active'}" data-fake="${x[0]}" onclick="setFakeTypeV104('${x[0]}')">${x[1]} ${x[2]}<small>fake</small></button>`).join('')}</div><div id="fakeFields" style="margin-top:9px"></div><button class="btn purple" style="width:100%;margin-top:10px" onclick="makeFakeV104()">Buat Fake</button><div id="fakeOut" class="preview"></div>`);renderFakeFieldsV104();};
+window.setFakeTypeV104=function(type){document.getElementById('fakeType').value=type;document.querySelectorAll('[data-fake]').forEach(b=>b.classList.toggle('active',b.dataset.fake===type));renderFakeFieldsV104();};
+window.renderFakeFieldsV104=function(){const t=document.getElementById('fakeType').value;let h=''; if(t==='musiccard')h='<input class="input" id="mcJudul" placeholder="Judul lagu"><div style="height:9px"></div><input class="input" id="mcNama" placeholder="Nama"><div style="height:9px"></div><input class="input" id="mcImage" placeholder="URL gambar / hasil upload Firebase">'; else if(['wasted1','wasted2','susuori','susutaro','starboy'].includes(t))h='<input class="input" id="fkImage" placeholder="URL foto">'; else if(t==='ustadz'||t==='ngl'||t==='nulis')h='<textarea id="fkText" placeholder="Teks..."></textarea>'; else h='<input class="input" id="fkText" placeholder="Text/Nama"><div style="height:9px"></div><input class="input" id="fkImage" placeholder="URL gambar opsional">'; document.getElementById('fakeFields').innerHTML=h;};
+window.makeFakeV104=function(){const t=document.getElementById('fakeType').value; if(t==='musiccard'){const judul=document.getElementById('mcJudul').value||'Payphone';const nama=document.getElementById('mcNama').value||'ellpigi';const img=document.getElementById('mcImage').value||'http://rahmad-elaina.my.id/file/15151a8058.jpg';const url=`${V104_NEX}/canvas/musiccard?judul=${encodeURIComponent(judul)}&nama=${encodeURIComponent(nama)}&image_url=${encodeURIComponent(img)}`;document.getElementById('fakeOut').innerHTML=v104EndpointBox(url);return;} if(typeof makeFakeUnified==='function')return makeFakeUnified(); document.getElementById('fakeOut').innerHTML='<div class="panel">Endpoint fake ini siap disambung.</div>';};
+window.toolTextProV104=function(){openModal('✨ Text Pro',`<input type="hidden" id="tpRoute" value="blackpink"><input type="hidden" id="tpType" value="single"><div class="choiceGrid" id="tpGrid">${[['blackpink','BlackPink','single'],['pavement','Pavement','single'],['pixel-glitch','Pixel Glitch','single'],['typography','Typography','single'],['wetglass','Wet Glass','single'],['write-graffiti','Write Graffiti','single'],['naruto','Naruto','single'],['glitch','Glitch','single'],['bear','Bear','single'],['cartoon-graffiti','Cartoon Graffiti','single'],['comic','Comic','single'],['devil-wings','Devil Wings','single'],['dragonball','Dragon Ball','single'],['v5/graffiti','Graffiti V5','single'],['wolf-galaxy','Wolf Galaxy','double'],['pornhub','Pornhub','double'],['painting','Painting','double'],['marvel','Marvel','double'],['avengers','Avengers','double'],['v1/graffiti','Graffiti V1','double'],['foggy-glass','Foggy Glass','style'],['mascot','Mascot','mascot']].map((x,i)=>`<button class="choiceBtn ${i?'':'active'}" data-tp-route="${x[0]}" data-tp-type="${x[2]}" onclick="setTextProTypeV104('${x[0]}','${x[2]}',this)">✨ ${x[1]}<small>${x[2]}</small></button>`).join('')}</div><input class="input" id="tpText1" placeholder="Text"><div style="height:9px"></div><input class="input" id="tpText2" placeholder="Text 2 / style" style="display:none"><button class="btn purple" style="width:100%;margin-top:10px" onclick="makeTextProV104()">Generate Text Pro</button><div id="tpOut" class="preview"></div>`)};
+window.setTextProTypeV104=function(route,type,btn){document.getElementById('tpRoute').value=route;document.getElementById('tpType').value=type;document.querySelectorAll('#tpGrid .choiceBtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const t2=document.getElementById('tpText2');t2.style.display=type==='single'?'none':'block';t2.placeholder=type==='style'?'style: bear/cat/flower/heart/sad/smile':(type==='mascot'?'mascot style: wolf/dragon/kitsune/...':'Text 2');};
+window.makeTextProV104=function(){const route=document.getElementById('tpRoute').value;const type=document.getElementById('tpType').value;const t1=encodeURIComponent(document.getElementById('tpText1').value||'Remi');const t2=encodeURIComponent(document.getElementById('tpText2').value||'AI');const url=`${V104_NEX}/textpro/${route}`+(type==='single'?`?text=${t1}`:type==='style'?`?text=${t1}&style=${t2}`:`?text1=${t1}&text2=${t2}`);document.getElementById('tpOut').innerHTML=v104EndpointBox(url);};
+try{renderTools();}catch(e){console.warn(e)}
+})();
+</script>
+<!-- ================= END REMI V104 PATCH ================= -->
+
+
+
+<!-- ================= REMI V105 FINAL REQUEST PATCH: buttons/order/media/cuki/eye-svg ================= -->
+<style id="remi-v105-final-css">
+/* V103 x Cuki polish, tanpa ngerusak deposit/boost */
+:root{--cuki-bg:#03070f;--cuki-card:#071321;--cuki-line:rgba(0,234,255,.22);--cuki-line-soft:rgba(0,234,255,.09);--cuki-cyan:#00eaff;--cuki-blue:#168bff;--cuki-purple:#9d4cff;--cuki-text:#eaf8ff;--cuki-muted:#93a8bd;}
+body.v105-clicking *{cursor:progress!important}
+body:has(.auth:not(.hide)) .authBox{max-width:380px!important;padding:28px 24px!important;border-radius:10px!important;background:linear-gradient(135deg,rgba(0,234,255,.06),rgba(6,11,20,.96))!important;border:1px solid rgba(0,234,255,.30)!important;box-shadow:0 0 90px rgba(0,234,255,.13),0 30px 90px rgba(0,0,0,.60)!important}
+.authTitle,.authSub,.authBox input,.authBox button{font-family:Outfit,system-ui,sans-serif!important;letter-spacing:0!important}.authTitle{font-weight:900!important}.authSub{opacity:.78}.authBox .input{padding-right:50px!important;text-align:left!important;border-radius:14px!important}.remi-eye-wrap{position:relative}.remi-eye-btn{position:absolute;right:7px;top:50%;transform:translateY(-50%);width:39px;height:39px;border-radius:12px;border:1px solid rgba(0,234,255,.24);background:rgba(0,234,255,.06);display:grid;place-items:center;color:var(--cuki-cyan);padding:0}.remi-eye-btn svg{width:20px;height:20px;display:block;stroke:currentColor}.remi-eye-btn .eye-open{display:none}.remi-eye-btn.show .eye-open{display:block}.remi-eye-btn.show .eye-closed{display:none}
+#remiV105Loader{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:99999;background:rgba(1,5,12,.72);backdrop-filter:blur(10px)}#remiV105Loader.show{display:flex}.remi-v105-loader-card{width:min(310px,92vw);border:1px solid var(--cuki-line);background:linear-gradient(135deg,rgba(0,234,255,.07),rgba(4,10,20,.98));border-radius:14px;padding:25px;text-align:center;box-shadow:0 0 80px rgba(0,234,255,.16),0 25px 80px rgba(0,0,0,.65);position:relative}.remi-v105-loader-card:before,.remi-v105-loader-card:after{content:"";position:absolute;width:22px;height:22px}.remi-v105-loader-card:before{top:-1px;left:-1px;border-top:2px solid var(--cuki-cyan);border-left:2px solid var(--cuki-cyan)}.remi-v105-loader-card:after{right:-1px;bottom:-1px;border-right:2px solid var(--cuki-cyan);border-bottom:2px solid var(--cuki-cyan)}.remi-v105-ring{width:58px;height:58px;margin:0 auto 13px;border-radius:50%;border:4px solid rgba(0,234,255,.13);border-top-color:var(--cuki-cyan);border-right-color:var(--cuki-purple);animation:remiV105Spin .78s linear infinite}.remi-v105-loader-title{font-weight:1000;color:var(--cuki-cyan);font-size:15px}.remi-v105-loader-sub{font-size:11px;color:var(--cuki-muted);margin-top:5px}@keyframes remiV105Spin{to{transform:rotate(360deg)}}
+.remi-v105-scan{position:fixed;left:0;right:0;top:-120%;height:120%;z-index:99998;pointer-events:none;opacity:0;background:linear-gradient(180deg,transparent,rgba(0,234,255,.18),transparent)}.remi-v105-scan.run{animation:remiV105Scan .45s ease}@keyframes remiV105Scan{0%{opacity:1;top:-120%}100%{opacity:0;top:120%}}
+.remi-v105-ripple{position:absolute;border-radius:50%;transform:scale(0);background:rgba(255,255,255,.48);animation:remiV105Ripple .55s linear;pointer-events:none}@keyframes remiV105Ripple{to{transform:scale(4);opacity:0}}
+.btn,.button1,.choiceBtn,.dlTypeBtn,.tab,.tool,.card,.spc-buy-btn,.buy-btn{position:relative;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease!important}.btn:active,.button1:active,.choiceBtn:active,.dlTypeBtn:active,.tab:active,.tool:active,.card:active,.spc-buy-btn:active,.buy-btn:active{transform:translateY(1px) scale(.985)!important;filter:brightness(1.18)}.btn:hover,.button1:hover,.tool:hover,.card:hover{box-shadow:0 0 28px rgba(0,234,255,.18),0 12px 34px rgba(0,0,0,.28)!important;border-color:rgba(0,234,255,.38)!important}
+.remi-prod-media{width:100%;height:112px;border-radius:16px;border:1px solid rgba(0,234,255,.16);background:#050812;object-fit:cover;display:block}.detail-media .remi-prod-media{height:auto;max-height:320px;object-fit:contain}.thumb .remi-prod-media{height:100%;border-radius:0;border:0}.remi-media-fallback{height:112px;display:grid;place-items:center;font-size:42px;background:linear-gradient(135deg,rgba(22,139,255,.18),rgba(0,234,255,.05))}.remi-media-upload-box{margin-top:8px;border:1px dashed rgba(0,234,255,.35);background:rgba(0,234,255,.045);border-radius:14px;padding:10px;color:var(--cuki-muted);font-size:12px}.remi-media-upload-box input{margin-top:7px;width:100%}.purchase-pop-v105{position:fixed;top:82px;left:12px;right:12px;max-width:410px;margin:auto;z-index:99997;display:none;align-items:center;gap:12px;padding:13px;border-radius:18px;border:1px solid rgba(0,234,255,.28);background:linear-gradient(135deg,rgba(7,20,35,.98),rgba(4,9,18,.98));box-shadow:0 25px 70px rgba(0,0,0,.62),0 0 30px rgba(0,234,255,.14)}.purchase-pop-v105.show{display:flex;animation:v105Pop .28s ease}.purchase-pop-v105 .avatar{width:44px;height:44px;border-radius:15px;background:linear-gradient(135deg,var(--cuki-cyan),var(--cuki-blue));display:grid;place-items:center;color:#031018;font-weight:1000}@keyframes v105Pop{from{opacity:0;transform:translateY(-14px) scale(.96)}}
+.remi-v105-order-ok{border:1px solid rgba(0,255,136,.28);background:rgba(0,255,136,.07);border-radius:16px;padding:13px;margin-top:10px;color:#b9ffd8}.remi-v105-gmaps{width:100%;height:220px;border:1px solid var(--cuki-line);border-radius:16px;margin-top:10px;background:#050812}.remi-db-warn{padding:10px 12px;border-radius:14px;background:rgba(255,211,77,.10);border:1px solid rgba(255,211,77,.25);color:#ffdf7d;font-size:12px;line-height:1.45;margin:8px 0}
+</style>
+<script id="remi-v105-final-js">
+(function(){
+  'use strict';
+  const $ = (id)=>document.getElementById(id);
+  const esc = (s)=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+  const money = (n)=>{try{return (typeof fmtX==='function'?fmtX(n):typeof fmt==='function'?fmt(n):'Rp'+Number(n||0).toLocaleString('id-ID'))}catch{return 'Rp'+Number(n||0).toLocaleString('id-ID')}};
+  const now = ()=>Date.now();
+  function addOnce(){
+    if(!$('remiV105Loader')) document.body.insertAdjacentHTML('beforeend','<div id="remiV105Loader"><div class="remi-v105-loader-card"><div class="remi-v105-ring"></div><div class="remi-v105-loader-title">PROCESSING</div><div class="remi-v105-loader-sub" id="remiV105LoaderText">Remi AI Store</div></div></div>');
+    if(!document.querySelector('.remi-v105-scan')) document.body.insertAdjacentHTML('beforeend','<div class="remi-v105-scan"></div>');
+  }
+  function loader(text){addOnce(); const l=$('remiV105Loader'); const t=$('remiV105LoaderText'); if(t)t.textContent=text||'Memproses...'; l&&l.classList.add('show'); document.body.classList.add('v105-clicking');}
+  function unload(){const l=$('remiV105Loader'); l&&l.classList.remove('show'); document.body.classList.remove('v105-clicking');}
+  async function withLoader(text,fn){loader(text); try{await new Promise(r=>setTimeout(r,280)); return await fn();} finally{setTimeout(unload,120);} }
+  window.remiV105WithLoader = withLoader; window.remiV105Loader=loader; window.remiV105Unload=unload;
+  function scan(){const s=document.querySelector('.remi-v105-scan'); if(!s)return; s.classList.remove('run'); void s.offsetWidth; s.classList.add('run');}
+  document.addEventListener('click',function(e){
+    const btn=e.target.closest('button,.btn,.button1,.tab,.choiceBtn,.dlTypeBtn,.tool,.card,.nav,.icon,.pill,.spc-buy-btn,.buy-btn,[onclick]'); if(!btn)return;
+    scan();
+    try{const r=btn.getBoundingClientRect(); const sp=document.createElement('span'); sp.className='remi-v105-ripple'; const size=Math.max(r.width,r.height); sp.style.width=sp.style.height=size+'px'; sp.style.left=(e.clientX-r.left-size/2)+'px'; sp.style.top=(e.clientY-r.top-size/2)+'px'; btn.appendChild(sp); setTimeout(()=>sp.remove(),600);}catch{}
+  },true);
+  function eyeSvg(open){return open?'<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>':'<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M10.6 10.6A3 3 0 0 0 13.4 13.4"/><path d="M9.9 4.2A10.5 10.5 0 0 1 12 4c6.5 0 10 8 10 8a18.2 18.2 0 0 1-3.1 4.4"/><path d="M6.1 6.1C3.4 8 2 12 2 12s3.5 8 10 8a10.8 10.8 0 0 0 5.1-1.3"/></svg>'}
+  function injectEye(inputId){const input=$(inputId); if(!input||input.dataset.eyeReady)return; input.dataset.eyeReady='1'; const wrap=document.createElement('div'); wrap.className='remi-eye-wrap'; input.parentNode.insertBefore(wrap,input); wrap.appendChild(input); const b=document.createElement('button'); b.type='button'; b.className='remi-eye-btn'; b.innerHTML='<span class="eye-closed">'+eyeSvg(false)+'</span><span class="eye-open">'+eyeSvg(true)+'</span>'; b.onclick=function(){input.type=input.type==='password'?'text':'password'; b.classList.toggle('show',input.type==='text')}; wrap.appendChild(b);}
+  function patchEyes(){['loginPass','regPass','oldPass','newPass','adminPass','apNewPass','delAccPass'].forEach(injectEye); const admin=$('adminEye'); if(admin&&!admin.dataset.svg){admin.dataset.svg='1';admin.innerHTML=eyeSvg(true);}}
+  document.addEventListener('DOMContentLoaded',patchEyes); setTimeout(patchEyes,300); setInterval(patchEyes,1800);
+  window.toggleAdminPw=function(){const p=$('adminPass');const b=$('adminEye'); if(!p)return; p.type=p.type==='password'?'text':'password'; if(b)b.innerHTML=eyeSvg(p.type!=='password');};
+  function productArr(){try{return typeof prodsX==='function'?prodsX():(typeof ls!=='undefined'?ls.get('products',window.defaultProducts||[]):JSON.parse(localStorage.getItem('products')||'[]'))}catch{return []}}
+  function setProductArr(ps){try{if(typeof setProdsX==='function')return setProdsX(ps); if(typeof ls!=='undefined')return ls.set('products',ps); localStorage.setItem('products',JSON.stringify(ps));}catch{}}
+  function mediaTypeOf(p){const mt=String(p.mediaType||'').toLowerCase(); const u=String(p.mediaUrl||p.image||p.video||'').toLowerCase(); if(mt.includes('video')||/\.(mp4|webm|mov|m3u8)(\?|$)/.test(u))return 'video'; if(mt.includes('image')||/\.(jpg|jpeg|png|webp|gif|avif)(\?|$)/.test(u))return 'image'; return p.mediaUrl?'image':'';}
+  window.remiProductMediaHTML=function(p,compact){p=p||{}; const url=p.mediaUrl||p.image||p.video||''; const icon=esc(p.icon||'📦'); if(!url)return '<div class="remi-media-fallback"><span>'+icon+'</span></div>'; const t=mediaTypeOf(p); if(t==='video')return '<video class="remi-prod-media" '+(compact?'muted loop playsinline autoplay':'controls playsinline')+' src="'+esc(url)+'"></video>'; return '<img class="remi-prod-media" src="'+esc(url)+'" loading="lazy" onerror="this.outerHTML=\'<div class=&quot;remi-media-fallback&quot;>'+icon+'</div>\'">'};
+  const oldMediaHTML=window.mediaHTML; window.mediaHTML=function(p,compact){try{return window.remiProductMediaHTML(p,compact)}catch(e){return oldMediaHTML?oldMediaHTML(p,compact):''}};
+  window.renderProducts=function(){const box=$('products'); if(!box)return; const q=($('search')?.value||'').toLowerCase(); const cat=(typeof currentCat!=='undefined'?currentCat:'all'); const ps=productArr().filter(p=>(p.published!==false)&&((cat==='all'||!p.cat)||p.cat===cat)&&(!q||(String(p.name)+String(p.desc)+String(p.cat)).toLowerCase().includes(q))); box.innerHTML=ps.map(p=>'<div class="card remi-prod-card"><div class="thumb">'+window.remiProductMediaHTML(p,true)+'</div><div class="cardBody"><div class="name">'+esc(p.name)+'</div><div class="desc">'+esc(p.desc||'')+'</div><div class="price">'+money(p.price)+'</div><div class="smallbtns"><button class="btn ghost" onclick="detail('+Number(p.id)+')">Detail</button><button class="btn button1" onclick="order('+Number(p.id)+')">Beli</button></div></div></div>').join('')||'<div class="panel">Produk tidak ditemukan.</div>'};
+  window.detail=function(id){const p=productArr().find(x=>Number(x.id)===Number(id)); if(!p){return (window.toastX||window.toast||alert)('Produk tidak ditemukan','err')} window.openModal('📦 Detail Produk','<div class="detail-media" style="margin-bottom:12px">'+window.remiProductMediaHTML(p,false)+'</div><h2>'+esc(p.name)+'</h2><p class="muted">'+esc(p.desc||'')+'</p><div class="panel"><div class="row"><b>Harga</b><b class="price">'+money(p.price)+'</b></div><div class="row"><b>Kategori</b><span>'+esc(p.cat||'-')+'</span></div><div class="row"><b>Media</b><span>'+esc(mediaTypeOf(p)||'icon')+'</span></div></div><button class="btn button1" style="width:100%;margin-top:10px" onclick="order('+Number(p.id)+')">Beli Sekarang</button>')};
+  function myUser(){try{return typeof myU==='function'?myU():(typeof me==='function'?me():JSON.parse(localStorage.getItem('currentUserData')||'null'))}catch{return null}}
+  function saveUserPatch(u,patch){try{if(typeof saveMeX==='function')return saveMeX(patch); if(typeof saveMe==='function')return saveMe(patch); Object.assign(u,patch); localStorage.setItem('currentUserData',JSON.stringify(u));}catch{}}
+  function makeId(prefix){return prefix+Date.now()+Math.random().toString(36).slice(2,7).toUpperCase()}
+  async function fbSet(path,data){if(window.REMI_PUSH)return window.REMI_PUSH(path,data); if(window.fbX)return window.fbX('patch',path,data); if(window.REMI_INIT_DATABASE)await window.REMI_INIT_DATABASE(); const db=window.remiDB||window.db; if(!db)throw new Error('Firebase belum siap'); return db.ref(path).update(data);}
+  async function fbPut(path,data){if(window.fbX)return window.fbX('put',path,data); if(window.REMI_INIT_DATABASE)await window.REMI_INIT_DATABASE(); const db=window.remiDB||window.db; if(!db)throw new Error('Firebase belum siap'); return db.ref(path).set(data);}
+  window.order=function(id){const p=productArr().find(x=>Number(x.id)===Number(id)); const u=myUser(); if(!p)return; const saldo=Number(u?.saldo||0); window.openModal('🛒 Konfirmasi Order','<div class="detail-media" style="margin-bottom:12px">'+window.remiProductMediaHTML(p,false)+'</div><h2 style="text-align:center">'+esc(p.name)+'</h2><div class="panel"><div class="row"><span>Produk</span><b>'+esc(p.name)+'</b></div><div class="row"><span>Harga</span><b class="price">'+money(p.price)+'</b></div><div class="row"><span>Saldo</span><b style="color:var(--green)">'+money(saldo)+'</b></div></div><div class="panel"><h3>Data Autoorder</h3><input class="input" id="buyWa" placeholder="Nomor WhatsApp, contoh 628xxx"><div style="height:9px"></div><textarea id="buyNote" placeholder="Catatan tambahan / target order..."></textarea></div><button class="btn button1" style="width:100%" onclick="paySaldo('+Number(p.id)+')">💰 Bayar Pakai Saldo</button><button class="btn ghost" style="width:100%;margin-top:10px" onclick="showPage(\'saldo\');closeModal()">💳 Deposit Saldo</button>')};
+  window.paySaldo=async function(id){return withLoader('Membuat order ke Firebase...',async()=>{const p=productArr().find(x=>Number(x.id)===Number(id)); const u=myUser(); if(!p||!u)throw new Error('Produk/user tidak ditemukan'); const wa=String($('buyWa')?.value||'').replace(/\D/g,''); const note=String($('buyNote')?.value||'').trim(); if(!wa||wa.length<9){(window.toastX||window.toast||alert)('Nomor WA wajib valid','warn');return} if(Number(u.saldo||0)<Number(p.price||0)){(window.toastX||window.toast||alert)('Saldo kurang, deposit dulu','err');return} const cleanWa='62'+wa.replace(/^62/,''); const order={orderId:makeId('ORD'),id:makeId('ORD'),username:u.username||u.key||'guest',user:u.username||u.key||'guest',display:u.display||u.username||'User',productId:p.id,productName:p.name,product:p.name,productMedia:p.mediaUrl||'',productMediaType:mediaTypeOf(p),price:Number(p.price||0),type:p.cat||'store',targetWa:cleanWa,wa:cleanWa,note,status:'pending_process',payment:'saldo',source:'web-v105',bot_detect:false,processed:false,createdAt:now(),time:now()}; order.id=order.orderId; saveUserPatch(u,{saldo:Number(u.saldo||0)-Number(p.price||0),orders:Number(u.orders||0)+1,spent:Number(u.spent||0)+Number(p.price||0)}); try{const orders=JSON.parse(localStorage.getItem('orders')||'[]'); orders.unshift(order); localStorage.setItem('orders',JSON.stringify(orders.slice(0,250)));}catch{} try{await fbSet('orders/'+order.orderId,order); await fbSet('botQueue/autoorder/'+order.orderId,order); await fbSet('notifications/purchases/'+order.orderId,{...order,maskedUser:String(order.username||'U').slice(0,1).toUpperCase()+'***'}); await fbSet('users/'+(u.key||u.username)+'/transactions/'+order.orderId,{type:'purchase',amount:-Number(p.price||0),orderId:order.orderId,createdAt:now()}); await fbSet('users/'+(u.key||u.username),{saldo:Number(u.saldo||0)-Number(p.price||0),orders:Number(u.orders||0)+1,spent:Number(u.spent||0)+Number(p.price||0),updatedAt:now()}); }catch(e){console.warn('Firebase order gagal',e); (window.toastX||window.toast||alert)('Order lokal masuk, Firebase gagal: '+e.message,'warn');} try{closeModal(); if(window.renderAll)renderAll(); else window.renderProducts();}catch{} window.remiV105PurchasePop(order); window.openModal('✅ Order Masuk Firebase','<div class="remi-v105-order-ok"><b>Order berhasil dibuat.</b><br>Bot bisa detect dari <code>botQueue/autoorder/'+esc(order.orderId)+'</code></div><div class="panel"><div class="row"><b>Produk</b><span>'+esc(order.productName)+'</span></div><div class="row"><b>WA</b><span>'+esc(order.targetWa.slice(0,5)+'xxx'+order.targetWa.slice(-3))+'</span></div><div class="row"><b>Status</b><span>'+esc(order.status)+'</span></div><div class="row"><b>Total</b><b class="price">'+money(order.price)+'</b></div></div><button class="btn button1" style="width:100%" onclick="closeModal()">Tutup</button>');});};
+  window.remiV105PurchasePop=function(order){let el=$('purchasePopV105'); if(!el){el=document.createElement('div');el.id='purchasePopV105';el.className='purchase-pop-v105';document.body.appendChild(el)} const name=String(order.username||order.user||'U'); el.innerHTML='<div class="avatar">'+esc((name[0]||'U').toUpperCase())+'</div><div><b>🛒 '+esc((name[0]||'U').toUpperCase()+'***')+' membeli produk</b><br><span class="muted">'+esc(order.productName||order.product||'Produk Store')+'</span></div>'; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),4800)};
+  async function uploadProductFile(file){if(!file)return ''; if(window.REMI_UPLOAD_FILE)return window.REMI_UPLOAD_FILE(file,'products/'+Date.now()+'-'+file.name); if(window.REMI_INIT_DATABASE)await window.REMI_INIT_DATABASE(); if(!window.firebase||!firebase.storage)throw new Error('Firebase Storage belum siap'); const ref=firebase.storage().ref('products/'+Date.now()+'-'+file.name.replace(/[^a-z0-9._-]/gi,'_')); await ref.put(file); return await ref.getDownloadURL();}
+  function enhanceProductForm(){const url=$('apPMU'); if(url && !url.dataset.v105){url.dataset.v105='1'; url.insertAdjacentHTML('afterend','<div class="remi-media-upload-box"><b>Upload media produk</b><br><span>Support gambar/video. Kalau file diisi, URL otomatis masuk ke field di atas.</span><input type="file" id="apPMFileV105" accept="image/*,video/*"></div>'); const f=$('apPMFileV105'); if(f)f.onchange=async()=>{if(!f.files||!f.files[0])return; await withLoader('Upload media produk ke Firebase Storage...',async()=>{try{const uploaded=await uploadProductFile(f.files[0]); if(uploaded){url.value=uploaded; const mt=$('apPMT'); if(mt)mt.value=f.files[0].type.startsWith('video/')?'video':'image'; (window.toastX||window.toast||alert)('Media produk berhasil diupload ✅')}}catch(e){(window.toastX||window.toast||alert)('Upload gagal: '+e.message,'err')}})};}}
+  const oldAdd=window.apAddProdV97; window.apAddProdV97=async function(){return withLoader('Menyimpan produk...',async()=>{enhanceProductForm(); const file=$('apPMFileV105')?.files?.[0]; if(file&&!$('apPMU')?.value){const url=await uploadProductFile(file); if($('apPMU'))$('apPMU').value=url; if($('apPMT'))$('apPMT').value=file.type.startsWith('video/')?'video':'image'} if(oldAdd)return await oldAdd(); const ps=productArr(); ps.push({id:Date.now(),name:$('apPN')?.value||'Produk Baru',cat:$('apPC')?.value||'Lainnya',price:Number($('apPP')?.value||0),icon:$('apPI')?.value||'📦',desc:$('apPD')?.value||'',mediaUrl:$('apPMU')?.value||'',mediaType:$('apPMT')?.value||'',published:$('apPPub')?.checked!==false}); setProductArr(ps); await fbPut('products',ps); window.renderProducts();});};
+  const obs=new MutationObserver(enhanceProductForm); obs.observe(document.body,{childList:true,subtree:true}); setTimeout(enhanceProductForm,1000);
+  window.toolIP=function(){openModal('🌐 Search IP Address', '<div class="panel"><h3>Geo.ipify Check</h3><p class="muted">Kosongkan untuk cek IP sendiri, atau isi IP/domain. Hasilnya otomatis dibuat Google Maps.</p><input class="input" id="ipifyInput" placeholder="IP/domain, kosongkan = IP saya"><button class="btn button1" style="width:100%;margin-top:10px" onclick="runIpifyV105()">Cek IP</button><div id="ipifyOut"></div></div>')};
+  window.runIpifyV105=async function(){return withLoader('Cek IP via Geo.ipify...',async()=>{const q=String($('ipifyInput')?.value||'').trim(); const key=(window.REMI_DATABASE?.apiKeys?.geoIpify)||'at_SZOROv2kK5dNchcdaozjbGs8mVpwK'; const url='https://geo.ipify.org/api/v2/country,city?apiKey='+encodeURIComponent(key)+(q?'&ipAddress='+encodeURIComponent(q):''); const out=$('ipifyOut'); try{const j=await (await fetch(url)).json(); if(j.code)throw new Error(j.messages||j.code); const lat=j.location?.lat, lon=j.location?.lng; const maps=(lat&&lon)?'https://www.google.com/maps?q='+lat+','+lon:''; out.innerHTML='<div class="panel"><h3>'+esc(j.ip||q||'IP Publik')+'</h3><div class="row"><span>Negara</span><b>'+esc(j.location?.country||'-')+'</b></div><div class="row"><span>Kota</span><b>'+esc(j.location?.city||'-')+'</b></div><div class="row"><span>ISP</span><b>'+esc(j.isp||'-')+'</b></div><div class="row"><span>Koordinat</span><b>'+esc(lat||'-')+', '+esc(lon||'-')+'</b></div>'+(maps?'<iframe class="remi-v105-gmaps" loading="lazy" src="https://maps.google.com/maps?q='+lat+','+lon+'&z=12&output=embed"></iframe><div class="btnrow"><a class="btn button1" href="'+maps+'" target="_blank" style="text-decoration:none;text-align:center">Buka GMaps</a><button class="btn ghost" onclick="navigator.clipboard.writeText(\''+maps+'\');toast(\'GMaps disalin\')">Copy</button></div>':'')+'</div>'; const u=myUser(); if(u){await fbSet('users/'+(u.key||u.username),{lastIP:j.ip,lastGeo:j,updatedAt:now()}).catch(()=>{});} }catch(e){out.innerHTML='<div class="remi-db-warn">Gagal cek IP: '+esc(e.message)+'</div>';}})};
+  window.doDownload = (function(old){return function(){return withLoader('Mengambil media...',async()=> old?await old():null)}})(window.doDownload);
+  window.doSearchHub = (function(old){return function(){return withLoader('Mencari data...',async()=> old?await old():null)}})(window.doSearchHub);
+  window.makeTextProV104 = (function(old){return function(){return withLoader('Generate Text Pro...',async()=> old?await old():null)}})(window.makeTextProV104);
+  setTimeout(()=>{try{window.renderProducts(); patchEyes();}catch{}},800);
+})();
+</script>
+<!-- ================= END REMI V105 FINAL REQUEST PATCH ================= -->
+
+
+<div class="v107FeatureModal" id="v107FeatureModal">
+  <div class="v107FeatureBox">
+    <div class="v107FeatureHead">
+      <div>
+        <div><span class="v107Method">GET</span><span class="v107FeatureTitle" id="v107FeatureTitle">Feature</span></div>
+        <div class="v107FeatureDesc" id="v107FeatureDesc">Feature request</div>
+      </div>
+      <button class="v107Close" id="v107FeatureClose" type="button">×</button>
+    </div>
+    <div class="v107FeatureBody">
+      <div id="v107FeatureParams"></div>
+      <button class="v107Run" id="v107FeatureRun" type="button"><span>➤ Send Request</span></button>
+      <div class="v107CodeBlock">
+        <div class="v107CodeTitle"><span><i class="v107Dot"></i>cURL Format</span><button class="v107Copy" type="button" data-copy-target="v107Curl">COPY</button></div>
+        <div class="v107Code" id="v107Curl">curl -X GET "..."</div>
+        <div class="v107CodeTitle" style="margin-top:28px"><span><i class="v107Dot" style="background:#3b82f6;box-shadow:0 0 14px #3b82f6"></i>Request URL</span><button class="v107Copy" type="button" data-copy-target="v107ReqUrl">COPY</button></div>
+        <div class="v107Code" id="v107ReqUrl">https://...</div>
+        <div class="v107Result" id="v107Result">
+          <div class="v107ServerTitle">● SERVER RESPONSE</div>
+          <div id="v107ResponsePreview"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  function $(id){return document.getElementById(id)}
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      var s=$('v107Splash');
+      if(s) s.classList.add('hide');
+    }, 900);
+  });
+
+  function patchEyes(){
+    document.querySelectorAll('.eyeBtn').forEach(function(btn){
+      if(btn.querySelector('svg')) return;
+      btn.innerHTML = '<svg class="eye-open" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><svg class="eye-closed" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M10.6 10.6A3 3 0 0 0 13.4 13.4"/><path d="M9.9 4.2A10.4 10.4 0 0 1 12 4.0c6.5 0 10 8 10 8a18.2 18.2 0 0 1-3.1 4.1"/><path d="M6.1 6.1C3.5 8 2 12 2 12s3.5 8 10 8c1.5 0 2.8-.3 4-.8"/></svg>';
+    });
+  }
+  patchEyes();
+  setTimeout(patchEyes, 700);
+
+  document.addEventListener('click', function(e){
+    var b=e.target.closest('.button1,.cyberBtn,button');
+    if(!b) return;
+    b.classList.remove('v107PulseClick');
+    void b.offsetWidth;
+    b.classList.add('v107PulseClick');
+  }, true);
+
+  var featureCatalog = {
+    'NGL Spam': {desc:'NGL spam via Cuki link, message, jumlah', endpoint:'https://api.cuki.biz.id/api/tools/nglspam', params:[['link','Link NGL','https://ngl.link/username'],['message','Pesan','halo'],['jumlah','Jumlah','10']], fixed:{apikey:'cuki-x'}},
+    'iPhone Quote Chat': {desc:'Generate iPhone Quote Chat', endpoint:'https://docs-alip.clutch.web.id/imagecreator/iqc', params:[['time','Jam','20:20'],['text','Text','halo'],['imageUrl','Image URL','https://example.com/image.jpg']], fixed:{apikey:'alipaiapikeybaru'}},
+    'Pembaca Teks Gambar / OCR': {desc:'OCR dari URL gambar', endpoint:'https://docs-alip.clutch.web.id/tools/ocr', params:[['url','Image URL','https://example.com/image.jpg']], fixed:{apikey:'alipaiapikeybaru'}},
+    'To URL Uploader': {desc:'Upload media ke multi host', endpoint:'local://tourl-uploader', params:[['file','File','Pilih file di UI owner/tools']], fixed:{}},
+    'Translate': {desc:'Translate text via Cuki', endpoint:'https://api.cuki.biz.id/api/tools/translate', params:[['text','Text','hello'],['source','Source','auto'],['target','Target','id']], fixed:{apikey:'cuki-x'}},
+    'Screenshot Website': {desc:'Screenshot website URL', endpoint:'https://docs-alip.clutch.web.id/tools/ssweb', params:[['url','URL','https://example.com']], fixed:{apikey:'alipaiapikeybaru'}},
+    'Remove Background': {desc:'Remove background image', endpoint:'https://api.cuki.biz.id/api/editing/removebg', params:[['image','Image URL','https://example.com/image.jpg']], fixed:{apikey:'cuki-x'}},
+    'Cek Cuaca': {desc:'Cek cuaca kota', endpoint:'https://api.cuki.biz.id/api/info/cuaca', params:[['q','Kota','Cilegon']], fixed:{apikey:'cuki-x'}},
+    'Info Gempa': {desc:'Info BMKG / Gempa', endpoint:'https://api.cuki.biz.id/api/info/bmkg', params:[], fixed:{apikey:'cuki-x'}},
+    'Binary ⇄ Teks': {desc:'Binary to text / text to binary', endpoint:'https://api.cuki.biz.id/api/tools/text2binary', params:[['content','Content','Hello']], fixed:{apikey:'cuki-x'}},
+    'Kode Morse ⇄ Teks': {desc:'Morse lokal frontend', endpoint:'local://morse', params:[['text','Text','hello']], fixed:{}},
+    'Kalkulator': {desc:'Kalkulator lokal frontend', endpoint:'local://calculator', params:[['expr','Expression','1+1*2']], fixed:{}}
+  };
+
+  function buildUrl(cfg){
+    var url = cfg.endpoint;
+    if(url.indexOf('local://')===0) return url;
+    var qs = new URLSearchParams();
+    Object.keys(cfg.fixed||{}).forEach(function(k){qs.set(k,cfg.fixed[k])});
+    (cfg.params||[]).forEach(function(p){
+      var el=document.querySelector('[data-v107-param="'+p[0]+'"]');
+      if(el) qs.set(p[0], el.value || p[2] || '');
+    });
+    return url + '?' + qs.toString();
+  }
+  function openFeatureModal(name){
+    var cfg = featureCatalog[name] || {desc:name, endpoint:'https://api.example.com/'+encodeURIComponent(name.toLowerCase().replace(/\s+/g,'-')), params:[['text','text','Halo, siapa kamu?']], fixed:{}};
+    $('v107FeatureTitle').textContent = name;
+    $('v107FeatureDesc').textContent = cfg.desc || name;
+    var params = $('v107FeatureParams');
+    params.innerHTML = (cfg.params||[]).map(function(p){
+      var type = p[0] === 'file' ? 'file' : 'text';
+      return '<div class="v107Param"><div class="v107Label">'+p[0]+' <b>*</b></div><div class="v107Hint">Tipe: '+type+' · Wajib</div><input class="v107Input" data-v107-param="'+p[0]+'" type="'+type+'" value="'+(type==='file'?'':(p[2]||''))+'" placeholder="'+p[1]+'"></div>';
+    }).join('') || '<div class="v107Param"><div class="v107Label">No Parameter</div><div class="v107Hint">Endpoint ini langsung request.</div></div>';
+    function refresh(){
+      var u=buildUrl(cfg);
+      $('v107ReqUrl').textContent = u;
+      $('v107Curl').textContent = 'curl -X GET "'+u+'"';
+    }
+    params.querySelectorAll('input').forEach(function(i){i.addEventListener('input', refresh)});
+    refresh();
+    $('v107Result').classList.remove('show');
+    $('v107FeatureModal').classList.add('show');
+    $('v107FeatureRun').onclick = function(){
+      var btn=this;
+      btn.classList.add('loading');
+      $('v107Result').classList.remove('show');
+      setTimeout(function(){
+        btn.classList.remove('loading');
+        var u=buildUrl(cfg);
+        $('v107Result').classList.add('show');
+        if(u.indexOf('local://')===0){
+          $('v107ResponsePreview').innerHTML = '<div class="v107Code">Local frontend logic / uploader handler ready.<br>URL: '+u+'</div>';
+        } else {
+          $('v107ResponsePreview').innerHTML = '<div class="v107Code">Request ready:<br>'+u+'</div>';
+        }
+      }, 900);
+    };
+  }
+  window.REMI_OPEN_FEATURE_MODAL = openFeatureModal;
+
+  document.addEventListener('click', function(e){
+    var tool = e.target.closest('[data-open-tool],[data-tool-name]');
+    if(!tool) return;
+    var name = tool.getAttribute('data-open-tool') || tool.getAttribute('data-tool-name') || '';
+    if(featureCatalog[name]){
+      e.preventDefault();
+      e.stopPropagation();
+      openFeatureModal(name);
+    }
+  }, true);
+
+  var close=$('v107FeatureClose');
+  if(close) close.onclick=function(){$('v107FeatureModal').classList.remove('show')};
+  document.addEventListener('click', function(e){
+    var c=e.target.closest('[data-copy-target]');
+    if(!c) return;
+    var target=$(c.dataset.copyTarget);
+    if(target && navigator.clipboard) navigator.clipboard.writeText(target.textContent||'');
+  });
+})();
+</script>
+
+
+<script>
+(function(){
+  function forceEllAndEye(){
+    document.querySelectorAll('.authLogo,#v107Splash .splashLogo').forEach(function(el){
+      if(el.id !== 'v107Splash') el.textContent = 'ELL';
+    });
+    document.querySelectorAll('.pwWrap').forEach(function(w){
+      w.style.position='relative';
+      var eye=w.querySelector('.eyeBtn');
+      if(eye){
+        eye.style.position='absolute';
+        eye.style.right='13px';
+        eye.style.left='auto';
+        eye.style.top='50%';
+        eye.style.transform='translateY(-50%)';
+        eye.style.width='42px';
+        eye.style.height='42px';
+        eye.style.zIndex='20';
+      }
+    });
+  }
+  forceEllAndEye();
+  setTimeout(forceEllAndEye, 500);
+  setTimeout(forceEllAndEye, 1500);
+})();
+</script>
+
+
+<script>
+(function(){
+  function hardFixAuth(){
+    // Logo: ensure no text leaks
+    document.querySelectorAll('.authLogo,#v107Splash .splashLogo').forEach(function(el){
+      el.textContent = '';
+      el.setAttribute('aria-label','ELL');
+    });
+
+    document.querySelectorAll('.authBox .pwWrap').forEach(function(wrap){
+      var input = wrap.querySelector('input');
+      var btn = wrap.querySelector('button.eyeBtn') || wrap.querySelector('.eyeBtn');
+      if(!input) return;
+
+      // If eye button accidentally outside / wrong class, create one
+      if(!btn){
+        btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'eyeBtn';
+        wrap.appendChild(btn);
+      }
+
+      // Make SVG fixed
+      btn.innerHTML = '<svg class="eye-open" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><svg class="eye-closed" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M10.6 10.6A3 3 0 0 0 13.4 13.4"/><path d="M9.9 4.2A10.4 10.4 0 0 1 12 4c6.5 0 10 8 10 8a18.2 18.2 0 0 1-3.1 4.1"/><path d="M6.1 6.1C3.5 8 2 12 2 12s3.5 8 10 8c1.5 0 2.8-.3 4-.8"/></svg>';
+
+      // Apply brutal inline styles because CSS was being a gremlin
+      wrap.style.position = 'relative';
+      wrap.style.height = '64px';
+      wrap.style.minHeight = '64px';
+      wrap.style.width = '100%';
+      wrap.style.display = 'block';
+
+      input.style.position = 'absolute';
+      input.style.inset = '0';
+      input.style.width = '100%';
+      input.style.height = '64px';
+      input.style.minHeight = '64px';
+      input.style.textAlign = 'center';
+      input.style.paddingLeft = '72px';
+      input.style.paddingRight = '88px';
+      input.style.boxSizing = 'border-box';
+      input.style.zIndex = '1';
+
+      btn.style.cssText = 'position:absolute!important;right:14px!important;left:auto!important;top:50%!important;transform:translateY(-50%)!important;width:44px!important;height:44px!important;min-width:44px!important;max-width:44px!important;min-height:44px!important;max-height:44px!important;z-index:30!important;display:grid!important;place-items:center!important;border-radius:14px!important;border:1px solid rgba(0,234,255,.24)!important;background:rgba(0,18,28,.78)!important;box-shadow:0 0 18px rgba(0,234,255,.12)!important;padding:0!important;margin:0!important;cursor:pointer!important;box-sizing:border-box!important;';
+      btn.onclick = function(ev){
+        ev.preventDefault();
+        ev.stopPropagation();
+        input.type = input.type === 'password' ? 'text' : 'password';
+        btn.classList.toggle('show', input.type === 'text');
+      };
+    });
+  }
+
+  hardFixAuth();
+  setTimeout(hardFixAuth, 300);
+  setTimeout(hardFixAuth, 1000);
+  setTimeout(hardFixAuth, 2500);
+})();
+</script>
+
+
+<script id="v111-auth-final-clean-js">
+(function(){
+  function eyeSvgClosed(){
+    return '<svg class="closed" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M10.6 10.6A3 3 0 0 0 13.4 13.4"/><path d="M9.8 4.2A10.9 10.9 0 0 1 12 4c6.6 0 10 8 10 8a18.5 18.5 0 0 1-3 4.2"/><path d="M6.1 6.1C3.5 8 2 12 2 12s3.4 8 10 8c1.5 0 2.8-.3 4-.8"/></svg>';
+  }
+  function eyeSvgOpen(){
+    return '<svg class="open" viewBox="0 0 24 24"><path d="M2 12s3.4-8 10-8 10 8 10 8-3.4 8-10 8S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>';
+  }
+
+  function cleanAuth(){
+    document.querySelectorAll('.authLogo,#v107Splash .splashLogo').forEach(function(el){
+      el.textContent = 'ELL';
+      el.style.fontSize = '34px';
+      el.style.textIndent = '0';
+      el.style.color = '#06131d';
+      el.style.fontFamily = 'Arial Black, Impact, system-ui, sans-serif';
+      el.style.letterSpacing = '-2px';
+      el.style.display = 'grid';
+      el.style.placeItems = 'center';
+    });
+
+    var passIds = ['loginPass','regPass'];
+    passIds.forEach(function(id){
+      var input = document.getElementById(id);
+      if(!input) return;
+
+      // Remove every old injected eye near auth. They are the pests.
+      var authBox = input.closest('.authBox');
+      if(authBox){
+        authBox.querySelectorAll('.remi-eye-btn,.eyeBtn').forEach(function(x){ x.remove(); });
+      }
+
+      var wrap = input.closest('.auth-pass-final');
+      if(!wrap){
+        wrap = document.createElement('div');
+        wrap.className = 'auth-pass-final';
+        input.parentNode.insertBefore(wrap, input);
+        wrap.appendChild(input);
+      }
+
+      wrap.querySelectorAll('.auth-eye-final').forEach(function(x){ x.remove(); });
+
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'auth-eye-final';
+      btn.innerHTML = eyeSvgClosed() + eyeSvgOpen();
+      btn.addEventListener('click', function(ev){
+        ev.preventDefault();
+        ev.stopPropagation();
+        input.type = input.type === 'password' ? 'text' : 'password';
+        btn.classList.toggle('show', input.type === 'text');
+      });
+      wrap.appendChild(btn);
+
+      input.style.textAlign = 'center';
+      input.style.paddingLeft = '72px';
+      input.style.paddingRight = '82px';
+      input.style.height = '64px';
+      input.style.lineHeight = '64px';
+    });
+  }
+
+  cleanAuth();
+  document.addEventListener('DOMContentLoaded', cleanAuth);
+  window.addEventListener('load', cleanAuth);
+  setTimeout(cleanAuth, 200);
+  setTimeout(cleanAuth, 700);
+  setTimeout(cleanAuth, 1500);
+  setTimeout(cleanAuth, 3000);
+})();
+</script>
+
 </body>
 </html>
