@@ -229,76 +229,19 @@ body:after{background-image:linear-gradient(rgba(var(--accent-rgb),.035) 1px,tra
 </style>
 
 <script src="./db.js"></script>
+<script src="./db.js"></script>
 
-<style id="remi-v101-hardfix-css">
-:root{
-  --button1-a:#198fff;
-  --button1-b:#25e5ff;
-  --button1-text:#04121f;
-  --role-free:#7c8798;
-  --role-admin:#29a8ff;
-  --role-premium:#ffd76a;
-  --role-owner:#b982ff;
-}
-.button1,.btn.button1,.button1like,.btn:not(.ghost):not(.red):not(.green):not(.purple),
-.profileBtnRow .btn,.smallbtns .btn,.spc-buy-btn,.buy-btn,.claim-btn,.round,.gacha-btn-primary{
-  background:linear-gradient(135deg,var(--button1-a),var(--button1-b))!important;
-  color:var(--button1-text)!important;
-  border:0!important;
-  border-radius:18px!important;
-  min-height:54px!important;
-  font-weight:1000!important;
-  box-shadow:0 10px 26px rgba(37,229,255,.22), inset 0 -2px 0 rgba(0,0,0,.12)!important;
-  text-align:center!important;
-  justify-content:center!important;
-}
-.button1:active,.btn:active,.spc-buy-btn:active,.buy-btn:active{transform:scale(.97)!important}
-.btn.ghost,.ghost,.panelAction{
-  border:1px solid rgba(43,220,255,.18)!important;
-  background:rgba(8,25,42,.72)!important;
-  color:#26dcff!important;
-  border-radius:18px!important;
-  min-height:54px!important;
-  box-shadow:0 0 18px rgba(43,220,255,.08)!important;
-}
-.roleBadge{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;font-weight:1000;letter-spacing:.4px}
-.role-free{color:var(--role-free);background:rgba(124,135,152,.11);border:1px solid rgba(124,135,152,.22)}
-.role-admin{color:var(--role-admin);background:rgba(41,168,255,.11);border:1px solid rgba(41,168,255,.24)}
-.role-premium{color:var(--role-premium);background:rgba(255,215,106,.12);border:1px solid rgba(255,215,106,.28)}
-.role-owner{color:var(--role-owner);background:rgba(185,130,255,.12);border:1px solid rgba(185,130,255,.28)}
-.remi-page-panel{display:none;padding:12px}
-.remi-page-panel.active{display:block;animation:fade .18s ease}
-.remi-v101-card{background:linear-gradient(180deg,#0d1629,#08101f);border:1px solid rgba(43,220,255,.12);border-radius:22px;padding:18px;margin:14px 0;box-shadow:0 10px 30px rgba(0,0,0,.28)}
-.remi-v101-card h2{margin:0 0 14px;font-size:28px}
-.remi-action-grid{display:grid;grid-template-columns:1fr;gap:10px}
-.remi-action-grid.two{grid-template-columns:1fr 1fr}
-.remi-field{width:100%;margin:7px 0 10px;padding:15px 16px;border-radius:18px;border:1px solid rgba(43,220,255,.14);background:#0b1728;color:#edf6ff;outline:0}
-.media-bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-5;opacity:.22;pointer-events:none}
-.media-bg-image{position:fixed;inset:0;background-size:cover;background-position:center;z-index:-6;opacity:.20;pointer-events:none}
-.media-bg-tint{position:fixed;inset:0;background:linear-gradient(180deg,rgba(3,8,18,.78),rgba(3,8,18,.9));z-index:-4;pointer-events:none}
-.purchase-pop{position:fixed;left:14px;right:14px;top:82px;z-index:9999;background:linear-gradient(135deg,rgba(10,24,45,.97),rgba(5,12,24,.98));border:1px solid rgba(43,220,255,.24);border-radius:20px;padding:13px 15px;box-shadow:0 20px 50px rgba(0,0,0,.45),0 0 24px rgba(43,220,255,.12);display:none;align-items:center;gap:12px}
-.purchase-pop.show{display:flex;animation:popBuy .28s ease}
-@keyframes popBuy{from{opacity:0;transform:translateY(-12px) scale(.96)}to{opacity:1;transform:none}}
-.purchase-pop .avatar{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#198fff,#25e5ff);display:grid;place-items:center;color:#04121f;font-weight:1000}
-.announce-pop{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.72);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:18px}
-.announce-pop.show{display:flex}
-.announce-card{max-width:410px;width:100%;border-radius:26px;padding:22px;background:linear-gradient(180deg,#101a30,#071020);border:1px solid rgba(43,220,255,.24);box-shadow:0 30px 80px rgba(0,0,0,.58)}
-.search-hub-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.search-hub-grid .tool{min-height:148px}
-.streak-track{height:14px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden;margin:12px 0}
-.streak-fill{height:100%;background:linear-gradient(90deg,#198fff,#25e5ff,#ffd76a);border-radius:999px}
-.gacha-result{display:grid;gap:8px;margin-top:12px}
-.gacha-prize-card{border:1px solid rgba(255,215,106,.24);background:rgba(255,215,106,.08);border-radius:18px;padding:12px}
-.owner-ell-shell{background:#020406!important;color:#e8f4ff!important;border-radius:24px;overflow:hidden;border:1px solid rgba(0,234,255,.22);box-shadow:0 0 80px rgba(0,234,255,.10), inset 0 0 40px rgba(0,234,255,.02)}
-.owner-ell-top{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(2,4,6,.95)}
-.owner-ell-logo{font-family:Orbitron,Outfit,sans-serif;font-weight:900;letter-spacing:3px;background:linear-gradient(90deg,#fff,#00eaff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.owner-ell-nav{display:flex;gap:7px;overflow:auto;padding:10px;border-bottom:1px solid rgba(255,255,255,.07)}
-.owner-ell-nav button{white-space:nowrap;border-radius:999px;padding:9px 13px;border:1px solid rgba(0,234,255,.18);background:rgba(0,234,255,.05);color:#00eaff;font-weight:900}
-.owner-ell-nav button.active{background:linear-gradient(90deg,#00eaff,#ae00ff);color:#000}
-.admin-light-panel .admin-only-owner,.admin-light-panel .danger-owner{display:none!important}
+<style id="remi-v103-safe-css">
+:root{--button1-a:#198fff;--button1-b:#25e5ff;--button1-text:#04121f;--role-free:#7c8798;--role-admin:#29a8ff;--role-premium:#ffd76a;--role-owner:#b982ff}
+.button1,.btn.button1,.profileBtnRow .btn,.spc-buy-btn,.buy-btn,.claim-btn,.gacha-btn-primary{background:linear-gradient(135deg,var(--button1-a),var(--button1-b))!important;color:var(--button1-text)!important;border:0!important;border-radius:18px!important;min-height:54px!important;font-weight:1000!important;box-shadow:0 10px 26px rgba(37,229,255,.22),inset 0 -2px 0 rgba(0,0,0,.12)!important;text-align:center!important;justify-content:center!important}
+.btn.ghost,.ghost,.panelAction{border:1px solid rgba(43,220,255,.18)!important;background:rgba(8,25,42,.72)!important;color:#26dcff!important;border-radius:18px!important;min-height:54px!important;box-shadow:0 0 18px rgba(43,220,255,.08)!important}
+.roleBadge{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;font-weight:1000;letter-spacing:.4px}.role-free{color:var(--role-free);background:rgba(124,135,152,.11);border:1px solid rgba(124,135,152,.22)}.role-admin{color:var(--role-admin);background:rgba(41,168,255,.11);border:1px solid rgba(41,168,255,.24)}.role-premium{color:var(--role-premium);background:rgba(255,215,106,.12);border:1px solid rgba(255,215,106,.28)}.role-owner{color:var(--role-owner);background:rgba(185,130,255,.12);border:1px solid rgba(185,130,255,.28)}
+.remi-v103-card{background:linear-gradient(180deg,#0d1629,#08101f);border:1px solid rgba(43,220,255,.12);border-radius:22px;padding:18px;margin:14px 0;box-shadow:0 10px 30px rgba(0,0,0,.28)}.remi-v103-card h2{margin:0 0 14px;font-size:28px}.remi-field{width:100%;margin:7px 0 10px;padding:15px 16px;border-radius:18px;border:1px solid rgba(43,220,255,.14);background:#0b1728;color:#edf6ff;outline:0}.remi-grid{display:grid;grid-template-columns:1fr;gap:10px}.remi-grid.two{grid-template-columns:1fr 1fr}
+.media-bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-5;opacity:.22;pointer-events:none}.media-bg-image{position:fixed;inset:0;background-size:cover;background-position:center;z-index:-6;opacity:.20;pointer-events:none}.media-bg-tint{position:fixed;inset:0;background:linear-gradient(180deg,rgba(3,8,18,.78),rgba(3,8,18,.9));z-index:-4;pointer-events:none}
+.purchase-pop{position:fixed;left:14px;right:14px;top:82px;z-index:9999;background:linear-gradient(135deg,rgba(10,24,45,.97),rgba(5,12,24,.98));border:1px solid rgba(43,220,255,.24);border-radius:20px;padding:13px 15px;box-shadow:0 20px 50px rgba(0,0,0,.45),0 0 24px rgba(43,220,255,.12);display:none;align-items:center;gap:12px}.purchase-pop.show{display:flex;animation:popBuy .28s ease}@keyframes popBuy{from{opacity:0;transform:translateY(-12px) scale(.96)}to{opacity:1;transform:none}}.purchase-pop .avatar{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#198fff,#25e5ff);display:grid;place-items:center;color:#04121f;font-weight:1000}
+.announce-pop{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.72);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:18px}.announce-pop.show{display:flex}.announce-card{max-width:410px;width:100%;border-radius:26px;padding:22px;background:linear-gradient(180deg,#101a30,#071020);border:1px solid rgba(43,220,255,.24);box-shadow:0 30px 80px rgba(0,0,0,.58)}
 #relayInput,#relayBox,.relay-config,.relayToken,.relayPanel{display:none!important}
 </style>
-
 </head>
 <body>
 <div class="auth" id="auth">
@@ -4957,7 +4900,26 @@ function renderApiFail(out,e,endpoint){
   function applyRoleTextV74(){
     try{
       const brand=document.querySelector('.brand span'); if(brand) brand.textContent='STORE • V1';
-      const title=document.querySelector('title'); if(title) title.textContent='Remi AI Store V1<div class="profileRoleNoteV74">Mode staff: role terdeteksi <b style="color:${escAttr(st.color)}">${esc(st.label)}</b>. Admin hanya boleh moderasi user biasa; owner boleh semua. Ya, akhirnya ada hierarki yang tidak sepenuhnya chaos 😑</div>` : '';
+      const title=document.querySelector('title'); if(title) title.textContent='Remi AI Store v74 Role Profile';
+    }catch{}
+  }
+
+  // Remove Check IP from tools and profile/panel. IP sudah jadi data akun/device, bukan tool publik.
+  function removeCheckIPToolV74(){
+    try{
+      if(Array.isArray(window.defaultTools)) window.defaultTools=window.defaultTools.filter(x=>x && x[3] !== 'check_ip');
+      if(typeof defaultTools!=='undefined' && Array.isArray(defaultTools)){
+        for(let i=defaultTools.length-1;i>=0;i--) if(defaultTools[i] && defaultTools[i][3]==='check_ip') defaultTools.splice(i,1);
+      }
+    }catch{}
+  }
+  window.toolCheckIP=function(){ toast('Check IP sudah dihapus. Info perangkat sekarang masuk data akun dan hanya tampil sesuai role.', 'warn'); };
+
+  // Profile / stalk user sekarang ikut role, warna, emoji, font.
+  window.viewProfile=function(username){
+    const users=getUsers(); const u=users[username]; if(!u)return toast('User tidak ditemukan.','err');
+    const st=roleStyleFullV74(u); const my=me(); const canStaff=['owner','admin'].includes(safeRoleV74(my));
+    const adminNote = canStaff ? `<div class="profileRoleNoteV74">Mode staff: role terdeteksi <b style="color:${escAttr(st.color)}">${esc(st.label)}</b>. Admin hanya boleh moderasi user biasa; owner boleh semua. Ya, akhirnya ada hierarki yang tidak sepenuhnya chaos 😑</div>` : '';
     const ava=u.avatar?`<img src="${u.avatar}">`:esc((u.display||u.username||'?')[0].toUpperCase());
     openModal('👤 Profil User',`
       <div class="profileHeroV74">
@@ -5338,7 +5300,12 @@ function renderRolePanelV76(){return}
   };
   window.openStaffPanelV73=window.openStaffPanelV76; window.openStaffPanelV72=window.openStaffPanelV76;
 
-  function bootV76(){ injectCssV76(); removeCheckIPV76(); document.title='Remi AI Store V1</script>
+  function bootV76(){ injectCssV76(); removeCheckIPV76(); document.title='Remi AI Store v76 Owner Panel Fixed'; setTimeout(()=>{try{renderAll&&renderAll(); renderRolePanelV76(); removeCheckIPV76();}catch(e){console.warn('v76 boot',e)}},300); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bootV76); else bootV76();
+})();
+/* =================== END V76 PATCH =================== */
+
+</script>
 
 <script>
 (function(){
@@ -6478,644 +6445,47 @@ document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{
   // Update gacha balance on page-gacha open
   const origShowPage=window.showPage;
   if(origShowPage){window.showPage=function(p){origShowPage(p);if(p==='gacha'){const bal=$id('gachaBalanceShow');const u=myU();if(bal&&u)bal.textContent=fmtX(u.saldo||0);}}}
-  console.log('Remi AI Store V1</script>
-
-
-<style id="v100-final-ell-owner-style">
-/* V100 final patch: media background + owner panel ala ell */
-#remiFullVideoBg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-6;opacity:.28;pointer-events:none;filter:brightness(.65) saturate(1.2)}
-#remiImageBg{position:fixed;inset:0;background-size:cover;background-position:center;z-index:-7;opacity:.24;pointer-events:none;filter:blur(1px) brightness(.7)}
-#buyPopV100,#announcePopV100{position:fixed;left:50%;transform:translateX(-50%);z-index:9998;width:min(390px,calc(100% - 24px));border:1px solid rgba(43,220,255,.28);background:linear-gradient(135deg,rgba(8,18,34,.98),rgba(5,9,20,.96));box-shadow:0 18px 54px rgba(0,0,0,.62),0 0 34px rgba(43,220,255,.14);border-radius:20px;padding:13px;display:none;gap:10px;align-items:center;backdrop-filter:blur(18px)}
-#buyPopV100{top:74px}#announcePopV100{top:116px;align-items:flex-start}.popIconV100{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;font-size:20px;color:#06101d;font-weight:900;flex:0 0 auto}.popTextV100{font-size:12px;line-height:1.35}.popTextV100 b{color:var(--cyan)}.popCloseV100{margin-left:auto;background:rgba(255,255,255,.06);color:var(--muted);border:1px solid var(--line);border-radius:12px;width:32px;height:32px;font-weight:900}.heroMediaV100{position:absolute;inset:0;z-index:0}.heroMediaV100 img{width:100%;height:100%;object-fit:cover;opacity:.24}.hero>*:not(.heroMediaV100){position:relative;z-index:1}.mediaBadgeV100{position:absolute;top:8px;right:8px;z-index:5;padding:4px 8px;border-radius:999px;background:rgba(0,0,0,.55);border:1px solid rgba(43,220,255,.25);font-size:9px;color:var(--cyan);font-weight:900}.ownerShellV100{font-family:Rajdhani,Outfit,system-ui,sans-serif}.ownerHeroV100{position:relative;overflow:hidden;border:1px solid rgba(0,234,255,.24);background:linear-gradient(135deg,rgba(0,234,255,.08),rgba(174,0,255,.06));border-radius:22px;padding:18px;margin-bottom:12px}.ownerHeroV100:before{content:"";position:absolute;right:-60px;top:-60px;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,rgba(0,234,255,.16),transparent 65%)}.ownerHeroV100 h2{font-family:Orbitron,Outfit,sans-serif;letter-spacing:2px;margin:0;color:var(--cyan)}.ownerTabsV100{display:flex;gap:8px;overflow-x:auto;margin:10px 0 14px}.ownerTabsV100 button{white-space:nowrap;padding:9px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(43,220,255,.05);color:var(--muted);font-weight:900}.ownerTabsV100 button.active{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#06101d}.ownerGridV100{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ownerCardV100{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.035);padding:12px}.ownerCardV100 h3{margin:0 0 8px;color:var(--cyan)}.previewMediaV100 img,.previewMediaV100 video{width:100%;max-height:220px;object-fit:contain;border-radius:14px;border:1px solid var(--line);background:#050812}.previewMediaV100 audio{width:100%;margin-top:8px}.prodMediaV100{height:110px;background:linear-gradient(135deg,#10213d,#071020);display:grid;place-items:center;position:relative;overflow:hidden}.prodMediaV100 img{width:100%;height:100%;object-fit:cover}.productFallbackV100{font-size:34px}.adminMiniV100 .dangerBtn{background:rgba(255,102,122,.12)!important;border:1px solid rgba(255,102,122,.3)!important;color:var(--red)!important}.infoBoxV100{border:1px solid var(--line);border-radius:16px;padding:12px;background:rgba(43,220,255,.04);margin-top:10px}.gachaResultV100{display:grid;gap:8px;margin-top:12px}.prizeV100{border:1px solid var(--line);border-radius:14px;padding:10px;background:rgba(255,255,255,.04);display:flex;align-items:center;gap:10px}.prizeV100 .emoji{font-size:24px}.toolResultCardV100{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.04);padding:12px;margin-top:10px}.toolResultCardV100 img{width:100%;border-radius:14px;border:1px solid var(--line)}.toolResultCardV100 video,.toolResultCardV100 audio{width:100%;border-radius:14px;margin-top:8px}
-@media(max-width:370px){.ownerGridV100{grid-template-columns:1fr}}
-</style>
-<script id="v100-final-logic">
-(function(){
-'use strict';
-const FIREBASE_CONFIG={apiKey:"AIzaSyDgivYR6mljjYyeFH286UA8auWkVJDZUy0",authDomain:"ellpigi-web-store.firebaseapp.com",databaseURL:"https://ellpigi-web-store-default-rtdb.asia-southeast1.firebasedatabase.app/",projectId:"ellpigi-web-store",storageBucket:"ellpigi-web-store.firebasestorage.app",messagingSenderId:"531471360663",appId:"1:531471360663:web:28f8f71943e9cc42953fd2",measurementId:"G-EPXFJ2FVZW"};
-const ROOT='remiStoreV1'; const IPIFY='at_SZOROv2kK5dNchcdaozjbGs8mVpwK';
-const $=id=>document.getElementById(id); const enc=encodeURIComponent;
-function E(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-function A(s){return E(s).replace(/`/g,'&#96;')}
-function T(t,type){try{toast(t,type)}catch{console.log(t)}}
-function J(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}}
-function S(k,v){localStorage.setItem(k,JSON.stringify(v));return v}
-function U(){try{return me()}catch{return J('currentUser',null)}}
-function Users(){try{return getUsers()}catch{return J('users',{})}}
-function SaveUsers(u){try{saveUsers(u)}catch{S('users',u)}}
-function SaveMe(p){try{saveMe(p)}catch{let u=U();if(!u)return;let us=Users();us[u.username]={...u,...p};SaveUsers(us)}}
-function F(n){try{return fmt(n)}catch{return 'Rp'+Number(n||0).toLocaleString('id-ID')}}
-function role(){const u=U(); return (u?.role||'user').toLowerCase()}
-function isOwnerX(){return role()==='owner'||(U()?.username||'').toLowerCase()==='ellpigi'}
-function isAdminX(){return isOwnerX()||role()==='admin'}
-function fbURL(path=''){return `${FIREBASE_CONFIG.databaseURL.replace(/\/$/,'')}/${ROOT}/${String(path).replace(/^\/+/,'')}.json`}
-async function fb(method,path,data){const opt={method,headers:{'Content-Type':'application/json'}}; if(data!==undefined)opt.body=JSON.stringify(data); const r=await fetch(fbURL(path),opt); if(!r.ok)throw new Error('Firebase '+r.status); return r.json().catch(()=>null)}
-const fbGet=p=>fb('GET',p), fbPut=(p,d)=>fb('PUT',p,d), fbPatch=(p,d)=>fb('PATCH',p,d), fbDel=p=>fb('DELETE',p);
-window.REMI_FIREBASE_CONFIG=FIREBASE_CONFIG; window.REMI_IPIFY_TOKEN=IPIFY;
-try{localStorage.setItem('firebaseDbV89',JSON.stringify({databaseURL:FIREBASE_CONFIG.databaseURL,apiKey:FIREBASE_CONFIG.apiKey,projectId:FIREBASE_CONFIG.projectId,rootPath:ROOT,updatedAt:Date.now()}));}catch{}
-function productList(){let p;try{p=ls.get('products',null)}catch{} if(!Array.isArray(p)||!p.length)p=J('products',[]); if(!Array.isArray(p)||!p.length)try{p=defaultProducts||[]}catch{p=[]} return p.map((x,i)=>({id:x.id??Date.now()+i,cat:x.cat||'bot',name:x.name||'Produk',desc:x.desc||'',price:Number(x.price||0),icon:x.icon||'🤖',image:x.image||x.img||x.thumbnail||'',published:x.published!==false,review:x.review||'',benefits:x.benefits||[]}));}
-function saveProducts(p){try{ls.set('products',p)}catch{} S('products',p)}
-function mediaSettings(){return J('ownerMediaV100',{heroImage:'',siteImageBg:'',videoBg:'',audioBg:'',announcement:'',developer:'ELL',webInfo:'Remi AI Store V1<query>',spotify:'https://api.nexray.eu.cc/downloader/spotify?url=<url>',pinVideo:'https://api.nexray.eu.cc/downloader/pinterest?url=<url>'}})}
-function saveMediaSettings(v){S('ownerMediaV100',v); applyMediaV100(); fbPatch('settings/media',v).catch(()=>{});}
-function applyMediaV100(){const m=mediaSettings(); let img=$('remiImageBg'); if(!img){img=document.createElement('div');img.id='remiImageBg';document.body.prepend(img)} img.style.backgroundImage=m.siteImageBg?`url('${String(m.siteImageBg).replace(/'/g,'')}')`:''; let v=$('remiFullVideoBg'); if(!v){v=document.createElement('video');v.id='remiFullVideoBg';v.autoplay=true;v.muted=true;v.loop=true;v.playsInline=true;document.body.prepend(v)} if(m.videoBg&&v.src!==m.videoBg){v.src=m.videoBg;v.play().catch(()=>{})} if(!m.videoBg)v.removeAttribute('src'); let a=$('remiBacksoundV100'); if(!a){a=document.createElement('audio');a.id='remiBacksoundV100';a.loop=true;document.body.appendChild(a)} if(m.audioBg&&a.src!==m.audioBg){a.src=m.audioBg;a.volume=.25} const hero=document.querySelector('.hero'); if(hero){let hm=hero.querySelector('.heroMediaV100'); if(m.heroImage){if(!hm){hm=document.createElement('div');hm.className='heroMediaV100';hero.prepend(hm)} hm.innerHTML=`<img src="${A(m.heroImage)}">`;} else if(hm)hm.remove();} }
-window.playBacksoundV100=function(){const a=$('remiBacksoundV100'); if(a&&a.src)a.play().then(()=>T('Backsound diputar 🎧')).catch(()=>T('Browser blokir audio. Klik sekali lagi nanti.','warn'))}
-function masked(name){name=String(name||'user'); if(name.length<=2)return name[0]+'***'; return name.slice(0,2)+'***'+name.slice(-1)}
-function showBuyPop(order){let p=$('buyPopV100'); if(!p){p=document.createElement('div');p.id='buyPopV100';document.body.appendChild(p)} p.innerHTML=`<div class="popIconV100">🛒</div><div class="popTextV100"><b>${E(masked(order.display||order.user))}</b> membeli <b>${E(order.product)}</b><br><span class="muted">${F(order.price)} • realtime notif</span></div><button class="popCloseV100" onclick="this.parentElement.style.display='none'">×</button>`; p.style.display='flex'; clearTimeout(window.__buyPopTimer); window.__buyPopTimer=setTimeout(()=>p.style.display='none',6500)}
-function showAnnouncement(force){const m=mediaSettings(); if(!m.announcement)return; if(!force&&localStorage.getItem('annSeenV100')===m.announcement)return; let p=$('announcePopV100'); if(!p){p=document.createElement('div');p.id='announcePopV100';document.body.appendChild(p)} p.innerHTML=`<div class="popIconV100">📢</div><div class="popTextV100"><b>Pengumuman</b><br>${E(m.announcement)}</div><button class="popCloseV100" onclick="localStorage.setItem('annSeenV100','${A(m.announcement)}');this.parentElement.style.display='none'">×</button>`; p.style.display='flex'}
-window.renderProducts=function(){const box=$('products'); if(!box)return; const q=($('search')?.value||'').toLowerCase(); const cat=window.currentCat||'all'; const arr=productList().filter(p=>p.published!==false&&(cat==='all'||p.cat===cat)&&(!q||(p.name+p.desc+p.cat).toLowerCase().includes(q))); box.innerHTML=arr.map(p=>`<div class="card"><div class="prodMediaV100">${p.image?`<img src="${A(p.image)}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">`:''}<span class="productFallbackV100" style="${p.image?'display:none':''}">${E(p.icon||'🤖')}</span>${p.image?'<span class="mediaBadgeV100">IMG</span>':''}</div><div class="cardBody"><div class="name">${E(p.name)}</div><div class="desc">${E(p.desc)}</div><div class="price">${F(p.price)}</div><div class="smallbtns"><button class="btn ghost" onclick="detail(${Number(p.id)})">Detail</button><button class="btn" onclick="order(${Number(p.id)})">Beli</button></div></div></div>`).join('')||'<div class="panel">Produk tidak ditemukan.</div>'};
-window.detail=function(id){const p=productList().find(x=>Number(x.id)===Number(id)); if(!p)return T('Produk tidak ditemukan','err'); openModal('📦 Detail Produk',`<div class="panel">${p.image?`<img src="${A(p.image)}" style="width:100%;border-radius:16px;border:1px solid var(--line);max-height:260px;object-fit:cover;margin-bottom:10px">`:''}<h2>${E(p.name)}</h2><p class="muted">${E(p.desc)}</p><div class="big">${F(p.price)}</div>${(p.benefits||[]).length?`<div class="infoBoxV100"><b>Keunggulan</b><br>${p.benefits.map(x=>'• '+E(x)).join('<br>')}</div>`:''}<div class="btnrow"><button class="btn purple" onclick="order(${Number(p.id)})">🛒 Beli Produk</button><button class="btn ghost" onclick="closeModal()">Tutup</button></div></div>`)};
-window.order=function(id){const p=productList().find(x=>Number(x.id)===Number(id)); if(!p)return T('Produk tidak ditemukan','err'); openModal('🛒 Beli Produk',`<div class="panel">${p.image?`<img src="${A(p.image)}" style="width:100%;border-radius:16px;max-height:200px;object-fit:cover;margin-bottom:10px">`:''}<h2>${E(p.name)}</h2><p class="muted">${E(p.desc)}</p><div class="big">${F(p.price)}</div><input class="input" id="buyWa" placeholder="Nomor WhatsApp kamu"><div style="height:8px"></div><textarea id="buyNote" placeholder="Catatan/order request..."></textarea><button class="btn green" style="width:100%;margin-top:10px" onclick="paySaldo(${Number(p.id)})">Bayar Pakai Saldo</button></div>`)};
-window.paySaldo=async function(id){const p=productList().find(x=>Number(x.id)===Number(id)); const u=U(); if(!p||!u)return T('Produk/user tidak ditemukan','err'); const wa=($('buyWa')?.value||'').trim(), note=($('buyNote')?.value||'').trim(); if(!wa)return T('Nomor WhatsApp wajib diisi','warn'); if(Number(u.saldo||0)<Number(p.price||0))return T('Saldo kurang. Deposit dulu, wahai ekonomi digital 😭','err'); const order={id:'ORD'+Date.now(),product:p.name,productId:p.id,user:u.username,display:u.display||u.username,price:p.price,wa,note,status:'paid',time:Date.now(),source:'web-v1'}; SaveMe({saldo:Number(u.saldo||0)-Number(p.price||0),orders:(u.orders||0)+1,spent:(u.spent||0)+Number(p.price||0)}); const orders=J('orders',[]); orders.unshift(order); S('orders',orders); try{if(typeof addTx==='function')addTx('Beli: '+p.name,-p.price)}catch{} try{await fbPatch('orders/'+order.id,order); await fbPatch('botQueue/autoorder/'+order.id,order); await fbPatch('users/'+u.username,Users()[u.username]); await syncLeaderboardV100();}catch(e){T('Order lokal sukses, Firebase gagal: '+e.message,'warn')} closeModal(); showBuyPop(order); try{renderAll()}catch{} T('Order sukses ✅')};
-function defaultPrizes(){return[{name:'Saldo 500',icon:'💰',type:'saldo',value:500,weight:45},{name:'Saldo 1.000',icon:'💸',type:'saldo',value:1000,weight:28},{name:'Saldo 5.000',icon:'🪙',type:'saldo',value:5000,weight:9},{name:'Bonus Streak',icon:'🔥',type:'streak',value:5,weight:12},{name:'Zonk Tipis',icon:'😹',type:'none',value:0,weight:18}]}
-function prizes(){return J('gachaPrizesV100',defaultPrizes())}
-function pickPrize(){const arr=prizes(), total=arr.reduce((a,b)=>a+Number(b.weight||1),0); let r=Math.random()*total; for(const p of arr){r-=Number(p.weight||1); if(r<=0)return p} return arr[0]}
-function runGacha(n){const u=U(); if(!u)return; const cost=n===10?10000:2000; if(Number(u.saldo||0)<cost)return T(`Saldo kurang buat gacha ${n}x. Butuh ${F(cost)} 😑`,'err'); let result=[]; let saldoAdd=0, streakAdd=0, gachaCount=(u.gacha||0)+n; for(let i=0;i<n;i++){const p=pickPrize(); result.push(p); if(p.type==='saldo')saldoAdd+=Number(p.value||0); if(p.type==='streak')streakAdd+=Number(p.value||0)} SaveMe({saldo:Number(u.saldo||0)-cost+saldoAdd,streak:Number(u.streak||0)+streakAdd,gacha:gachaCount}); S('gachaHistoryV100',[{time:Date.now(),user:u.username,n,cost,result},...J('gachaHistoryV100',[]).slice(0,50)]); fbPatch('users/'+u.username,Users()[u.username]).catch(()=>{}); syncLeaderboardV100(); renderGacha(); try{renderAll()}catch{} const out=$('gachaOutV100'); if(out)out.innerHTML=`<div class="gachaResultV100">${result.map(p=>`<div class="prizeV100"><span class="emoji">${E(p.icon)}</span><div><b>${E(p.name)}</b><br><span class="muted">${p.type==='saldo'?('+'+F(p.value)):p.type==='streak'?('+'+p.value+' streak'):'tidak ada hadiah'}</span></div></div>`).join('')}</div>`; T('Gacha selesai 🎰')}
-window.renderGacha=function(){const box=$('gachaPool'); if(box)box.innerHTML=prizes().map(p=>`<div class="cardBody panel"><div style="font-size:28px">${E(p.icon)}</div><b>${E(p.name)}</b><br><span class="muted">Bobot ${Number(p.weight||1)}</span></div>`).join(''); const page=$('page-gacha'); if(page&&!$('gachaOutV100')){const btn=page.querySelector('button[onclick="doGacha()"]'); if(btn){btn.outerHTML=`<div class="btnrow"><button class="btn purple" onclick="runGachaV100(1)">🎲 Gacha 1x • Rp2.000</button><button class="btn green" onclick="runGachaV100(10)">🎰 Gacha 10x • Rp10.000</button></div><div id="gachaOutV100"></div>`}}};
-window.runGachaV100=runGacha; window.doGacha=function(){runGacha(1)};
-window.claimStreak=function(){const u=U(); if(!u)return; const today=new Date().toISOString().slice(0,10); if(u.lastStreak===today)return T('Streak hari ini sudah diklaim','warn'); const s=Math.min(1000,Number(u.streak||0)+1); const reward=Math.min(250000,500+Math.floor(s/10)*250+Math.floor(s/100)*5000); SaveMe({streak:s,lastStreak:today,saldo:Number(u.saldo||0)+reward}); fbPatch('users/'+u.username,Users()[u.username]).catch(()=>{}); syncLeaderboardV100(); try{renderAll()}catch{} T(`Streak ${s} hari diklaim +${F(reward)} 🔥`)};
-async function syncLeaderboardV100(){const arr=Object.values(Users()).filter(u=>!u.system).map(u=>({username:u.username,display:u.display||u.username,spent:u.spent||0,orders:u.orders||0,streak:u.streak||0,gacha:u.gacha||0,saldo:u.saldo||0,avatar:u.avatar||''})); await fbPut('leaderboard',arr).catch(()=>{})}
-window.renderLeader=function(){const box=$('leaderBox'),tabs=$('lbTabs'); if(!box||!tabs)return; const modes=['belanja','order','streak','gacha','saldo']; window.lbMode=window.lbMode||'belanja'; tabs.innerHTML=modes.map(m=>`<button class="tab ${window.lbMode===m?'active':''}" onclick="lbMode='${m}';renderLeader()">${m}</button>`).join(''); const val=u=>window.lbMode==='belanja'?u.spent||0:window.lbMode==='order'?u.orders||0:window.lbMode==='streak'?u.streak||0:window.lbMode==='gacha'?u.gacha||0:u.saldo||0; const arr=(window.__leaderV100||Object.values(Users())).sort((a,b)=>val(b)-val(a)).slice(0,20); box.innerHTML=arr.map((u,i)=>`<div class="row panel"><b>${i<3?['🥇','🥈','🥉'][i]:'🏅'}</b><div class="ava">${u.avatar?`<img src="${A(u.avatar)}">`:E((u.display||u.username||'?')[0]).toUpperCase()}</div><div style="flex:1"><b>${E(u.display||u.username)}</b><br><span class="muted">@${E(u.username)}</span></div><b>${window.lbMode==='belanja'||window.lbMode==='saldo'?F(val(u)):val(u)}</b></div>`).join('')||'<div class="panel">Belum ada data.</div>'};
-function mediaPreview(url,type){if(!url)return '<div class="muted">Belum ada media.</div>'; if(type==='audio')return `<audio controls src="${A(url)}"></audio>`; if(type==='video')return `<video controls src="${A(url)}"></video>`; return `<img src="${A(url)}">`}
-window.openOwnerPanelV89=window.openOwnerPanelV73=window.openOwnerPanelV76=function(){if(!isOwnerX())return T('Owner panel cuma buat owner. Tahta digital bukan prasmanan 😑','err'); openModal('👑 Owner Panel',`<div class="ownerShellV100"><div class="ownerHeroV100"><h2>elpigiXstore Owner</h2><p class="muted">Panel kontrol ala Ell: produk gambar, banner/hero, video background, backsound, API, Firebase, pengumuman.</p></div><div class="ownerTabsV100"><button class="active" onclick="ownerTabV100('produk',this)">📦 Produk</button><button onclick="ownerTabV100('media',this)">🎬 Media</button><button onclick="ownerTabV100('api',this)">🔑 API</button><button onclick="ownerTabV100('info',this)">ℹ️ Info</button><button onclick="ownerTabV100('pengumuman',this)">📢 Pengumuman</button></div><div id="ownerBodyV100"></div></div>`); ownerTabV100('produk')};
-window.ownerTabV100=function(tab,btn){document.querySelectorAll('.ownerTabsV100 button').forEach(b=>b.classList.remove('active')); if(btn)btn.classList.add('active'); const b=$('ownerBodyV100'); const m=mediaSettings(); if(tab==='produk'){b.innerHTML=`<div class="ownerGridV100"><div class="ownerCardV100"><h3>Tambah/Edit Produk</h3><input class="input" id="opId" type="hidden"><input class="input" id="opName" placeholder="Nama produk"><div style="height:8px"></div><input class="input" id="opPrice" type="number" placeholder="Harga angka"><div style="height:8px"></div><input class="input" id="opCat" placeholder="Kategori, contoh bot"><div style="height:8px"></div><input class="input" id="opImg" placeholder="URL gambar produk"><div style="height:8px"></div><textarea id="opDesc" placeholder="Deskripsi produk"></textarea><div style="height:8px"></div><textarea id="opBenefits" placeholder="Benefit, satu per baris"></textarea><label style="display:flex;gap:8px;margin:8px 0"><input type="checkbox" id="opPub" checked> Publish</label><div class="btnrow"><button class="btn purple" onclick="saveProductV100()">💾 Simpan Produk</button><button class="btn ghost" onclick="clearProductFormV100()">Reset</button></div></div><div class="ownerCardV100"><h3>Daftar Produk</h3><div id="prodOwnerListV100"></div></div></div>`; renderOwnerProductsV100();} else if(tab==='media'){b.innerHTML=`<div class="ownerGridV100"><div class="ownerCardV100"><h3>Background Full Halaman</h3><input class="input" id="omVideo" value="${A(m.videoBg)}" placeholder="URL video background .mp4"><div style="height:8px"></div><input class="input" id="omSiteImg" value="${A(m.siteImageBg)}" placeholder="URL gambar background"><div style="height:8px"></div><input class="input" id="omAudio" value="${A(m.audioBg)}" placeholder="URL audio backsound .mp3"><button class="btn purple" style="width:100%;margin-top:10px" onclick="saveMediaOwnerV100()">💾 Simpan Media</button><button class="btn ghost" style="width:100%;margin-top:8px" onclick="playBacksoundV100()">🎧 Test Audio</button></div><div class="ownerCardV100"><h3>Hero/Banner</h3><input class="input" id="omHero" value="${A(m.heroImage)}" placeholder="URL gambar hero/banner"><button class="btn purple" style="width:100%;margin-top:10px" onclick="saveMediaOwnerV100()">💾 Simpan Hero</button><div class="previewMediaV100" style="margin-top:10px">${mediaPreview(m.heroImage,'image')}${mediaPreview(m.videoBg,'video')}${mediaPreview(m.audioBg,'audio')}</div></div></div>`;} else if(tab==='api'){b.innerHTML=`<div class="ownerGridV100"><div class="ownerCardV100"><h3>Info API</h3><label>Spotify Play</label><input class="input" id="apiSpotifyPlay" value="${A(m.apiInfo.spotifyplay)}"><div style="height:8px"></div><label>Spotify URL</label><input class="input" id="apiSpotify" value="${A(m.apiInfo.spotify)}"><div style="height:8px"></div><label>Pin Video</label><input class="input" id="apiPin" value="${A(m.apiInfo.pinVideo)}"><button class="btn purple" style="width:100%;margin-top:10px" onclick="saveApiOwnerV100()">💾 Simpan API</button></div><div class="ownerCardV100"><h3>Data Firebase</h3><pre class="debugLine">${E(JSON.stringify({databaseURL:FIREBASE_CONFIG.databaseURL,root:ROOT,projectId:FIREBASE_CONFIG.projectId,ipify:IPIFY},null,2))}</pre><button class="btn green" style="width:100%;margin-top:10px" onclick="fbPatch('_test',{ok:true,time:Date.now()}).then(()=>toast('Firebase connect ✅')).catch(e=>toast(e.message,'err'))">⚡ Test Firebase</button></div></div>`;} else if(tab==='info'){b.innerHTML=`<div class="ownerGridV100"><div class="ownerCardV100"><h3>Info Developer ELL</h3><textarea id="devInfoV100">${A(m.developer)}</textarea></div><div class="ownerCardV100"><h3>Info Web</h3><textarea id="webInfoV100">${A(m.webInfo)}</textarea></div></div><button class="btn purple" style="width:100%;margin-top:10px" onclick="saveInfoOwnerV100()">💾 Simpan Info</button>`;} else {b.innerHTML=`<div class="ownerCardV100"><h3>Pengumuman Pop Up</h3><textarea id="annV100" placeholder="Isi pengumuman...">${A(m.announcement)}</textarea><button class="btn purple" style="width:100%;margin-top:10px" onclick="saveAnnOwnerV100()">📢 Simpan & Tampilkan</button></div>`;}}
-window.clearProductFormV100=function(){['opId','opName','opPrice','opCat','opImg','opDesc','opBenefits'].forEach(id=>{if($(id))$(id).value=''}); if($('opPub'))$('opPub').checked=true}
-window.renderOwnerProductsV100=function(){const box=$('prodOwnerListV100'); if(!box)return; box.innerHTML=productList().map(p=>`<div class="panel"><div class="row"><div>${p.image?`<img src="${A(p.image)}" style="width:52px;height:52px;border-radius:12px;object-fit:cover">`:`<div style="font-size:30px">${E(p.icon)}</div>`}</div><div style="flex:1"><b>${E(p.name)}</b><br><span class="muted">${F(p.price)} • ${E(p.cat)} • ${p.published===false?'Draft':'Publish'}</span></div></div><div class="btnrow"><button class="btn ghost" onclick="editProductV100(${Number(p.id)})">Edit</button><button class="btn red" onclick="deleteProductV100(${Number(p.id)})">Hapus</button></div></div>`).join('')||'<div class="muted">Belum ada produk.</div>'}
-window.editProductV100=function(id){const p=productList().find(x=>Number(x.id)===Number(id)); if(!p)return; $('opId').value=p.id;$('opName').value=p.name;$('opPrice').value=p.price;$('opCat').value=p.cat;$('opImg').value=p.image||'';$('opDesc').value=p.desc||'';$('opBenefits').value=(p.benefits||[]).join('\n');$('opPub').checked=p.published!==false}
-window.saveProductV100=async function(){const ps=productList(); const id=$('opId').value||Date.now(); const p={id:Number(id),name:$('opName').value.trim()||'Produk Baru',price:Number($('opPrice').value||0),cat:$('opCat').value.trim()||'bot',image:$('opImg').value.trim(),icon:'🤖',desc:$('opDesc').value.trim(),benefits:$('opBenefits').value.split('\n').map(x=>x.trim()).filter(Boolean),published:$('opPub').checked}; const i=ps.findIndex(x=>Number(x.id)===Number(id)); if(i>=0)ps[i]=p; else ps.unshift(p); saveProducts(ps); await fbPut('products',ps).catch(e=>T('Firebase produk gagal: '+e.message,'warn')); renderProducts(); renderOwnerProductsV100(); T('Produk tersimpan realtime ✅')}
-window.deleteProductV100=async function(id){const ps=productList().filter(x=>Number(x.id)!==Number(id)); saveProducts(ps); await fbPut('products',ps).catch(()=>{}); renderProducts(); renderOwnerProductsV100();}
-window.saveMediaOwnerV100=function(){const m=mediaSettings(); m.videoBg=$('omVideo')?.value.trim()||'';m.siteImageBg=$('omSiteImg')?.value.trim()||'';m.audioBg=$('omAudio')?.value.trim()||'';m.heroImage=$('omHero')?.value.trim()||'';saveMediaSettings(m);T('Media owner tersimpan ✅')}
-window.saveApiOwnerV100=function(){const m=mediaSettings();m.apiInfo={spotifyplay:$('apiSpotifyPlay').value.trim(),spotify:$('apiSpotify').value.trim(),pinVideo:$('apiPin').value.trim()};saveMediaSettings(m);T('API info tersimpan ✅')}
-window.saveInfoOwnerV100=function(){const m=mediaSettings();m.developer=$('devInfoV100').value;m.webInfo=$('webInfoV100').value;saveMediaSettings(m);T('Info web tersimpan ✅')}
-window.saveAnnOwnerV100=function(){const m=mediaSettings();m.announcement=$('annV100').value.trim();saveMediaSettings(m);localStorage.removeItem('annSeenV100');showAnnouncement(true);T('Pengumuman tampil ✅')}
-window.openAdmin=function(){if(!isAdminX())return T('Admin panel cuma admin/owner','err'); openModal('🛡️ Admin Panel',`<div class="adminMiniV100"><div class="ownerHeroV100"><h2>Admin Panel Ringan</h2><p class="muted">Admin cuma cek IP user, hapus chat global, dan kurangi limit user. Tidak megang API/produk, biar toko tidak jadi korban eksperimen 😑</p></div><div class="ownerGridV100"><div class="ownerCardV100"><h3>🌐 Cek IP User</h3><input class="input" id="adminIpUser" placeholder="Username user"><button class="btn purple" style="width:100%;margin-top:8px" onclick="adminCheckUserIPV100()">Cek IP</button><div id="adminIpOutV100"></div></div><div class="ownerCardV100"><h3>💬 Chat Global</h3><button class="btn red dangerBtn" style="width:100%" onclick="clearGlobalChatV100()">🗑️ Hapus Semua Chat Global</button></div><div class="ownerCardV100"><h3>📉 Kurangi Limit User</h3><input class="input" id="limitUserV100" placeholder="Username"><div style="height:8px"></div><input class="input" id="limitAmountV100" type="number" placeholder="Jumlah dikurangi"><button class="btn purple" style="width:100%;margin-top:8px" onclick="reduceLimitUserV100()">Kurangi Limit</button></div></div></div>`)};
-window.adminCheckUserIPV100=async function(){const uname=($('adminIpUser').value||'').trim(); const u=Users()[uname]; const out=$('adminIpOutV100'); if(!u)return out.innerHTML='<div class="proxyWarn">User tidak ditemukan.</div>'; const ip=u.ip||u.lastIP||u.device?.ip||''; out.innerHTML=`<div class="panel"><b>@${E(uname)}</b><br>IP: ${E(ip||'belum tercatat')}</div>`; if(ip){$('ipInputV91')&&($('ipInputV91').value=ip);}}
-window.clearGlobalChatV100=async function(){S('chat',[]); await fbPut('chat',[]).catch(()=>{}); try{renderChat()}catch{} T('Chat global dihapus realtime ✅')}
-window.reduceLimitUserV100=async function(){const uname=$('limitUserV100').value.trim(), amt=Number($('limitAmountV100').value||0), us=Users(); if(!us[uname])return T('User tidak ditemukan','err'); us[uname].limit=Math.max(0,Number(us[uname].limit||0)-amt); SaveUsers(us); await fbPatch('users/'+uname,us[uname]).catch(()=>{}); T('Limit user dikurangi ✅')}
-window.openWebsiteInfoV100=function(){const m=mediaSettings(); openModal('ℹ️ Info Website',`<div class="panel"><h2>Info Developer ELL</h2><p>${E(m.developer)}</p></div><div class="panel"><h2>Info Web</h2><p>${E(m.webInfo)}</p></div><div class="panel"><h2>API & Firebase</h2><pre class="debugLine">${E(JSON.stringify({spotifyplay:m.apiInfo.spotifyplay,pinVideo:m.apiInfo.pinVideo,firebase:FIREBASE_CONFIG.databaseURL,root:ROOT},null,2))}</pre></div>`)};
-window.toolSpotifyPlayV100=async function(){const q=($('spqV100')?.value||'').trim(); const out=$('spOutV100'); if(!q)return T('Masukkan query Spotify','warn'); out.innerHTML='<div class="panel">⏳ Search Spotify...</div>'; try{const ep=mediaSettings().apiInfo.spotifyplay.replace('<query>',enc(q)); const j=await(await fetch(ep)).json(); const r=j.result||j.results||j; out.innerHTML=`<div class="toolResultCardV100">${r.thumbnail?`<img src="${A(r.thumbnail)}">`:''}<h3>${E(r.title||'-')}</h3><p class="muted">${E(r.artist||'-')}</p>${r.download_url||r.url?`<audio controls src="${A(r.download_url||r.url)}"></audio><div class="btnrow"><a class="btn green" href="${A(r.download_url||r.url)}" target="_blank">Download</a></div>`:''}</div>`}catch(e){out.innerHTML='<div class="proxyWarn">❌ '+E(e.message)+'</div>'}}
-window.toolPinVideoV100=async function(){const q=($('pinqV100')?.value||'').trim(); const out=$('pinOutV100'); if(!q)return T('Masukkan URL Pinterest','warn'); out.innerHTML='<div class="panel">⏳ Ambil Pin video...</div>'; try{const ep=mediaSettings().apiInfo.pinVideo.replace('<url>',enc(q)); const j=await(await fetch(ep)).json(); const r=j.result||j.results||j.data||j; const url=typeof r==='string'?r:(r.video||r.url||r.nowm||r.media); out.innerHTML=`<div class="toolResultCardV100"><h3>Pinterest Result</h3>${url?`<video controls src="${A(url)}"></video><div class="btnrow"><a class="btn green" href="${A(url)}" target="_blank">Download/Open</a></div>`:`<pre>${E(JSON.stringify(j,null,2))}</pre>`}</div>`}catch(e){out.innerHTML='<div class="proxyWarn">❌ '+E(e.message)+'</div>'}}
-const oldSearchHub=window.toolSearchHub; window.toolSearchHub=function(){openModal('🔍 Search Hub',`<div class="tabs"><button class="tab active">Spotify</button><button class="tab">Pin Video</button></div><div class="panel"><h3>🎧 Spotify Play</h3><input class="input" id="spqV100" placeholder="Judul lagu / artis"><button class="btn purple" style="width:100%;margin-top:8px" onclick="toolSpotifyPlayV100()">Cari Spotify</button><div id="spOutV100"></div></div><div class="panel"><h3>📌 Pinterest Video</h3><input class="input" id="pinqV100" placeholder="URL Pinterest"><button class="btn purple" style="width:100%;margin-top:8px" onclick="toolPinVideoV100()">Download Pin Video</button><div id="pinOutV100"></div></div>`) };
-async function listen(path,cb){try{const es=new EventSource(fbURL(path)); es.addEventListener('put',e=>{try{cb(JSON.parse(e.data).data)}catch{}}); es.addEventListener('patch',e=>{try{cb(JSON.parse(e.data).data)}catch{}});}catch(e){console.warn('listen',path,e)}}
-function applyRemote(path,d){if(!d)return; if(path==='products'){saveProducts(Array.isArray(d)?d:Object.values(d)); renderProducts()} if(path==='settings/media'){S('ownerMediaV100',d); applyMediaV100()} if(path==='chat'){S('chat',Array.isArray(d)?d:Object.values(d)); try{renderChat()}catch{}} if(path==='leaderboard'){window.__leaderV100=Array.isArray(d)?d:Object.values(d); renderLeader()} if(path==='orders'){const arr=Array.isArray(d)?d:Object.values(d); const last=arr.sort((a,b)=>(b.time||0)-(a.time||0))[0]; if(last&&last.id!==localStorage.getItem('lastOrderPopV100')){localStorage.setItem('lastOrderPopV100',last.id); showBuyPop(last)}}}
-function boot(){try{const brand=document.querySelector('.brand span'); if(brand)brand.textContent='STORE • V1'; applyMediaV100(); showAnnouncement(false); renderProducts(); renderGacha(); const menu=$('menuPop'); if(menu&&!menu.querySelector('[data-info-v100]'))menu.insertAdjacentHTML('beforeend','<button data-info-v100 onclick="openWebsiteInfoV100();toggleMenu(false)">ℹ️ Info Website</button>'); listen('products',d=>applyRemote('products',d)); listen('settings/media',d=>applyRemote('settings/media',d)); listen('chat',d=>applyRemote('chat',d)); listen('leaderboard',d=>applyRemote('leaderboard',d)); listen('orders',d=>applyRemote('orders',d)); fbGet('products').then(d=>{if(d)applyRemote('products',d);else fbPut('products',productList())}).catch(()=>{}); fbGet('settings/media').then(d=>{if(d)applyRemote('settings/media',d)}).catch(()=>{}); syncLeaderboardV100();}catch(e){console.warn('boot v100',e)}}
-document.addEventListener('DOMContentLoaded',()=>setTimeout(boot,1200));
+  console.log('Remi AI Store V97 loaded ✅');
+},1000));
 })();
 </script>
 
-
-<script id="remi-v101-hardfix-js">
+<script id="remi-v103-safe-js">
 (function(){
-  "use strict";
-  const FIREBASE_CONFIG = {
-    apiKey: "AIzaSyDgivYR6mljjYyeFH286UA8auWkVJDZUy0",
-    authDomain: "ellpigi-web-store.firebaseapp.com",
-    databaseURL: "https://ellpigi-web-store-default-rtdb.asia-southeast1.firebasedatabase.app/",
-    projectId: "ellpigi-web-store",
-    storageBucket: "ellpigi-web-store.firebasestorage.app",
-    messagingSenderId: "531471360663",
-    appId: "1:531471360663:web:28f8f71943e9cc42953fd2",
-    measurementId: "G-EPXFJ2FVZW"
-  };
-  const API_INFO = {
-    ipifyKey: "at_SZOROv2kK5dNchcdaozjbGs8mVpwK",
-    spotifyPlay: "https://api.nexray.eu.cc/downloader/spotifyplay?q=",
-    spotifyUrl: "https://api.nexray.eu.cc/downloader/spotify?url=",
-    pinterestVideo: "https://api.nexray.eu.cc/downloader/pinterest?url="
-  };
-  window.REMI_V101 = { FIREBASE_CONFIG, API_INFO };
-
-  function qs(id){return document.getElementById(id)}
-  function money(n){return "Rp"+Number(n||0).toLocaleString("id-ID")}
-  function safe(v){return String(v??"").replace(/[<>&]/g, s=>({ "<":"&lt;", ">":"&gt;", "&":"&amp;" }[s]))}
-  function userKey(){try{return (window.currentUser?.username||localStorage.getItem("currentUser")||"guest").replace(/[^a-z0-9_-]/gi,"_")}catch(e){return "guest"}}
-  function roleOf(u){return String(u?.role||u?.rank||u?.type||"free").toLowerCase()}
-  function isOwner(u){return ["owner","developer","creator"].includes(roleOf(u)) || /ell/i.test(String(u?.username||""))}
-  function isAdmin(u){return ["admin"].includes(roleOf(u)) || isOwner(u)}
-  function isPremium(u){return ["premium","prem"].includes(roleOf(u))}
-  function roleBadge(u){
-    const r=roleOf(u);
-    if(isOwner(u)) return '<span class="roleBadge role-owner">👑 OWNER</span>';
-    if(isAdmin(u)) return '<span class="roleBadge role-admin">🛡️ ADMIN</span>';
-    if(isPremium(u)) return '<span class="roleBadge role-premium">💎 PREMIUM</span>';
-    return '<span class="roleBadge role-free">USER FREE</span>';
-  }
-  window.remiRoleBadge = roleBadge;
-
-  async function loadFirebase(){
-    if(window.firebase) return;
-    await new Promise((res,rej)=>{
-      const s=document.createElement("script");
-      s.src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js";
-      s.onload=res; s.onerror=rej; document.head.appendChild(s);
-    });
-    await new Promise((res,rej)=>{
-      const s=document.createElement("script");
-      s.src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js";
-      s.onload=res; s.onerror=rej; document.head.appendChild(s);
-    });
-  }
-
-  async function initFirebase(){
-    try{
-      await loadFirebase();
-      if(!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
-      window.remiDB = firebase.database();
-      window.db = window.db || window.remiDB;
-      setRelayAuto();
-      bindRealtime();
-      console.log("Remi Firebase realtime aktif");
-    }catch(e){console.warn("Firebase gagal:",e)}
-  }
-
-  function setRelayAuto(){
-    try{
-      localStorage.setItem("relay_auto","true");
-      localStorage.setItem("relay_enabled","true");
-      localStorage.removeItem("relay_manual");
-    }catch(e){}
-  }
-
-  function ref(path){return window.remiDB && window.remiDB.ref(path)}
-
-  function applyMediaSettings(st={}){
-    let v=document.getElementById("remiBgVideo");
-    let i=document.getElementById("remiBgImage");
-    let t=document.getElementById("remiBgTint");
-    if(!v){v=document.createElement("video");v.id="remiBgVideo";v.className="media-bg-video";v.autoplay=true;v.muted=true;v.loop=true;v.playsInline=true;document.body.prepend(v)}
-    if(!i){i=document.createElement("div");i.id="remiBgImage";i.className="media-bg-image";document.body.prepend(i)}
-    if(!t){t=document.createElement("div");t.className="media-bg-tint";document.body.prepend(t)}
-    if(st.bgVideo){ if(v.src!==st.bgVideo) v.src=st.bgVideo; v.style.display="block"; v.play?.().catch(()=>{}); } else v.style.display="none";
-    if(st.bgImage){ i.style.backgroundImage=`url("${st.bgImage}")`; i.style.display="block"; } else i.style.display="none";
-    let a=document.getElementById("remiBacksound");
-    if(!a){a=document.createElement("audio");a.id="remiBacksound";a.loop=true;a.preload="auto";a.style.display="none";document.body.appendChild(a)}
-    if(st.backsound){ if(a.src!==st.backsound) a.src=st.backsound; a.volume=Math.min(1,Number(st.audioVolume??0.35)); if(st.audioOn!==false){document.body.addEventListener("click",()=>a.play().catch(()=>{}),{once:true}); a.play?.().catch(()=>{});} }
-    const hero=document.querySelector(".hero,.hero-card");
-    if(hero && st.heroImage){hero.style.backgroundImage=`linear-gradient(135deg,rgba(10,18,35,.82),rgba(5,9,20,.88)), url("${st.heroImage}")`; hero.style.backgroundSize="cover"; hero.style.backgroundPosition="center";}
-  }
-
-  function showPurchasePop(order){
-    let el=document.getElementById("purchasePopV101");
-    if(!el){el=document.createElement("div");el.id="purchasePopV101";el.className="purchase-pop";document.body.appendChild(el)}
-    const name=String(order.username||order.user||"User");
-    const masked=name[0]?.toUpperCase()+ "***";
-    el.innerHTML=`<div class="avatar">${safe(name[0]||"U")}</div><div><b>🛒 ${safe(masked)} membeli produk</b><br><span class="muted">${safe(order.productName||order.product||"Produk Store")}</span></div>`;
-    el.classList.add("show");
-    setTimeout(()=>el.classList.remove("show"),4500);
-  }
-  function showAnnouncement(text){
-    if(!text) return;
-    if(sessionStorage.getItem("annSeen:"+text.slice(0,20))) return;
-    sessionStorage.setItem("annSeen:"+text.slice(0,20),"1");
-    let el=document.getElementById("announcePopV101");
-    if(!el){el=document.createElement("div");el.id="announcePopV101";el.className="announce-pop";document.body.appendChild(el)}
-    el.innerHTML=`<div class="announce-card"><h2>📢 Pengumuman</h2><p style="color:#9fb0c8;line-height:1.6">${safe(text)}</p><button class="button1" style="width:100%;margin-top:14px" onclick="document.getElementById('announcePopV101').classList.remove('show')">Mengerti</button></div>`;
-    el.classList.add("show");
-  }
-
-  function bindRealtime(){
-    if(!window.remiDB) return;
-    ref("settings/media").on("value",s=>applyMediaSettings(s.val()||{}));
-    ref("settings/announcement").on("value",s=>showAnnouncement(s.val()?.text||s.val()||""));
-    ref("orders").limitToLast(1).on("child_added",s=>{ const o=s.val()||{}; if(Date.now()-Number(o.createdAt||0)<120000) showPurchasePop(o); });
-    ref("products").on("value",s=>{ window.REMI_PRODUCTS_RT=s.val()||{}; if(window.renderProducts) try{window.renderProducts()}catch(e){}; renderOwnerProductsList(); });
-    ref("users").on("value",s=>{ window.REMI_USERS_RT=s.val()||{}; renderAdminUserPick(); if(window.renderLeaderboard) try{window.renderLeaderboard()}catch(e){}; });
-    ref("globalChat").on("value",s=>{ window.REMI_CHAT_RT=s.val()||{}; if(window.renderChat) try{window.renderChat()}catch(e){}; });
-    ref("gacha/history").limitToLast(20).on("value",s=>{ window.REMI_GACHA_HISTORY=s.val()||{}; renderGachaHistoryV101(); });
-  }
-
-  window.remiGoPage = function(name){
-    const id="page-"+name;
-    document.querySelectorAll(".page,.remi-page-panel").forEach(p=>p.classList.remove("active"));
-    const el=qs(id)||qs(name);
-    if(el) el.classList.add("active");
-    document.querySelectorAll(".nav,.dock-item").forEach(n=>n.classList.toggle("active",n.dataset.page===name||n.dataset.p===name));
-    window.scrollTo({top:0,behavior:"smooth"});
-  };
-
-  function ensurePages(){
-    const main=document.querySelector("main")||document.querySelector(".app main")||document.querySelector(".app")||document.body;
-    if(!qs("page-ownerpanel")){
-      const sec=document.createElement("section");
-      sec.id="page-ownerpanel";sec.className="page remi-page-panel";
-      sec.innerHTML=ownerPanelHTML();
-      main.appendChild(sec);
-    }
-    if(!qs("page-adminpanel")){
-      const sec=document.createElement("section");
-      sec.id="page-adminpanel";sec.className="page remi-page-panel";
-      sec.innerHTML=adminPanelHTML();
-      main.appendChild(sec);
-    }
-    if(!qs("page-info")){
-      const sec=document.createElement("section");
-      sec.id="page-info";sec.className="page remi-page-panel";
-      sec.innerHTML=infoPageHTML();
-      main.appendChild(sec);
-    }
-    patchAccountPage();
-    patchSearchHub();
-    patchStreak();
-    patchGachaUI();
-    patchMenuButtons();
-  }
-
-  function patchMenuButtons(){
-    document.querySelectorAll("[onclick*='openOwner'],[onclick*='Owner']").forEach(b=>{
-      b.onclick=function(){remiGoPage("ownerpanel")};
-    });
-    document.querySelectorAll("[onclick*='openAdmin'],[onclick*='Admin']").forEach(b=>{
-      b.onclick=function(){remiGoPage("adminpanel")};
-    });
-  }
-
-  function patchAccountPage(){
-    const page=qs("page-akun")||qs("akun");
-    if(!page) return;
-    const existing=qs("accountSettingsV101");
-    if(existing) return;
-    const u=window.currentUser||{};
-    const box=document.createElement("div");
-    box.className="remi-v101-card";
-    box.id="accountSettingsV101";
-    box.innerHTML=`
-      <h2>⚙️ Pengaturan Akun</h2>
-      <div class="remi-action-grid">
-        <button class="button1" onclick="remiAccountPanel('profile')">🧬 Edit Profil</button>
-        <button class="button1" onclick="remiAccountPanel('password')">🔑 Ganti Password</button>
-        <button class="button1" onclick="remiAccountPanel('referral')">🤝 Referral</button>
-        <button class="button1" onclick="remiCheckMyIP()">🌐 Cek IP Saya</button>
-        <button class="button1" onclick="remiShowMyPassword()">👁️ Lihat Password Akun</button>
-        <button class="button1" onclick="remiDeleteAccount()">🗑️ Hapus Akun</button>
-      </div>
-      <div id="accountSettingsBody" style="margin-top:14px"></div>
-    `;
-    const role=document.createElement("div");
-    role.className="remi-v101-card";
-    role.innerHTML=`<h2>${roleBadge(u)}</h2><div class="remi-action-grid two">${isOwner(u)?'<button class="button1" onclick="remiGoPage(\\'ownerpanel\\')">👑 Owner Panel</button>':''}${isAdmin(u)?'<button class="button1" onclick="remiGoPage(\\'adminpanel\\')">🛡️ Admin Panel</button>':''}</div>`;
-    page.appendChild(box);
-    page.appendChild(role);
-  }
-
-  window.remiAccountPanel=function(type){
-    const body=qs("accountSettingsBody"); if(!body) return;
-    if(type==="profile") body.innerHTML=`<input class="remi-field" id="v101Name" placeholder="Nama baru"><textarea class="remi-field" id="v101Bio" placeholder="Bio"></textarea><button class="button1" onclick="remiSaveProfileV101()">💾 Simpan Profil</button>`;
-    if(type==="password") body.innerHTML=`<input class="remi-field" id="v101OldPw" type="password" placeholder="Password lama"><input class="remi-field" id="v101NewPw" type="password" placeholder="Password baru"><button class="button1" onclick="remiChangePasswordV101()">🔑 Ganti Password</button>`;
-    if(type==="referral") body.innerHTML=`<input class="remi-field" id="v101Ref" placeholder="Masukkan kode referral"><button class="button1" onclick="remiUseReferralV101()">Pakai Referral</button>`;
-  };
-  window.remiSaveProfileV101=function(){
-    const k=userKey(), name=qs("v101Name")?.value, bio=qs("v101Bio")?.value;
-    if(name) localStorage.setItem("displayName",JSON.stringify(name));
-    if(bio) localStorage.setItem("bio",JSON.stringify(bio));
-    ref("users/"+k).update({displayName:name||null,bio:bio||null,updatedAt:Date.now()});
-    alert("Profil disimpan");
-  };
-  window.remiChangePasswordV101=function(){
-    const old=qs("v101OldPw")?.value, nw=qs("v101NewPw")?.value;
-    let u=window.currentUser||{};
-    if(!nw) return alert("Password baru kosong");
-    if(u.password && old!==u.password) return alert("Password lama salah");
-    u.password=nw; window.currentUser=u; localStorage.setItem("currentUserData",JSON.stringify(u));
-    ref("users/"+userKey()).update({password:nw,updatedAt:Date.now()});
-    alert("Password diganti");
-  };
-  window.remiUseReferralV101=function(){ alert("Referral diproses realtime"); ref("referrals/"+userKey()).push({code:qs("v101Ref")?.value||"",createdAt:Date.now()}); };
-  window.remiShowMyPassword=function(){ alert("Password akun: "+((window.currentUser||{}).password || JSON.parse(localStorage.getItem("currentUserData")||"{}").password || "-")); };
-  window.remiDeleteAccount=function(){ if(confirm("Hapus akun ini?")){ref("users/"+userKey()).remove(); localStorage.clear(); location.reload();} };
-
-  window.remiCheckMyIP=async function(){
-    const key=API_INFO.ipifyKey;
-    try{
-      const ip=await fetch("https://api.ipify.org?format=json").then(r=>r.json()).then(j=>j.ip);
-      const geo=await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${key}&ipAddress=${ip}`).then(r=>r.json());
-      alert(`IP: ${ip}\nKota: ${geo.location?.city||"-"}\nNegara: ${geo.location?.country||"-"}\nISP: ${geo.isp||"-"}`);
-    }catch(e){alert("Gagal cek IP")}
-  };
-
-  function ownerPanelHTML(){
-    return `
-    <div class="owner-ell-shell">
-      <div class="owner-ell-top"><div><div class="owner-ell-logo">◈ REMI OWNER</div><small>// ELL STYLE PANEL //</small></div><button class="button1" onclick="remiGoPage('akun')">← Akun</button></div>
-      <div class="owner-ell-nav">
-        <button class="active" onclick="ownerTabV101('product',this)">Produk</button>
-        <button onclick="ownerTabV101('media',this)">Media Web</button>
-        <button onclick="ownerTabV101('api',this)">API Key</button>
-        <button onclick="ownerTabV101('firebase',this)">Firebase</button>
-        <button onclick="ownerTabV101('announcement',this)">Pengumuman</button>
-      </div>
-      <div class="remi-v101-card" id="ownerTabBody"></div>
-    </div>`;
-  }
-  window.ownerTabV101=function(tab,btn){
-    document.querySelectorAll(".owner-ell-nav button").forEach(b=>b.classList.remove("active")); btn?.classList.add("active");
-    const b=qs("ownerTabBody"); if(!b) return;
-    if(tab==="product") b.innerHTML=`
-      <h2>📦 Produk Gambar</h2>
-      <input class="remi-field" id="opName" placeholder="Nama produk">
-      <input class="remi-field" id="opPrice" type="number" placeholder="Harga angka">
-      <input class="remi-field" id="opCat" placeholder="Kategori">
-      <input class="remi-field" id="opImg" placeholder="URL gambar produk">
-      <textarea class="remi-field" id="opDesc" placeholder="Deskripsi"></textarea>
-      <button class="button1" onclick="saveOwnerProductV101()">💾 Simpan Produk</button>
-      <div id="ownerProductsV101"></div>`;
-    if(tab==="media") b.innerHTML=`
-      <h2>🎬 Media Website</h2>
-      <input class="remi-field" id="bgVideoUrl" placeholder="URL video background full halaman">
-      <input class="remi-field" id="bgAudioUrl" placeholder="URL audio backsound">
-      <input class="remi-field" id="heroImageUrl" placeholder="URL gambar hero/banner">
-      <input class="remi-field" id="bgImageUrl" placeholder="URL gambar background opsional">
-      <button class="button1" onclick="saveMediaV101()">🎬 Terapkan Media</button>
-      <p class="muted">Video background butuh link direct mp4/webm. Audio butuh mp3 direct. Browser kadang nunggu tap pertama, karena kebijakan autoplay manusia sok suci 😑</p>`;
-    if(tab==="api") b.innerHTML=`
-      <h2>🔐 Info API Key</h2>
-      <button class="button1" onclick="showApiFullV101()">Tampilkan API Lengkap</button>
-      <pre id="apiFullV101" style="white-space:pre-wrap;color:#9fb0c8;background:#071020;border-radius:18px;padding:14px;display:none"></pre>`;
-    if(tab==="firebase") b.innerHTML=`
-      <h2>🔥 Data Firebase</h2>
-      <button class="button1" onclick="showFirebaseFullV101()">Tampilkan Config Firebase</button>
-      <pre id="firebaseFullV101" style="white-space:pre-wrap;color:#9fb0c8;background:#071020;border-radius:18px;padding:14px;display:none"></pre>`;
-    if(tab==="announcement") b.innerHTML=`
-      <h2>📢 Pengumuman Masuk</h2>
-      <textarea class="remi-field" id="annTextV101" placeholder="Isi pengumuman yang muncul saat user masuk"></textarea>
-      <button class="button1" onclick="saveAnnV101()">Publish Pengumuman</button>`;
-    renderOwnerProductsList();
-  };
-  setTimeout(()=>{ if(qs("ownerTabBody")) ownerTabV101("product", document.querySelector(".owner-ell-nav button")); },500);
-
-  window.saveOwnerProductV101=function(){
-    const id="p_"+Date.now();
-    const p={id,name:qs("opName")?.value||"Produk Baru",price:Number(qs("opPrice")?.value||0),category:qs("opCat")?.value||"Jasa",image:qs("opImg")?.value||"",desc:qs("opDesc")?.value||"",mediaType:"image",createdAt:Date.now(),active:true};
-    ref("products/"+id).set(p); alert("Produk disimpan realtime");
-  };
-  function renderOwnerProductsList(){
-    const el=qs("ownerProductsV101"); if(!el) return;
-    const arr=Object.values(window.REMI_PRODUCTS_RT||{});
-    el.innerHTML=arr.map(p=>`<div class="remi-v101-card"><b>${safe(p.name)}</b><br><span>${money(p.price)}</span><br>${p.image?`<img src="${safe(p.image)}" style="width:100%;max-height:160px;object-fit:cover;border-radius:16px;margin:8px 0">`:''}<button class="button1" onclick="remiBuyProductV101('${safe(p.id)}')">Beli</button></div>`).join("")||"<p class='muted'>Belum ada produk realtime.</p>";
-  }
-  window.saveMediaV101=function(){
-    const st={bgVideo:qs("bgVideoUrl")?.value||"",backsound:qs("bgAudioUrl")?.value||"",heroImage:qs("heroImageUrl")?.value||"",bgImage:qs("bgImageUrl")?.value||"",audioOn:true,audioVolume:.35,updatedAt:Date.now()};
-    ref("settings/media").set(st); applyMediaSettings(st); alert("Media website disimpan");
-  };
-  window.showApiFullV101=function(){const e=qs("apiFullV101"); e.style.display=e.style.display==="none"?"block":"none"; e.textContent=JSON.stringify(API_INFO,null,2);};
-  window.showFirebaseFullV101=function(){const e=qs("firebaseFullV101"); e.style.display=e.style.display==="none"?"block":"none"; e.textContent=JSON.stringify(FIREBASE_CONFIG,null,2);};
-  window.saveAnnV101=function(){ref("settings/announcement").set({text:qs("annTextV101")?.value||"",updatedAt:Date.now()}); alert("Pengumuman dipublish");};
-
-  function adminPanelHTML(){
-    return `
-      <div class="remi-v101-card admin-light-panel">
-        <h2>🛡️ Admin Panel</h2>
-        <p class="muted">Admin cuma boleh cek IP user, hapus chat global, dan kurangin limit user. Owner/premium tidak bisa diintip IP, biar nggak jadi CCTV murah 😑</p>
-        <div id="adminUserPickV101"></div>
-        <div class="remi-action-grid">
-          <button class="button1" onclick="adminPeekIPV101()">🌐 Cek IP User Terpilih</button>
-          <button class="button1" onclick="adminReduceLimitV101()">⚡ Kurangi Limit User</button>
-          <button class="button1" onclick="adminClearGlobalChatV101()">🗑️ Hapus Chat Global</button>
-          <button class="button1" onclick="adminSeePasswordV101()">👁️ Lihat Password Akun</button>
-        </div>
-        <pre id="adminResultV101" style="white-space:pre-wrap;color:#9fb0c8;background:#071020;border-radius:18px;padding:14px;margin-top:12px"></pre>
-      </div>`;
-  }
-  function renderAdminUserPick(){
-    const el=qs("adminUserPickV101"); if(!el) return;
-    const users=Object.entries(window.REMI_USERS_RT||{});
-    el.innerHTML=`<select class="remi-field" id="adminUserSelectV101">${users.map(([k,u])=>`<option value="${safe(k)}">${safe(u.username||u.displayName||k)} - ${roleOf(u)}</option>`).join("")}</select>`;
-  }
-  function selectedUser(){const k=qs("adminUserSelectV101")?.value; return [k,(window.REMI_USERS_RT||{})[k]||{}]}
-  window.adminPeekIPV101=async function(){
-    const [k,u]=selectedUser(); if(!k) return;
-    if(isOwner(u)||isPremium(u)) return alert("Owner/Premium tidak bisa diintip.");
-    qs("adminResultV101").textContent=JSON.stringify({user:k,ip:u.ip||u.lastIP||"-",device:u.device||{},location:u.location||{}},null,2);
-  };
-  window.adminReduceLimitV101=function(){const [k,u]=selectedUser(); if(!k)return; ref("users/"+k).update({limit:Math.max(0,Number(u.limit||0)-1)}); alert("Limit dikurangi");};
-  window.adminClearGlobalChatV101=function(){if(confirm("Hapus semua chat global?")) ref("globalChat").remove();};
-  window.adminSeePasswordV101=function(){const [k,u]=selectedUser(); if(!k)return; qs("adminResultV101").textContent=`Password ${k}: ${u.password||"-"}`;};
-
-  function infoPageHTML(){
-    return `<div class="remi-v101-card"><h2>ℹ️ Info Website</h2><p><b>Developer:</b> ELL</p><p><b>Website:</b> Remi AI Store V1</p><p><b>Database:</b> Firebase Realtime Database</p><p><b>Fitur:</b> Store, Boost, Search Hub, Chat, Gacha, Streak, Owner Panel, Admin Tools.</p></div>`;
-  }
-
-  function patchSearchHub(){
-    const grid=qs("toolsGrid")||document.querySelector("#page-tools .grid");
-    if(!grid || qs("searchHubV101")) return;
-    const wrap=document.createElement("div");
-    wrap.id="searchHubV101";
-    wrap.className="section";
-    wrap.innerHTML=`<div class="secHead">SEARCH HUB</div><div class="search-hub-grid">
-      <div class="tool"><div class="toolIcon">📌</div><h3>Pin Video</h3><p>Downloader Pinterest video.</p><button class="button1" onclick="searchToolPinVideoV101()">Buka</button></div>
-      <div class="tool"><div class="toolIcon">🎧</div><h3>Spotify</h3><p>Search/play Spotify.</p><button class="button1" onclick="searchToolSpotifyV101()">Buka</button></div>
-      <div class="tool"><div class="toolIcon">🖼️</div><h3>Sticker.ly</h3><p>Search stiker.</p><button class="button1" onclick="alert('Stickerly tetap di Search Hub')">Buka</button></div>
-      <div class="tool"><div class="toolIcon">😂</div><h3>Lahelu</h3><p>Search meme Lahelu.</p><button class="button1" onclick="alert('Lahelu tetap di Search Hub')">Buka</button></div>
-    </div>`;
-    grid.parentNode.insertBefore(wrap,grid);
-  }
-  window.searchToolPinVideoV101=function(){modalMini("📌 Pin Video",`<input class="remi-field" id="pinUrlV101" placeholder="URL Pinterest"><button class="button1" onclick="runPinVideoV101()">Download</button><div id="pinOutV101"></div>`)}
-  window.searchToolSpotifyV101=function(){modalMini("🎧 Spotify",`<input class="remi-field" id="spQueryV101" placeholder="Judul lagu / link Spotify"><button class="button1" onclick="runSpotifyV101()">Cari/Play</button><div id="spOutV101"></div>`)}
-  function modalMini(title,body){
-    let m=qs("modal"); let b=qs("modalBody"), t=qs("modalTitle");
-    if(m&&b&&t){t.textContent=title;b.innerHTML=body;m.classList.add("show");return}
-    alert(title);
-  }
-  window.runPinVideoV101=async function(){
-    const u=qs("pinUrlV101")?.value||""; const out=qs("pinOutV101"); out.innerHTML="Loading...";
-    try{const j=await fetch(API_INFO.pinterestVideo+encodeURIComponent(u)).then(r=>r.json()); const url=j.result?.url||j.result?.video||j.url||j.video||j.result; out.innerHTML=url?`<video src="${url}" controls style="width:100%;border-radius:16px"></video><a class="button1" href="${url}" target="_blank">Buka/Download</a>`:"Gagal parse result";}catch(e){out.textContent="Gagal fetch";}
-  }
-  window.runSpotifyV101=async function(){
-    const q=qs("spQueryV101")?.value||""; const out=qs("spOutV101"); out.innerHTML="Loading...";
-    try{const isUrl=/open\.spotify\.com/.test(q); const api=(isUrl?API_INFO.spotifyUrl:API_INFO.spotifyPlay)+encodeURIComponent(q); const j=await fetch(api).then(r=>r.json()); const r=j.result||{}; const url=r.download_url||r.url; out.innerHTML=`<b>${safe(r.title||"Spotify Result")}</b><p>${safe(r.artist||"")}</p>${url?`<audio src="${url}" controls style="width:100%"></audio><a class="button1" href="${url}" target="_blank">Buka Audio</a>`:"No audio"}`;}catch(e){out.textContent="Gagal fetch";}
-  }
-
-  function patchStreak(){
-    const p=qs("page-streak"); if(!p || qs("streakV101")) return;
-    const box=document.createElement("div"); box.id="streakV101"; box.className="remi-v101-card";
-    box.innerHTML=`<h2>🔥 Streak Premium</h2><div class="big"><span id="streakNowV101">0</span> / 1000 Hari</div><div class="streak-track"><div class="streak-fill" id="streakFillV101" style="width:0%"></div></div><p class="muted">Hadiah makin naik sampai 1000 streak. Jangan bangga dulu, ini cuma klik harian, bukan menyelamatkan peradaban 😹</p><button class="button1" onclick="claimStreakV101()">Klaim Streak</button>`;
-    p.prepend(box);
-    updateStreakV101();
-  }
-  function updateStreakV101(){const n=Number(localStorage.getItem("streak")||0); if(qs("streakNowV101"))qs("streakNowV101").textContent=n; if(qs("streakFillV101"))qs("streakFillV101").style.width=Math.min(100,n/1000*100)+"%";}
-  window.claimStreakV101=function(){let n=Number(localStorage.getItem("streak")||0)+1; n=Math.min(1000,n); const reward=100+(Math.floor(n/10)*25)+(n>=100?1000:0)+(n>=500?5000:0)+(n>=1000?15000:0); localStorage.setItem("streak",n); const k=userKey(); ref("users/"+k).update({streak:n}); ref("users/"+k+"/saldo").transaction(v=>(Number(v||0)+reward)); updateStreakV101(); alert(`Streak ${n} hari, hadiah ${money(reward)}`); };
-
-  function patchGachaUI(){
-    const p=qs("page-gacha"); if(!p || qs("gachaV101")) return;
-    const box=document.createElement("div"); box.id="gachaV101"; box.className="remi-v101-card";
-    box.innerHTML=`<h2>🎰 Gacha Realtime</h2><p class="muted">Harga 1x Rp1.000, 10x Rp9.000. Hadiah saldo langsung masuk.</p><div class="remi-action-grid two"><button class="button1" onclick="doGachaV101(1)">🎲 Gacha 1x</button><button class="button1" onclick="doGachaV101(10)">🎰 Gacha 10x</button></div><div id="gachaResultV101" class="gacha-result"></div><div id="gachaHistoryV101"></div>`;
-    p.prepend(box);
-  }
-  window.doGachaV101=async function(count){
-    const cost=count===10?9000:1000; const k=userKey(); let saldo=Number((window.currentUser||{}).saldo||localStorage.getItem("saldo")||0);
-    try{const snap=await ref("users/"+k+"/saldo").once("value"); saldo=Number(snap.val()??saldo)}catch(e){}
-    if(saldo<cost) return alert("Saldo kurang buat gacha.");
-    const prizes=[]; for(let i=0;i<count;i++){prizes.push(rollPrize())}
-    const total=prizes.reduce((a,p)=>a+p.reward,0);
-    await ref("users/"+k+"/saldo").transaction(v=>Number(v||saldo)-cost+total);
-    await ref("gacha/history").push({user:k,count,cost,total,prizes,createdAt:Date.now()});
-    qs("gachaResultV101").innerHTML=prizes.map(p=>`<div class="gacha-prize-card">${p.icon} <b>${safe(p.name)}</b><br>Hadiah: ${money(p.reward)}</div>`).join("");
-  }
-  function rollPrize(){
-    const r=Math.random();
-    if(r>.98) return {icon:"👑",name:"Jackpot Owner Luck",reward:50000};
-    if(r>.90) return {icon:"💎",name:"Premium Gem",reward:15000};
-    if(r>.70) return {icon:"⚡",name:"Bonus Cepat",reward:5000};
-    return {icon:"🪙",name:"Koin Random",reward:Math.floor(500+Math.random()*1800)};
-  }
-  function renderGachaHistoryV101(){
-    const el=qs("gachaHistoryV101"); if(!el) return;
-    const arr=Object.values(window.REMI_GACHA_HISTORY||{}).slice(-5).reverse();
-    el.innerHTML=arr.map(h=>`<div class="remi-v101-card"><b>${safe(h.user)}</b> gacha ${h.count}x, hasil ${money(h.total)}</div>`).join("");
-  }
-
-  window.remiBuyProductV101=async function(id){
-    const p=(window.REMI_PRODUCTS_RT||{})[id]||{};
-    if(!p.id){ alert("Produk tidak ditemukan"); return; }
-    const k=userKey();
-    const order={id:"ord_"+Date.now(),user:k,username:k,productId:id,productName:p.name,price:Number(p.price||0),status:"pending",createdAt:Date.now()};
-    await ref("orders/"+order.id).set(order);
-    await ref("botQueue/autoorder/"+order.id).set(order);
-    showPurchasePop(order);
-    alert("Order dibuat realtime");
-  };
-
-  // try to hook existing buy buttons
-  document.addEventListener("click",function(e){
-    const btn=e.target.closest(".spc-buy-btn,.buy-btn");
-    if(!btn) return;
-    const card=btn.closest("[data-id],.store-prod-card,.card");
-    const id=card?.dataset?.id;
-    if(id && window.REMI_PRODUCTS_RT?.[id]){e.preventDefault();e.stopPropagation();remiBuyProductV101(id);}
-  },true);
-
-  document.addEventListener("DOMContentLoaded",()=>{initFirebase(); ensurePages();});
-  setTimeout(()=>{initFirebase(); ensurePages();},800);
+  'use strict';
+  const $=id=>document.getElementById(id);
+  const esc=s=>String(s??'').replace(/[<>&]/g,m=>({'<':'&lt;','>':'&gt;','&':'&amp;'}[m]));
+  const toast=(m)=>{ if(typeof window.toast==='function'){try{return window.toast(m)}catch(e){}} alert(m); };
+  const roleOf=u=>String((u&&u.role)||'free').toLowerCase();
+  const isOwner=u=>['owner','developer','creator'].includes(roleOf(u))||/ell/i.test(String((u&&u.username)||''));
+  const isAdmin=u=>roleOf(u)==='admin'||isOwner(u);
+  const isPrem=u=>['premium','prem'].includes(roleOf(u));
+  function safeKey(x){return String(x||'guest').trim().toLowerCase().replace(/[.#$/\[\]\s]/g,'_').replace(/[^a-z0-9_-]/gi,'_').slice(0,48)||'guest'}
+  function roleBadge(u){ if(isOwner(u)) return '<span class="roleBadge role-owner">👑 OWNER</span>'; if(isAdmin(u)) return '<span class="roleBadge role-admin">🛡️ ADMIN</span>'; if(isPrem(u)) return '<span class="roleBadge role-premium">💎 PREMIUM</span>'; return '<span class="roleBadge role-free">USER FREE</span>'; }
+  window.remiRoleBadge=roleBadge;
+  async function readyDB(){ if(window.REMI_BOOT_DATABASE) await window.REMI_BOOT_DATABASE(); else if(window.REMI_INIT_DATABASE) await window.REMI_INIT_DATABASE(); return window.remiDB||window.db; }
+  function ref(p){ const d=window.remiDB||window.db; if(!d) throw new Error('Firebase belum siap'); return d.ref(p); }
+  function setSession(user){ window.currentUser=user; localStorage.setItem('remi_session',JSON.stringify({username:user.username,key:user.key,role:user.role||'free',loginAt:Date.now()})); localStorage.setItem('currentUser',user.username); localStorage.setItem('currentUserData',JSON.stringify(user)); if(user.saldo!=null) localStorage.setItem('saldo',String(user.saldo)); if(user.limit!=null) localStorage.setItem('limit',String(user.limit)); }
+  function hideAuth(){const a=$('auth'); if(a){a.classList.add('hide');a.style.display='none';}}
+  function showAuth(){const a=$('auth'); if(a){a.classList.remove('hide');a.style.display='flex';}}
+  function rerender(){['renderAll','renderProducts','renderMe','renderProfile','updateSaldo','renderLeaderboard'].forEach(fn=>{try{if(typeof window[fn]==='function')window[fn]()}catch(e){}})}
+  window.switchAuth=function(type){ const loginBox=$('loginBox'), regBox=$('regBox'), tabLogin=$('tabLogin'), tabReg=$('tabReg'); const isReg=type==='reg'; if(loginBox) loginBox.style.display=isReg?'none':'block'; if(regBox) regBox.style.display=isReg?'block':'none'; if(tabLogin) tabLogin.classList.toggle('active',!isReg); if(tabReg) tabReg.classList.toggle('active',isReg); };
+  window.register=async function(){ try{ await readyDB(); const username=($('regUser')&&$('regUser').value||'').trim(); const password=($('regPass')&&$('regPass').value||'').trim(); const gender=($('regGender')&&$('regGender').value)||'rahasia'; if(username.length<3) throw new Error('Username minimal 3 karakter'); if(password.length<3) throw new Error('Password minimal 3 karakter'); const key=safeKey(username); const snap=await ref('users/'+key).once('value'); if(snap.exists()) throw new Error('Username sudah ada'); const user={key,username,password,gender,role:/^ell$/i.test(username)?'owner':'free',title:/^ell$/i.test(username)?'👑 OWNER':'USER FREE',saldo:0,limit:15,streak:0,relayAuto:true,createdAt:Date.now(),updatedAt:Date.now(),online:true}; await ref('users/'+key).set(user); await ref('logs/register').push({username,key,createdAt:Date.now()}); setSession(user); hideAuth(); rerender(); syncLocalToFirebase(); toast('Daftar berhasil, data masuk Firebase ⚡'); }catch(e){toast(e.message||'Gagal daftar');} };
+  window.login=async function(){ try{ await readyDB(); const username=($('loginUser')&&$('loginUser').value||'').trim(); const password=($('loginPass')&&$('loginPass').value||'').trim(); if(!username||!password) throw new Error('Username/password kosong'); const key=safeKey(username); const snap=await ref('users/'+key).once('value'); if(!snap.exists()) throw new Error('Akun tidak ditemukan'); const user=Object.assign({key},snap.val()); if(String(user.password||'')!==password) throw new Error('Password salah'); user.key=key; user.online=true; user.lastLoginAt=Date.now(); await ref('users/'+key).update({online:true,lastLoginAt:Date.now(),relayAuto:true}); setSession(user); hideAuth(); rerender(); syncLocalToFirebase(); toast('Login berhasil dari Firebase ⚡'); }catch(e){toast(e.message||'Gagal login');} };
+  window.guestLogin=async function(){ try{ await readyDB(); const username='Guest_'+Math.random().toString(36).slice(2,7); const key=safeKey(username); const user={key,username,password:'',gender:'rahasia',role:'free',title:'USER FREE',guest:true,saldo:0,limit:10,streak:0,relayAuto:true,createdAt:Date.now(),online:true}; await ref('users/'+key).set(user); setSession(user); hideAuth(); rerender(); syncLocalToFirebase(); toast('Masuk guest, tetap dicatat Firebase 😑'); }catch(e){toast(e.message||'Gagal guest');} };
+  window.logout=async function(){ try{await readyDB(); const s=JSON.parse(localStorage.getItem('remi_session')||'null'); if(s&&s.key) await ref('users/'+s.key).update({online:false,lastLogoutAt:Date.now()});}catch(e){} localStorage.removeItem('remi_session'); localStorage.removeItem('currentUser'); localStorage.removeItem('currentUserData'); window.currentUser=null; showAuth(); };
+  async function restore(){ try{ await readyDB(); const s=JSON.parse(localStorage.getItem('remi_session')||'null'); if(s&&s.key){ const snap=await ref('users/'+s.key).once('value'); if(snap.exists()){const user=Object.assign({key:s.key},snap.val()); setSession(user); hideAuth(); rerender(); syncLocalToFirebase(); return;}} showAuth(); }catch(e){console.warn(e);showAuth();} }
+  function collectLocal(){ const out={}; ['saldo','streak','limit','displayName','bio','gender','avatar','pfp','products','orders','gachaHistory','theme','ownerMediaV100'].forEach(k=>{const v=localStorage.getItem(k); if(v!==null) out[k]=v;}); return out; }
+  async function syncLocalToFirebase(){ try{await readyDB(); const s=JSON.parse(localStorage.getItem('remi_session')||'null'); if(!s||!s.key)return; const local=collectLocal(); await ref('users/'+s.key+'/localCache').update(local); await ref('users/'+s.key).update({updatedAt:Date.now(),relayAuto:true});} catch(e){console.warn('sync local gagal',e)} }
+  window.REMI_SYNC_LOCAL_TO_FIREBASE=syncLocalToFirebase;
+  const oldSet=localStorage.setItem.bind(localStorage); localStorage.setItem=function(k,v){ oldSet(k,v); if(!String(k).startsWith('firebase:')){clearTimeout(window.__remiSyncTO); window.__remiSyncTO=setTimeout(syncLocalToFirebase,700);} };
+  function mediaApply(st){ st=st||{}; let vid=$('remiBgVideo'); if(!vid){vid=document.createElement('video');vid.id='remiBgVideo';vid.className='media-bg-video';vid.autoplay=true;vid.muted=true;vid.loop=true;vid.playsInline=true;document.body.prepend(vid)} let img=$('remiBgImage'); if(!img){img=document.createElement('div');img.id='remiBgImage';img.className='media-bg-image';document.body.prepend(img)} if(!document.querySelector('.media-bg-tint')){const t=document.createElement('div');t.className='media-bg-tint';document.body.prepend(t)} if(st.bgVideo||st.videoBg){vid.src=st.bgVideo||st.videoBg;vid.style.display='block';vid.play&&vid.play().catch(()=>{});}else vid.style.display='none'; if(st.bgImage||st.siteImageBg){img.style.backgroundImage='url("'+(st.bgImage||st.siteImageBg)+'")';img.style.display='block';}else img.style.display='none'; let aud=$('remiBacksound'); if(!aud){aud=document.createElement('audio');aud.id='remiBacksound';aud.loop=true;aud.preload='auto';aud.style.display='none';document.body.appendChild(aud)} if(st.backsound||st.audioBg){aud.src=st.backsound||st.audioBg;aud.volume=Number(st.audioVolume||.35);document.body.addEventListener('click',()=>aud.play().catch(()=>{}),{once:true});} const hero=document.querySelector('.hero,.hero-card'); if(hero&&(st.heroImage||st.bannerImage)){hero.style.backgroundImage='linear-gradient(135deg,rgba(10,18,35,.80),rgba(5,9,20,.88)),url("'+(st.heroImage||st.bannerImage)+'")';hero.style.backgroundSize='cover';hero.style.backgroundPosition='center';} }
+  function buyPop(order){let el=$('purchasePopV103'); if(!el){el=document.createElement('div');el.id='purchasePopV103';el.className='purchase-pop';document.body.appendChild(el)} const name=String(order.username||order.user||'User'); el.innerHTML='<div class="avatar">'+esc(name[0]||'U')+'</div><div><b>🛒 '+esc((name[0]||'U').toUpperCase()+'***')+' membeli produk</b><br><span class="muted">'+esc(order.productName||order.product||'Produk Store')+'</span></div>'; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),4500)}
+  function announce(text){if(!text||sessionStorage.getItem('ann:'+text))return; sessionStorage.setItem('ann:'+text,'1'); let el=$('announcePopV103'); if(!el){el=document.createElement('div');el.id='announcePopV103';el.className='announce-pop';document.body.appendChild(el)} el.innerHTML='<div class="announce-card"><h2>📢 Pengumuman</h2><p style="color:#9fb0c8;line-height:1.6">'+esc(text)+'</p><button class="button1" style="width:100%;margin-top:14px" id="annCloseV103">Mengerti</button></div>'; const closeBtn=()=>{const c=document.getElementById('annCloseV103'); if(c)c.onclick=()=>document.getElementById('announcePopV103').classList.remove('show');}; setTimeout(closeBtn,0); el.classList.add('show');}
+  async function bindRealtime(){ try{await readyDB(); ref('settings/media').on('value',s=>mediaApply(s.val()||{})); ref('settings/announcement').on('value',s=>{const v=s.val();announce((v&&v.text)||v||'')}); ref('orders').limitToLast(1).on('child_added',s=>{const o=s.val()||{};if(Date.now()-Number(o.createdAt||0)<120000)buyPop(o)}); ref('products').on('value',s=>{window.REMI_PRODUCTS_RT=s.val()||{};try{if(window.renderProducts)window.renderProducts()}catch(e){}}); ref('users').on('value',s=>{window.REMI_USERS_RT=s.val()||{};try{if(window.renderLeaderboard)window.renderLeaderboard()}catch(e){}}); }catch(e){console.warn('bind realtime gagal',e)} }
+  async function seedImportant(){ try{await readyDB(); const cfg=window.REMI_DATABASE||{}; const settings={firebase:cfg.firebaseConfig||{},apiKeys:cfg.apiKeys||{},endpoints:cfg.endpoints||{},system:{name:'Remi AI Store V1',developer:'ELL',relayAuto:true,updatedAt:Date.now()}}; await ref('settings').update(settings);} catch(e){} }
+  document.addEventListener('DOMContentLoaded',()=>{restore();bindRealtime();seedImportant();}); setTimeout(()=>{restore();bindRealtime();seedImportant();},800);
 })();
 </script>
-
-
-<script id="remi-v102-auth-database-fix">
-(function(){
-  "use strict";
-
-  function $(id){ return document.getElementById(id); }
-  function toast(msg, err=false){
-    if(typeof window.toast === "function") return window.toast(msg, err ? "err" : "ok");
-    alert(msg);
-  }
-  function hideAuth(){
-    const auth = $("auth");
-    if(auth) auth.classList.add("hide");
-    document.body.classList.add("logged-in");
-  }
-  function showAuth(){
-    const auth = $("auth");
-    if(auth) auth.classList.remove("hide");
-  }
-  function updateUI(){
-    try{ if(typeof renderAll === "function") renderAll(); }catch(e){}
-    try{ if(typeof renderProducts === "function") renderProducts(); }catch(e){}
-    try{ if(typeof renderMe === "function") renderMe(); }catch(e){}
-    try{ if(typeof renderProfile === "function") renderProfile(); }catch(e){}
-    try{ if(typeof updateSaldo === "function") updateSaldo(); }catch(e){}
-  }
-
-  window.switchAuth = function(type){
-    const loginBox = $("loginBox");
-    const regBox = $("regBox");
-    const tabLogin = $("tabLogin");
-    const tabReg = $("tabReg");
-    if(type === "reg"){
-      if(loginBox) loginBox.style.display = "none";
-      if(regBox) regBox.style.display = "block";
-      if(tabLogin) tabLogin.classList.remove("active");
-      if(tabReg) tabReg.classList.add("active");
-    }else{
-      if(loginBox) loginBox.style.display = "block";
-      if(regBox) regBox.style.display = "none";
-      if(tabReg) tabReg.classList.remove("active");
-      if(tabLogin) tabLogin.classList.add("active");
-    }
-  };
-
-  window.register = async function(){
-    try{
-      const username = $("regUser")?.value?.trim();
-      const password = $("regPass")?.value?.trim();
-      const gender = $("regGender")?.value || "rahasia";
-
-      const user = await window.REMI_REGISTER_USER({ username, password, gender });
-      window.REMI_SET_SESSION(user);
-
-      hideAuth();
-      updateUI();
-      toast("Akun berhasil dibuat dan tersimpan ke Firebase ⚡");
-    }catch(err){
-      toast(err.message || "Gagal daftar", true);
-    }
-  };
-
-  window.login = async function(){
-    try{
-      const username = $("loginUser")?.value?.trim();
-      const password = $("loginPass")?.value?.trim();
-
-      const user = await window.REMI_LOGIN_USER({ username, password });
-      window.REMI_SET_SESSION(user);
-
-      hideAuth();
-      updateUI();
-      toast("Login berhasil dari Firebase ⚡");
-    }catch(err){
-      toast(err.message || "Gagal login", true);
-    }
-  };
-
-  window.guestLogin = async function(){
-    try{
-      const user = await window.REMI_LOGIN_USER({ guest:true });
-      window.REMI_SET_SESSION(user);
-
-      hideAuth();
-      updateUI();
-      toast("Masuk sebagai guest, data tetap dicatat Firebase 😑");
-    }catch(err){
-      toast(err.message || "Gagal masuk guest", true);
-    }
-  };
-
-  window.logout = async function(){
-    try{
-      const session = window.REMI_GET_SESSION?.();
-      if(session?.key && window.REMI_REF){
-        await window.REMI_INIT_DATABASE();
-        await window.REMI_REF(window.REMI_DATABASE.paths.users + "/" + session.key).update({
-          online:false,
-          lastLogoutAt:Date.now()
-        });
-      }
-    }catch(e){}
-    window.REMI_CLEAR_SESSION?.();
-    showAuth();
-    toast("Keluar akun");
-  };
-
-  async function autoRestore(){
-    await window.REMI_BOOT_DATABASE?.();
-    const session = window.REMI_GET_SESSION?.();
-    if(session?.key && window.REMI_REF){
-      const snap = await window.REMI_REF(window.REMI_DATABASE.paths.users + "/" + session.key).once("value");
-      if(snap.exists()){
-        const user = { ...snap.val(), key: session.key };
-        window.REMI_SET_SESSION(user);
-        hideAuth();
-        updateUI();
-      }else{
-        showAuth();
-      }
-    }else{
-      showAuth();
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", autoRestore);
-  setTimeout(autoRestore, 800);
-})();
-</script>
-
 </body>
 </html>
